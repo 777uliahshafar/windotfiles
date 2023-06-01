@@ -1,0 +1,161 @@
+{
+"json.schemaDownload.enable": true,
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "Inconsolata",
+  "editor.fontLigatures": true,
+  "editor.codeActionsOnSave": {},
+  "editor.fontSize": 19,
+  "window.title": "${activeEditorMedium}${separator}${rootPath}",
+  "window.zoomLevel": 0, // keep this at zero for clear pdf preview
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+      "editor.foreground": "#FDF0ED",
+      "editor.selectionBackground": "#6C6F93",
+      "editorLineNumber.activeForeground": "#abb2bf",               
+      "editorLineNumber.foreground": "#455354",
+      "editor.wordHighlightBackground":"#6C6F93",
+      "editor.colorDecorators": false,
+      "editor.minimap.enabled": false,
+      "editor.cursorBlinking": "blink",
+      "editor.renderWhitespace": "none",
+      "editor.suggestSelection": "first",
+      "editor.guides.indentation": false,
+      "editor.renderControlCharacters": false,
+      "editor.cursorSmoothCaretAnimation": "on",
+      "editor.bracketPairColorization.enabled": false,
+      "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+      "editor.renderLineHighlight": "all",
+      "titleBar.activeBackground": "#455354",
+      "titleBar.activeForeground": "#F8F8F2",
+      "activityBar.background": "#455354",
+      "activityBar.foreground": "#F8F8F2",
+      "activityBar.border": "#26BDBB60",
+      "activityBarBadge.background": "#26BDBB",
+      "activityBarBadge.foreground": "#455354",
+      "badge.foreground":"#455354",
+      "badge.background":"#26BDBB",
+      "activityBar.activeBorder":"#26BDBB",
+      "activityBar.activeBackground": "#23272e",
+      "icon.foreground" : "#F8F8F2",
+      "input.foreground": "#F8F8F2",
+      "inputValidation.infoBorder": "#26BDBB",
+      "toolbar.activeBackground": "#F8F8F2",
+      "toolbar.hoverBackground": "#26BDBB",
+      "focusBorder": "#455354",
+      "foreground" : "#F8F8F2",
+      "disabledForeground" : "#F8F8F2",
+      "widget.border":"#455354",
+      "descriptionForeground": "#F8F8F2",
+      "button.foreground" :"#F8F8F2",
+      "button.background": "#455354",
+      "button.hoverBackground": "#26BDBB",
+      "sideBarSectionHeader.background": "#455354",
+      "sideBar.foreground": "#F8F8F2",
+      "sideBarSectionHeader.foreground": "#F8F8F2",
+      "tab.activeForeground": "#F8F8F2",
+      "tab.inactiveBackground": "#455354",
+      "tab.border": "#8F8F8F",
+      "tab.activeBackground": "#1e2227",
+      "tab.hoverForeground":"#F8F8F2",
+      "tab.hoverBorder":"#26BDBB",
+      "editorGroupHeader.tabsBackground": "#323842",
+      "statusBarItem.remoteBackground":"#455354",
+      "statusBarItem.remoteForeground": "#26BDBB",
+      "statusBar.border":"#26BDBB60",
+      "menu.foreground": "#F8F8F2",
+      "menubar.selectionBackground": "#1e2227",
+      "menubar.selectionBorder": "#1e2227",
+      "menu.selectionForeground":"#26BDBB",
+      "list.hoverForeground": "#26BDBB",
+      "terminal.background": "#010409",
+      "terminal.selectionBackground": "#F8F8F230",
+      "terminal.tab.activeBorder": "#F8F8F2",
+      "statusBar.background": "#1e2227",
+      "statusBar.debuggingBackground": "#cc6633",
+      "statusBar.debuggingBorder": "#ff000000",
+      "statusBar.debuggingForeground": "#ffffff",
+      "statusBar.foreground": "#9da5b4",
+      "statusBar.noFolderBackground": "#1e2227",
+      "scrollbarSlider.hoverBackground": "#455354"
+    },
+    "editor.tokenColorCustomizations": {
+            "comments": "#75715E"
+    },
+  "explorer.compactFolders": false,
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
+  "latex-workshop.latex.tools": [
+    {
+    "name": "lualatex",
+    "command": "lualatex",
+    "args": [
+        "-shell-escape", //I can't remember why I needed this in the past 
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-output-directory=%OUTDIR%",           
+        "%DOC%"
+    ],
+    "env": {}
+    },
+
+    {
+    "name": "pdflatex",
+    "command": "pdflatex",
+    "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+    ],
+    "env": {}
+    },
+
+    {
+    "name": "biber",
+    "command": "biber",
+    "args": [
+        "%DOCFILE%"
+    ],
+    "env": {}
+    }
+],        
+"latex-workshop.latex.recipes": [
+  {
+      "name": "lualatex",
+      "tools": [
+          "lualatex"
+      ]
+  },
+   
+  {
+      "name": "pdflatex -> biber -> pdflatex TWICE",
+      "tools": [
+          "pdflatex",
+          "biber",
+          "pdflatex",
+          "pdflatex"
+      ]
+  }        
+],
+"latex-workshop.view.pdf.viewer": "external",
+"latex-workshop.view.pdf.external.synctex.command": "C:/Users/ulil/AppData/Local/SumatraPDF/SumatraPDF.exe",
+  "latex-workshop.view.pdf.external.synctex.args": [
+    "-forward-search",
+    "%TEX%",
+    "%LINE%",
+    "-reuse-instance",
+    "-inverse-search",
+    "\"C:\\Users\\ulil\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" \"C:\\Users\\ulil\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\out\\cli.js\" --ms-enable-electron-run-as-node -r -g \"%f:%l\"",
+    "%PDF%"
+  ],
+"workbench.editor.enablePreview": false,
+"editor.tabSize": 2,
+"editor.guides.bracketPairs": true,
+"editor.guides.bracketPairsHorizontal": true,
+"editor.wordWrap": "on",
+"breadcrumbs.enabled": false,
+"workbench.colorTheme": "One Dark Pro Monokai Darker",
+"editor.overviewRulerBorder": false,
+"editor.occurrencesHighlight": false,
+}
