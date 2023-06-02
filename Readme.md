@@ -59,6 +59,11 @@ InverseSearchCmdLine = "C:\Users\ulil\AppData\Local\Programs\Microsoft VS Code\C
 EnableTeXEnhancements = true
 ```
 
+- these color changes also beneficial
+```
+BackgroundColor = #F0F0C0
+TextColor = #1e2227
+```
 
 
 
