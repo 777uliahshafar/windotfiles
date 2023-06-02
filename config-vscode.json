@@ -1,13 +1,61 @@
 {
   "json.schemaDownload.enable": true,
+  "workbench.colorTheme": "One Dark Pro Monokai Darker",
+  "workbench.editor.enablePreview": false,
   "editor.minimap.enabled": false,
   "editor.fontFamily": "Inconsolata",
   "editor.fontLigatures": true,
   "editor.codeActionsOnSave": {},
   "editor.fontSize": 19,
+  "editor.tabSize": 2,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.wordWrap": "on",
+  "editor.overviewRulerBorder": false,
+  "editor.occurrencesHighlight": false,
+  "[Log]": {
+        "editor.fontSize": 17,
+        "editor.fontFamily": "Inconsolata"
+    },
+  "breadcrumbs.enabled": false,
   "window.title": "${activeEditorMedium}${separator}${rootPath}",
-  "window.zoomLevel": 0, // keep this at zero for clear pdf preview
+  "window.zoomLevel": 0,
   "workbench.iconTheme": "material-icon-theme",
+  "explorer.compactFolders": false,
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.external.windowsExec": "\"C:\\Users\\ulil\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe\"",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": false,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-r>": true,
+    "<C-v>": true,
+  },
   "workbench.colorCustomizations": {
     "editor.foreground": "#FDF0ED",
     "editor.selectionBackground": "#6C6F93",
@@ -78,6 +126,9 @@
     "scrollbarSlider.hoverBackground": "#455354",
     "statusBar.foreground": "#9da5b4"
   },
+    "editor.tokenColorCustomizations": {
+            "comments": "#75715E"
+    },
   "vim.statusBarColorControl": true,
   "vim.statusBarColors.normal": ["#1e2227", "#9da5b4"],
   "vim.statusBarColors.insert": ["#A3BE8C", "#1e2227"],
@@ -90,97 +141,46 @@
   "vim.statusBarColors.easymotionmode": "#455354",
   "vim.statusBarColors.easymotioninputmode": "#455354",
   "vim.statusBarColors.surroundinputmode": "#455354",
-    "editor.tokenColorCustomizations": {
-            "comments": "#75715E"
-    },
-  "explorer.compactFolders": false,
-  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": false,
-  "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
-    },
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["lineBreakInsert"],
-      "silent": true
-    }
-  ],
-  "vim.leader": "<space>",
-  "vim.handleKeys": {
-    "<C-r>": true,
-    "<C-v>": true,
-  },
-  "latex-workshop.latex.tools": [
-    {
-    "name": "lualatex",
-    "command": "lualatex",
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+	"files.exclude": {
+		"**/.git": true,
+		"**/*.aux": true,
+		"**/*.bbl": true,
+		"**/*.bcf": true,
+		"**/*.blg": true,
+		"**/*.fdb_latexmk": true,
+		"**/*.fls": true,
+		"**/*.glg": true,
+		"**/*.glo": true,
+		"**/*.gls": true,
+		"**/*.glsdefs": true,
+		"**/*.idx": true,
+		"**/*.ilg": true,
+		"**/*.ind": true,
+		"**/*.lof": true,
+		"**/*.log": true,
+		"**/*.lot": true,
+		"**/*.mw": true,
+		"**/*.nlo": true,
+		"**/*.nls": true,
+		"**/*.out": true,
+		"**/*.run.xml": true,
+		"**/*.synctex.gz": true,
+		"**/*.thm": true,
+		"**/*.toc": true,
+		"**/*.xdy": true
+	},
+"latex-workshop.latex.tools": [{
+    "name": "latexmk",
+    "command": "latexmk",
     "args": [
-        "-shell-escape", //I can't remember why I needed this in the past 
+        "-lualatex",
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "-output-directory=%OUTDIR%",           
         "%DOC%"
-    ],
-    "env": {}
-    },
-
-    {
-    "name": "pdflatex",
-    "command": "pdflatex",
-    "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-output-directory=%OUTDIR%",
-        "%DOC%"
-    ],
-    "env": {}
-    },
-
-    {
-    "name": "biber",
-    "command": "biber",
-    "args": [
-        "%DOCFILE%"
-    ],
-    "env": {}
-    }
-],        
-"latex-workshop.latex.recipes": [
-  {
-      "name": "lualatex",
-      "tools": [
-          "lualatex"
-      ]
-  },
-   
-  {
-      "name": "pdflatex -> biber -> pdflatex TWICE",
-      "tools": [
-          "pdflatex",
-          "biber",
-          "pdflatex",
-          "pdflatex"
-      ]
-  }        
-],
+    ]
+}],
 "latex-workshop.view.pdf.viewer": "external",
 "latex-workshop.view.pdf.external.synctex.command": "C:/Users/ulil/AppData/Local/SumatraPDF/SumatraPDF.exe",
   "latex-workshop.view.pdf.external.synctex.args": [
@@ -192,15 +192,4 @@
     "\"C:\\Users\\ulil\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" \"C:\\Users\\ulil\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\out\\cli.js\" --ms-enable-electron-run-as-node -r -g \"%f:%l\"",
     "%PDF%"
   ],
-"workbench.editor.enablePreview": false,
-"editor.tabSize": 2,
-"editor.guides.bracketPairs": true,
-"editor.guides.bracketPairsHorizontal": true,
-"editor.wordWrap": "on",
-"breadcrumbs.enabled": false,
-"workbench.colorTheme": "One Dark Pro Monokai Darker",
-"editor.overviewRulerBorder": false,
-"editor.occurrencesHighlight": false,
-"terminal.integrated.defaultProfile.windows": "PowerShell",
-"terminal.external.windowsExec": "\"C:\\Users\\ulil\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe\"",
 }

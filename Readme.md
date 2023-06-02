@@ -1,5 +1,5 @@
 # VS Code Settings
-1. Add the configuration vscode. Basically, all the setting are synced to your github account.
+1. Add the configuration vscode to user setting.json. Basically, all the setting are synced to your github account.
 
 1. The path of powershell in vscode located in settings by searching it with terminal.external.windows.
 
@@ -46,9 +46,18 @@ after that, you can connect to your github account using ssh
 - PSReadLine = Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
 - PSFzf = Install-Module -Name PSFzf -Scope CurrentUser -Force
 
+# Latex configuration
+All configuration is already add in user setting .json. 
 
+## Synctex
+go to https://github.com/James-Yu/LaTeX-Workshop/wiki/View for pdfviewer reference.
 
-
+- current viewer is sumatra pdf
+add this line to sumatra setting.txt
+```
+InverseSearchCmdLine = "C:\Users\ulil\AppData\Local\Programs\Microsoft VS Code\Code.exe" "C:\Users\ulil\AppData\Local\Programs\Microsoft VS Code\resources\app\out\cli.js" --ms-enable-electron-run-as-node -r -g "%f:%l"
+EnableTeXEnhancements = true
+```
 
 
 
