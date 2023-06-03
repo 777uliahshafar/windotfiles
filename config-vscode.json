@@ -39,6 +39,10 @@
       "after": ["d", "d"]
     },
     {
+      "before": ["<Leader>", "/"],
+      "commands": [":noh"]
+    },
+    {
       "before": ["<C-n>"],
       "commands": [":nohl"]
     },
@@ -47,10 +51,6 @@
       "commands": ["lineBreakInsert"],
       "silent": true
     },
-{
-        "before": ["<Leader>" , "e"],  
-        "commands": ["workbench.action.toggleSidebarVisibility"]
-},
     {
         "before": ["<Leader>" , "z"],  
         "commands": ["workbench.action.toggleZenMode"]
@@ -59,7 +59,10 @@
       "before": ["<Leader>", "`"],
       "commands": ["workbench.action.terminal.focus"],
     },
-
+    {
+        "before": ["<Leader>" , "e"],  
+        "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
     {
       "before": ["'", "."],
       "commands": ["workbench.action.navigateToLastEditLocation"],

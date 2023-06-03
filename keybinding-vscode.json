@@ -8,6 +8,7 @@
         "key": "space+e",  
         "command": "workbench.action.toggleSidebarVisibility"
     },
+
     {
         "key": "ctrl+shift+e",
         "command": "-workbench.view.explorer",
@@ -45,10 +46,22 @@
     "when": "sideBarFocus",
     "command": "workbench.action.focusActiveEditorGroup"
     },
-    { 
-    "key": "ctrl+k",
-    "when": "terminalFocus",
-    "command": "workbench.action.focusActiveEditorGroup"
+    {
+    "key": "ctrl+h",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+    },
+    {
+    "key": "ctrl+shift+c",
+    "command": "workbench.action.terminal.newWithCwd",
+    "args": {
+      "cwd": "${fileDirname}"
+    }
+    },
+   {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusSideBar",
+    "when": "panelFocus",
     },
     { 
     "key": "ctrl+k",
