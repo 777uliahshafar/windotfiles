@@ -1,6 +1,5 @@
 {
   "json.schemaDownload.enable": true,
-  "workbench.colorTheme": "One Dark Pro Monokai Darker",
   "workbench.editor.enablePreview": false,
   "editor.minimap.enabled": false,
   "editor.fontFamily": "Inconsolata",
@@ -19,14 +18,12 @@
     },
   "breadcrumbs.enabled": false,
   "window.title": "${activeEditorMedium}${separator}${rootPath}",
-  "window.zoomLevel": 0,
   "workbench.iconTheme": "material-icon-theme",
+  "zenMode.fullScreen": false,
   "explorer.compactFolders": false,
   "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
   "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.external.windowsExec": "\"C:\\Users\\ulil\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe\"",
-  "vim.easymotion": true,
-  "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": false,
   "vim.hlsearch": true,
@@ -49,12 +46,85 @@
       "before": ["K"],
       "commands": ["lineBreakInsert"],
       "silent": true
-    }
+    },
+{
+        "before": ["<Leader>" , "e"],  
+        "commands": ["workbench.action.toggleSidebarVisibility"]
+},
+    {
+        "before": ["<Leader>" , "z"],  
+        "commands": ["workbench.action.toggleZenMode"]
+    },
+    {
+      "before": ["<Leader>", "`"],
+      "commands": ["workbench.action.terminal.focus"],
+    },
+
+    {
+      "before": ["'", "."],
+      "commands": ["workbench.action.navigateToLastEditLocation"],
+    },
+
+   {
+        "before": ["j"],
+        "after": ["g", "j"]
+    },
+    {
+        "before": ["k"],
+        "after": ["g", "k"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5","g", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5","g", "k"]
+    },
+    {
+      "before": ["<C-h>"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+      "before": ["<C-j>"],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["<C-w>", "k"]
+    },
+    {
+      "before": ["<C-l>"],
+      "after": ["<C-w>", "l"]
+    },
+
+{
+      "before": ["<Leader>", "t", "t"],
+      "commands": [":tabnew"]
+    },
+    {
+      "before": ["<Leader>", "t", "n"],
+      "commands": [":tabnext"]
+    },
+    {
+      "before": ["<Leader>", "t", "p"],
+      "commands": [":tabprev"]
+    },
+    {
+      "before": ["<Leader>", "t", "o"],
+      "commands": [":tabo"]
+    },
   ],
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-r>": true,
     "<C-v>": true,
+    "<C-w>": true,
+    "<C-h>": true,
+    "<C-j>": true,
+    "<C-k>": true,
+    "<C-l>": true,
+    "<C-b>": true,
   },
   "workbench.colorCustomizations": {
     "editor.foreground": "#FDF0ED",
@@ -141,7 +211,8 @@
   "vim.statusBarColors.easymotionmode": "#455354",
   "vim.statusBarColors.easymotioninputmode": "#455354",
   "vim.statusBarColors.surroundinputmode": "#455354",
-  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.zoom": "page-fit",
 	"files.exclude": {
 		"**/.git": true,
 		"**/*.aux": true,
@@ -202,5 +273,8 @@
     "\"C:\\Users\\ulil\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" \"C:\\Users\\ulil\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\out\\cli.js\" --ms-enable-electron-run-as-node -r -g \"%f:%l\"" ,
     "%PDF%"
   ],
+  "workbench.colorTheme": "One Dark Pro Monokai Darker",
+  "security.workspace.trust.untrustedFiles": "open",
+  "vim.showMarksInGutter": true,
   "workbench.activityBar.visible": false
 }
