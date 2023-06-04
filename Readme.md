@@ -65,6 +65,12 @@ BackgroundColor = #F0F0C0
 TextColor = #1e2227
 ```
 
+- Input zoom level percentage that fit your text, you what percentage that suit your need in menu bar zoom > custom zoom.
+
+```
+ZoomLevels = 
+```
+
 
 
 
