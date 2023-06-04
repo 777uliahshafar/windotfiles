@@ -7,6 +7,7 @@
   "editor.codeActionsOnSave": {},
   "editor.fontSize": 19,
   "editor.tabSize": 2,
+  "editor.rulers": [80],
   "editor.guides.bracketPairs": true,
   "editor.guides.bracketPairsHorizontal": true,
   "editor.wordWrap": "on",
@@ -66,9 +67,13 @@
     },
     {
       "before": ["'", "."],
-      "commands": ["workbench.action.navigateToLastEditLocation"],
+      "commands": ["workbench.action.navigateToLast/ditLocation"],
     },
 
+    {
+      "before": ["shift", "j"],
+      "commands": ["selectNextSuggestion"],
+    },
    {
         "before": ["j"],
         "after": ["g", "j"]
@@ -129,6 +134,7 @@
     "<C-k>": true,
     "<C-l>": true,
     "<C-b>": true,
+    "<C-n>": true,
   },
   "workbench.colorCustomizations": {
     "[One Dark Pro Monokai Darker]": {
@@ -144,6 +150,7 @@
       "disabledForeground": "#F8F8F2",
       "sideBar.foreground": "#F8F8F2",
       "tab.activeForeground": "#F8F8F2",
+      "tab.inactiveBackground": "#455354",
       "sideBarSectionHeader.foreground": "#F8F8F2",
       "sideBarSectionHeader.background": "#455354",
       "tab.hoverForeground": "#F8F8F2",
@@ -221,6 +228,9 @@
   "vim.statusBarColors.easymotionmode": "#455354",
   "vim.statusBarColors.easymotioninputmode": "#455354",
   "vim.statusBarColors.surroundinputmode": "#455354",
+  "[latex]":{
+        "editor.wordBasedSuggestions": false
+    },
   "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.view.pdf.zoom": "page-fit",
 	"files.exclude": {
@@ -283,7 +293,7 @@
     "\"C:\\Users\\ulil\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" \"C:\\Users\\ulil\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\out\\cli.js\" --ms-enable-electron-run-as-node -r -g \"%f:%l\"" ,
     "%PDF%"
   ],
-  "workbench.colorTheme": "Visual Studio Light",
+  "workbench.colorTheme": "One Dark Pro Monokai Darker",
   "security.workspace.trust.untrustedFiles": "open",
   "vim.showMarksInGutter": true
 }
