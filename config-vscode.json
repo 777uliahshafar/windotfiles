@@ -295,5 +295,6 @@
   ],
   "workbench.colorTheme": "One Dark Pro Monokai Darker",
   "security.workspace.trust.untrustedFiles": "open",
-  "vim.showMarksInGutter": true
+  "vim.showMarksInGutter": true,
+  "workbench.activityBar.visible": false
 }
