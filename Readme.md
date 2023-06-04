@@ -62,7 +62,8 @@ EnableTeXEnhancements = true
 - these color changes also beneficial
 ```
 BackgroundColor = #F0F0C0
-TextColor = #1e2227
+TextColor = #000000
+SelectionColor = #6C6F93
 ```
 
 - Input zoom level percentage that fit your text, you what percentage that suit your need in menu bar zoom > custom zoom.
