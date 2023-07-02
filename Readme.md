@@ -1,4 +1,9 @@
+# Clone
+1. Clone this in the home directory `cd`
+1. `git clone git@github.com:777uliahshafar/dotfiles-win.git .config`
+
 # Common Installation 
+1. C++ `vc_redist.x64.exe`
 1. windows terminal (available)
 1. powershell (available)
 1. winget (available), scoop `iwr -useb get.scoop.sh | iex`, chocolatey
@@ -6,16 +11,14 @@
     - Set up git config --global (if necessary)
     - Connect github with ssh.
 1. neovim `scoop install neovim`.
-    - create `nvim` dir. in `cd $env:LOCALAPPDATA && mkdir nvim`
-    - place your config (init.lua) inside nvim folder. 
 
 PS: available on windows 11
-
+change the executing policy `Set-ExecutionPolicy RemoteSigned`
 
 # Windows Terminal config
 1. Change the font to  Hack or CaskadiaCove Nerd Font Mono [font download](https://www.nerdfonts.com/font-downloads)
 1. Place your config (terminal.json) to windows terminal config (setting.json)
-1. Setting windows terminal appearance (font, transparency)
+1. Setting windows terminal appearance (font, transparency) and default.
 
 # Powershell Installation
 1. oh-my-posh `scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json`
@@ -32,9 +35,6 @@ PS: available on windows 11
 1. Create powershell profile `New-Item -Type file -Path $PROFILE -Force`.
 1. Edit the profile `nvim  $PROFILE`. 
 1. Symlink it to your own config. Type `. $env:USERPROFILE\.config\powershell\user_profile.ps1` inside the profile (optional)
-
-
-
 
 
 1. Install nerdfont for icon supporting.

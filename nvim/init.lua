@@ -1,3 +1,4 @@
+
 -------------------------------------------------
 -- BASIC CONFIGURATION
 -------------------------------------------------
@@ -16,7 +17,7 @@ opt.shortmess:append "c"
 
 -- scheme
 o.termguicolors = true
--- cmd("colorscheme mac_classic")
+cmd("colorscheme mac_classic")
 -- o.background = 'dark'
 
 -- Do not save when switching buffers
@@ -94,3 +95,158 @@ o.wildmode = "longest,list:longest,full"
 -- o.foldminlines = 1
 --
 opt.mouse = "a"
+
+
+
+require('core/autocmds')
+-------------------------------------------------
+-- PLUGIN CONFIGURATION
+-------------------------------------------------
+-- lualine
+require('core/statuslines')
+
+-- completion / cmp
+require('core/cmps')
+
+-- LuaSnip
+require('core/luasnips')
+
+-- NvimTree
+require('core/trees')
+
+-- TreeSitter
+require('core/treesitters')
+-------------------------------------------------
+-- KEYBINDINGS
+-------------------------------------------------
+
+local opts = { noremap = true, silent = true }
+
+local function map(m, k, v)
+	vim.keymap.set(m, k, v, { silent = true })
+end
+
+-- Mimic shell movements
+map("i", "<C-E>", "<ESC>A")
+map("i", "<C-A>", "<ESC>I")
+
+-- Load recent sessions
+map("n", "<leader>sl", "<CMD>SessionLoad<CR>")
+
+-- Keybindings for telescope
+map("n", "<leader>fr", "<CMD>Telescope oldfiles<CR>")
+map("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
+map("n", "<leader>fb", "<CMD>Telescope file_browser<CR>")
+map("n", "<leader>fw", "<CMD>Telescope live_grep<CR>")
+map("n", "<leader>ht", "<CMD>Telescope colorscheme<CR>")
+
+-- maps for go down and up 
+map("n", "j", "gj")
+map("n", "k", "gk")
+
+-- maps for  spellcheck
+map("n", "<leader>o" , ":setlocal spell! spelllang=id<CR>")
+
+map("n", "<F7>" , ":setlocal spell! spelllang=en_us<CR>")
+
+-- maps split navigation
+map("n", "<c-h>", "<c-w>h")
+map("n", "<c-j>", "<c-w>j")
+map("n", "<c-k>", "<c-w>k")
+map("n", "<c-l>", "<c-w>l")
+
+-- map buffer
+map("n", "<c-b>", ":ls<CR>:b<Space>", opts )
+map("n", "<leader>h", ":bprevious<CR>", opts )
+map("n", "<leader>l", ":bnext<CR>", opts )
+
+-- nvim-tree
+map("n", "<leader>e", require("nvim-tree.api").tree.toggle)
+
+-------------------------------------------------
+-- PLUGINS
+-------------------------------------------------
+
+local status, packer = pcall(require, "packer")
+if not status then
+	print("Packer is not installed")
+	return
+end
+
+-- Reloads Neovim after whenever you save plugins.lua
+vim.cmd([[
+    augroup packer_user_config
+      autocmd!
+     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup END
+]])
+
+packer.startup(function(use)
+	-- Packer can manage itself
+	use("wbthomason/packer.nvim")
+
+	-- Dashboard is a nice start screen for nvim
+	use("glepnir/dashboard-nvim")
+
+	-- Telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
+	use("nvim-telescope/telescope-file-browser.nvim")
+
+	use("nvim-treesitter/nvim-treesitter") -- Treesitter Syntax Highlighting
+
+
+	-- Completion
+    use("hrsh7th/nvim-cmp") -- completion plugin
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-path")
+    use("hrsh7th/cmp-cmdline")
+    use("uga-rosa/cmp-dictionary")
+    use("saadparwaiz1/cmp_luasnip") 
+
+    -- Snippet
+    use("L3MON4D3/LuaSnip")
+    use("rafamadriz/friendly-snippets")
+
+	-- Productivity
+	use("vimwiki/vimwiki")
+	use("jreybert/vimagit")
+	use("nvim-orgmode/orgmode")
+
+	use("folke/which-key.nvim") -- Which Key
+	use("nvim-lualine/lualine.nvim") -- A better statusline
+
+	-- File management --
+    use("nvim-tree/nvim-tree.lua")
+	use("vifm/vifm.vim")
+	use("ryanoasis/vim-devicons")
+
+	-- Tim Pope Plugins --
+	use("tpope/vim-surround")
+
+	-- Syntax Highlighting and Colors --
+	use("PotatoesMaster/i3-vim-syntax")
+	use("kovetskiy/sxhkd-vim")
+	use("vim-python/python-syntax")
+	use("ap/vim-css-color")
+	use("nickeb96/fish.vim")
+
+	-- Junegunn Choi Plugins --
+	use("junegunn/vim-emoji")
+
+	-- Colorschemes --
+    
+	-- Other stuff --
+    use("p00f/nvim-ts-rainbow")
+
+    -- Scientist
+    use("lervag/vimtex")
+    use("Konfekt/FastFold")
+
+	if packer_bootstrap then
+		packer.sync()
+	end
+end)
