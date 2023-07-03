@@ -8,13 +8,34 @@ function Run-Step([string] $Description, [ScriptBlock]$script)
 $light = Start-ThreadJob {
 Import-Module -Name z
 Import-Module posh-git
-$env:POSH_GIT_ENABLED = $true
 }
-
 
 $PSReadLine = Start-ThreadJob {
 Import-Module PSReadLine
-Set-PSReadLineOption -EditMode Windows
+}
+
+$PSFzf = Start-ThreadJob {
+Import-Module PSFzf
+}
+
+Run-Step "oh-my-posh" {
+$omp_config = Join-Path $PSScriptRoot ".\jondjones.omp.json"
+oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
+}
+
+Run-Step "terminal-icons" {
+Import-Module -Name Terminal-Icons
+}
+
+Receive-Job $PSReadLine -Wait -AutoRemoveJob
+Receive-Job $PSFzf -Wait -AutoRemoveJob
+Receive-Job $light -Wait -AutoRemoveJob
+
+# Settings
+
+$env:POSH_GIT_ENABLED = $true # Posh git
+
+Set-PSReadLineOption -EditMode Windows #PSReadLine
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'Ctrl+Spacebar'
@@ -34,25 +55,9 @@ Set-PSReadlineOption -Color @{
     "Comment"          = [ConsoleColor]::DarkCyan
     "InlinePrediction" = '#70A99F'
   }
-}
 
-$PSFzf = Start-ThreadJob {
-Import-Module PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
-}
 
-Run-Step "oh-my-posh" {
-$omp_config = Join-Path $PSScriptRoot ".\jondjones.omp.json"
-oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
-}
-
-Run-Step "terminal-icons" {
-Import-Module -Name Terminal-Icons
-}
-
-Receive-Job $PSReadLine -Wait -AutoRemoveJob
-Receive-Job $PSFzf -Wait -AutoRemoveJob
-Receive-Job $light -Wait -AutoRemoveJob
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r' #Psfzf
 
 # Alias 
 Set-Alias v nvim
