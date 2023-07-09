@@ -121,13 +121,16 @@
             "colorScheme": "One Half Dark",
             "cursorColor": "#FFFFFF",
             "cursorShape": "filledBox",
+            "experimental.retroTerminalEffect": false,
             "font": 
             {
                 "face": "Inconsolata LGC Nerd Font Mono",
                 "size": 12.0,
                 "weight": "medium"
             },
+            "intenseTextStyle": "none",
             "opacity": 100,
+            "padding": "8",
             "useAcrylic": false,
             "useAtlasEngine": true
         },
