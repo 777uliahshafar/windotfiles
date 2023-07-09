@@ -16,7 +16,7 @@ PS: available on windows 11
 change the executing policy `Set-ExecutionPolicy RemoteSigned`
 
 # Windows Terminal config
-1. Change the font to  Hack or CaskadiaCove Nerd Font Mono [font download](https://www.nerdfonts.com/font-downloads)
+1. Change the font to Inconsolata Nerd Font Mono Medium 15pt [font download](https://www.nerdfonts.com/font-downloads)
 1. Place your config (terminal.json) to windows terminal config (setting.json)
 1. Setting windows terminal appearance (font, transparency) and default.
 1. Enable `Use ... text rendering (Atlas engine)` on Rendering for inverted color cursor. 

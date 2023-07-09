@@ -34,20 +34,20 @@
             "keys": "alt+shift+minus"
         },
         {
-            "command": "toggleAlwaysOnTop",
-            "keys": "ctrl+d"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
             "command": 
             {
                 "action": "moveFocus",
                 "direction": "up"
             },
             "keys": "alt+shift+k"
+        },
+        {
+            "command": "toggleAlwaysOnTop",
+            "keys": "ctrl+d"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
             "command": "closePane",
@@ -124,8 +124,8 @@
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "Inconsolata LGC Nerd Font Mono",
-                "size": 12.0,
+                "face": "Inconsolata Nerd Font Mono",
+                "size": 15.0,
                 "weight": "medium"
             },
             "intenseTextStyle": "none",
