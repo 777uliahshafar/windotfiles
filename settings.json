@@ -23,7 +23,7 @@
             {
                 "action": "globalSummon"
             },
-            "keys": "ctrl+period"
+            "keys": "alt+period"
         },
         {
             "command": 
