@@ -21,6 +21,13 @@
         {
             "command": 
             {
+                "action": "globalSummon"
+            },
+            "keys": "ctrl+period"
+        },
+        {
+            "command": 
+            {
                 "action": "newTab"
             },
             "keys": "ctrl+t"
@@ -34,20 +41,20 @@
             "keys": "alt+shift+minus"
         },
         {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "alt+shift+k"
-        },
-        {
             "command": "toggleAlwaysOnTop",
             "keys": "ctrl+d"
         },
         {
             "command": "paste",
             "keys": "ctrl+v"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "alt+shift+k"
         },
         {
             "command": "closePane",
@@ -106,7 +113,7 @@
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 62,
-    "initialRows": 24,
+    "initialRows": 30,
     "newTabMenu": 
     [
         {
