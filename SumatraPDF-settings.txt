@@ -56,7 +56,7 @@ EscToExit = false
 ReuseInstance = false
 ReloadModifiedDocuments = true
 
-MainWindowBackground = #2d2d2d
+MainWindowBackground = #80fff200
 FullPathInTitle = false
 ShowMenubar = true
 ShowToolbar = true
