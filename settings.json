@@ -138,6 +138,7 @@
             "intenseTextStyle": "none",
             "opacity": 100,
             "padding": "8",
+            "scrollbarState": "hidden",
             "useAcrylic": false,
             "useAtlasEngine": true
         },
@@ -147,6 +148,7 @@
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
+		"commandline" : "pwsh.exe -nologo",
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
