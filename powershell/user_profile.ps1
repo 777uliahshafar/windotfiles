@@ -59,6 +59,26 @@ Set-PSReadlineOption -Color @{
 
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r' #Psfzf
 
+
+# Function to Aliases current direcotry
+function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
+function academic 
+{
+    cd 'C:\Users\ul\notes\aca'
+    & 'nvim' '.\index.norg'
+}
+function architecture 
+{
+    cd 'C:\Users\ul\notes\archi'
+    & 'nvim' '.\index.norg'
+}
+function phdjournal
+{
+    cd 'd:\phdjournal'
+    & 'nvim' '.\phdjournal.tex'
+}
+
+
 # Alias 
 Set-Alias v nvim
 Set-Alias ll ls
@@ -67,8 +87,11 @@ Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 
-# Alias current direcotry
-function nc { set-location "$env:LOCALAPPDATA\nvim" }
+
+Set-Alias nc nvimconfig
+Set-Alias aca academic
+Set-Alias arc architecture
+Set-Alias phd phdjournal
 
 # Utilities
 function which ($command) {
