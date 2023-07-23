@@ -1,11 +1,11 @@
 # For documentation, see https://www.sumatrapdfreader.org/settings/settings3-4-6.html
 FixedPageUI [
-	TextColor = #000000
+	TextColor = #141414
 	BackgroundColor = #dfdfdf
-	SelectionColor = #f5fc0c
+	SelectionColor = #5b89f5
 	WindowMargin = 2 4 2 4
 	PageSpacing = 4 4
-	GradientColors = #2d2d2d
+	GradientColors = #7fd486
 	HideScrollbars = false
 ]
 ComicBookUI [
@@ -22,7 +22,7 @@ SelectionHandlers [
 ExternalViewers [
 ]
 
-ZoomLevels = 8.33 12.5 18 25 33.33 35 40 50 66.67 75 100 110 125 133 134 135 136 137 143 145 147 153 155 157 159 170 175 177 179 180 181 183 185 200 300 400 600 800 1000 1200 1600 2000 2400 3200 4800 6400
+ZoomLevels = 8.33 12.5 18 25 33.33 35 40 50 66.67 75 100 110 121 123 125 133 134 135 136 137 143 145 147 153 155 157 159 170 175 177 179 180 181 183 185 200 300 400 600 800 1000 1200 1600 2000 2400 3200 4800 6400
 ZoomIncrement = 0
 
 PrinterDefaults [
@@ -31,12 +31,12 @@ PrinterDefaults [
 ForwardSearch [
 	HighlightOffset = 0
 	HighlightWidth = 15
-	HighlightColor = #44475a75
+	HighlightColor = #5b89f5
 	HighlightPermanent = false
 ]
 Annotations [
 	HighlightColor = #ffff00
-	UnderlineColor = #00ff00
+	UnderlineColor = #cc241d
 	TextIconColor = #ffff00
 	TextIconType = 
 	DefaultAuthor = 
@@ -51,17 +51,29 @@ EnableTeXEnhancements = true
 DefaultDisplayMode = automatic
 DefaultZoom = fit page
 Shortcuts [
+	[
+		Cmd = CmdScrollUpHalfPage
+		Key = [
+	]
+	[
+		Cmd = CmdScrollDownHalfPage
+		Key = ]
+	]
+	[
+		Cmd = CmdToggleMenuBar
+		Key = ctrl+m
+	]
 ]
 EscToExit = false
 ReuseInstance = false
 ReloadModifiedDocuments = true
 
-MainWindowBackground = #80fff200
+MainWindowBackground = #7fd486
 FullPathInTitle = false
 ShowMenubar = true
 ShowToolbar = true
 ShowFavorites = false
-ShowToc = true
+ShowToc = false
 TocDy = 0
 SidebarDx = 150
 ToolbarSize = 23
@@ -71,34 +83,14 @@ SmoothScroll = false
 ShowStartPage = true
 CheckForUpdates = true
 WindowState = 1
-WindowPos = 412 0 959 720
+WindowPos = 723 26 634 686
 UseTabs = true
 UseSysColors = false
 CustomScreenDPI = 0
 
 FileStates [
 	[
-		FilePath = C:\Users\ul\Downloads\9178-457-19657-1-10-20181207.pdf
-		Favorites [
-		]
-		IsPinned = false
-		IsMissing = false
-		OpenCount = 11
-		UseDefaultState = false
-		DisplayMode = continuous
-		ScrollPos = -1 238.334
-		PageNo = 2
-		Zoom = fit width
-		Rotation = 0
-		WindowState = 1
-		WindowPos = 412 0 959 720
-		ShowToc = false
-		SidebarDx = 150
-		DisplayR2L = false
-		ReparseIdx = 0
-	]
-	[
-		FilePath = C:\Users\ul\Downloads\resume\resume.pdf
+		FilePath = C:\Users\ul\Documents\minimal\minimal.pdf
 		Favorites [
 		]
 		IsPinned = false
@@ -111,7 +103,567 @@ FileStates [
 		Zoom = fit page
 		Rotation = 0
 		WindowState = 1
-		WindowPos = 548 0 823 720
+		WindowPos = 723 26 634 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Documents\prepub\prepub.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 5
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 81.813
+		PageNo = 1
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 723 26 634 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = D:\phdjournal\phdjournal.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 17
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 38.9336 138.297
+		PageNo = 1
+		Zoom = 157
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 723 26 634 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\bookfinal2.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 14
+		UseDefaultState = false
+		DisplayMode = continuous facing
+		ScrollPos = 310.062 66.7689
+		PageNo = 11
+		Zoom = 123
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 723 26 634 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = D:\assets\A REVIEW OF THE ESSENCE OF CITY BRANDING IN.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 19
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 8.61167 428.612
+		PageNo = 2
+		Zoom = 135
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 723 26 634 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\genius-loci-towards-a-phenomenology-of-architecture-part1_.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 16
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 103.677
+		PageNo = 6
+		Zoom = 153
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 723 26 634 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\10131-39385-1-PB.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 17
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 176.251
+		PageNo = 11
+		Zoom = 110
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 723 26 634 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\3810-Article Text-11061-1-10-20220114.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 19
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 636.406
+		PageNo = 9
+		Zoom = 137
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 723 26 634 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = D:\perment\perment.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 2
+		UseDefaultState = false
+		DisplayMode = single page
+		ScrollPos = 23.4381 3.03364
+		PageNo = 4
+		Zoom = 136
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 1887 571 1072 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\oharogi,+Art+7-Renny+64-75.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 4
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 70.313 23.9895
+		PageNo = 9
+		Zoom = 136
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 484 0 889 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\oharogi,+7+-+Melly+Kawulusan+-+Perancangan+Public+Landmark (1).pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 74.7454 817.092
+		PageNo = 3
+		Zoom = 147
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 484 0 889 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Documents\prejournal\prejournal.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 1
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 239.842
+		PageNo = 2
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 1887 571 1072 686
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\oharogi,+7+-+Melly+Kawulusan+-+Perancangan+Public+Landmark.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 34.4518 56.403
+		PageNo = 1
+		Zoom = 123
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 484 0 889 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = D:\premiphd\proposalphd.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 5
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 68.5156 42.0118
+		PageNo = 4
+		Zoom = 133
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 484 0 889 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Documents\img20230720_14545326.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 -1
+		PageNo = 1
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 619 0 754 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Documents\img20230720_14540368.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 -1
+		PageNo = 1
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 619 0 754 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\06+PMJ+2022+Issue+5.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 -1
+		PageNo = 1
+		Zoom = 75
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 619 0 754 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\Arsitektur-Kekuasaan.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 34.1257 472.126
+		PageNo = 1
+		Zoom = 100
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 619 0 754 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\10463-28853-1-SM.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 150.93 760.848
+		PageNo = 4
+		Zoom = 121
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 619 0 754 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\6909278.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 973.254
+		PageNo = 2
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 619 0 754 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\RAB KIE RUSLI.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 -1
+		PageNo = 1
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 625 0 748 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Documents\penawaran-choendecce.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 1
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 -1
+		PageNo = 1
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 625 0 748 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = D:\citybrand\citybrand.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 3
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 101.027 -1
+		PageNo = 3
+		Zoom = 134
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 553 0 820 727
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\FARHAN-DAFTAR PUSTAKA (1).docx.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 377.975
+		PageNo = 1
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 388 0 959 720
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\SKRIPSI-FARHAN-daftar isi.docx.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 166.151
+		PageNo = 7
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 388 0 959 720
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\SKRIPSI-FARHAN.docx.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 819.501
+		PageNo = 48
+		Zoom = 75
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 388 0 959 720
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = E:\resume\resume.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 1
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 -1
+		PageNo = 1
+		Zoom = fit page
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 388 0 959 720
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = D:\peer teaching\62_uliah_sap_pdf.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 0
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = -1 153.501
+		PageNo = 4
+		Zoom = 75
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 388 0 959 720
+		ShowToc = false
+		SidebarDx = 150
+		DisplayR2L = false
+		ReparseIdx = 0
+	]
+	[
+		FilePath = C:\Users\ul\Downloads\9178-457-19657-1-10-20181207.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 3
+		UseDefaultState = false
+		DisplayMode = continuous
+		ScrollPos = 75.7505 234.251
+		PageNo = 4
+		Zoom = 150
+		Rotation = 0
+		WindowState = 1
+		WindowPos = 388 0 959 720
 		ShowToc = false
 		SidebarDx = 150
 		DisplayR2L = false
@@ -123,7 +675,7 @@ FileStates [
 		]
 		IsPinned = false
 		IsMissing = false
-		OpenCount = 1
+		OpenCount = 0
 		UseDefaultState = false
 		DisplayMode = single page
 		ScrollPos = -1 -2.71816
@@ -143,7 +695,7 @@ FileStates [
 		]
 		IsPinned = false
 		IsMissing = false
-		OpenCount = 1
+		OpenCount = 0
 		UseDefaultState = false
 		DisplayMode = continuous
 		ScrollPos = -1 -2.71816
@@ -163,7 +715,7 @@ FileStates [
 		]
 		IsPinned = false
 		IsMissing = false
-		OpenCount = 2
+		OpenCount = 0
 		UseDefaultState = false
 		DisplayMode = continuous
 		ScrollPos = -1 -1
@@ -183,7 +735,7 @@ FileStates [
 		]
 		IsPinned = false
 		IsMissing = false
-		OpenCount = 1
+		OpenCount = 0
 		UseDefaultState = false
 		DisplayMode = continuous
 		ScrollPos = -1 -1
@@ -203,7 +755,7 @@ FileStates [
 		]
 		IsPinned = false
 		IsMissing = false
-		OpenCount = 1
+		OpenCount = 0
 		UseDefaultState = false
 		DisplayMode = continuous
 		ScrollPos = 64.5006 356.701
@@ -218,32 +770,12 @@ FileStates [
 		ReparseIdx = 0
 	]
 	[
-		FilePath = C:\Users\ul\Documents\minimal\minimal.pdf
-		Favorites [
-		]
-		IsPinned = false
-		IsMissing = false
-		OpenCount = 7
-		UseDefaultState = false
-		DisplayMode = continuous
-		ScrollPos = -1 -1
-		PageNo = 1
-		Zoom = fit page
-		Rotation = 0
-		WindowState = 1
-		WindowPos = 763 8 556 720
-		ShowToc = false
-		SidebarDx = 150
-		DisplayR2L = false
-		ReparseIdx = 0
-	]
-	[
 		FilePath = C:\Users\ul\Documents\simart\simart.pdf
 		Favorites [
 		]
 		IsPinned = false
 		IsMissing = false
-		OpenCount = 5
+		OpenCount = 1
 		UseDefaultState = false
 		DisplayMode = continuous
 		ScrollPos = 106.126 111.376
@@ -259,9 +791,89 @@ FileStates [
 	]
 ]
 SessionData [
+	[
+		TabStates [
+			[
+				FilePath = C:\Users\ul\Downloads\3810-Article Text-11061-1-10-20220114.pdf
+				DisplayMode = continuous
+				PageNo = 9
+				Zoom = 137
+				Rotation = 0
+				ScrollPos = -1 636.406
+				ShowToc = false
+			]
+			[
+				FilePath = C:\Users\ul\Downloads\10131-39385-1-PB.pdf
+				DisplayMode = continuous
+				PageNo = 11
+				Zoom = 110
+				Rotation = 0
+				ScrollPos = -1 176.251
+				ShowToc = false
+			]
+			[
+				FilePath = C:\Users\ul\Downloads\genius-loci-towards-a-phenomenology-of-architecture-part1_.pdf
+				DisplayMode = continuous
+				PageNo = 6
+				Zoom = 153
+				Rotation = 0
+				ScrollPos = -1 103.677
+				ShowToc = false
+			]
+			[
+				FilePath = D:\assets\A REVIEW OF THE ESSENCE OF CITY BRANDING IN.pdf
+				DisplayMode = continuous
+				PageNo = 2
+				Zoom = 135
+				Rotation = 0
+				ScrollPos = 8.61167 428.612
+				ShowToc = false
+			]
+			[
+				FilePath = C:\Users\ul\Downloads\bookfinal2.pdf
+				DisplayMode = continuous facing
+				PageNo = 11
+				Zoom = 123
+				Rotation = 0
+				ScrollPos = 310.062 66.7689
+				ShowToc = false
+			]
+			[
+				FilePath = D:\phdjournal\phdjournal.pdf
+				DisplayMode = continuous
+				PageNo = 1
+				Zoom = 157
+				Rotation = 0
+				ScrollPos = 38.9336 138.297
+				ShowToc = false
+			]
+			[
+				FilePath = C:\Users\ul\Documents\prepub\prepub.pdf
+				DisplayMode = continuous
+				PageNo = 1
+				Zoom = fit page
+				Rotation = 0
+				ScrollPos = -1 81.813
+				ShowToc = false
+			]
+			[
+				FilePath = C:\Users\ul\Documents\minimal\minimal.pdf
+				DisplayMode = continuous
+				PageNo = 1
+				Zoom = fit page
+				Rotation = 0
+				ScrollPos = -1 -1
+				ShowToc = false
+			]
+		]
+		TabIndex = 8
+		WindowState = 1
+		WindowPos = 723 26 634 686
+		SidebarDx = 150
+	]
 ]
 TimeOfLastUpdateCheck = 0 0
-OpenCountWeek = 653
+OpenCountWeek = 655
 
 # Settings below are not recognized by the current version
 EbookUI [

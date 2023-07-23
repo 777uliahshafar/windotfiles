@@ -6,9 +6,24 @@
         {
             "command": 
             {
-                "action": "commandPalette"
+                "action": "newTab"
             },
-            "keys": "ctrl+shift+p"
+            "keys": "ctrl+t"
+        },
+        {
+            "command": 
+            {
+                "action": "globalSummon"
+            },
+            "keys": "ctrl+`"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "keys": "ctrl+shift+minus"
         },
         {
             "command": 
@@ -21,40 +36,17 @@
         {
             "command": 
             {
-                "action": "globalSummon"
+                "action": "commandPalette"
             },
-            "keys": "alt+period"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab"
-            },
-            "keys": "ctrl+t"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "down"
-            },
-            "keys": "alt+shift+minus"
+            "keys": "ctrl+shift+p"
         },
         {
             "command": "toggleAlwaysOnTop",
-            "keys": "ctrl+d"
+            "keys": "alt+f11"
         },
         {
             "command": "paste",
             "keys": "ctrl+v"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "alt+shift+k"
         },
         {
             "command": "closePane",
@@ -64,8 +56,24 @@
             "command": 
             {
                 "action": "splitPane"
+            }
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
             },
-            "keys": "ctrl+shift+minus"
+            "keys": "ctrl+minus"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -73,7 +81,7 @@
                 "action": "moveFocus",
                 "direction": "right"
             },
-            "keys": "alt+shift+l"
+            "keys": "ctrl+shift+l"
         },
         {
             "command": 
@@ -81,7 +89,7 @@
                 "action": "moveFocus",
                 "direction": "left"
             },
-            "keys": "alt+shift+h"
+            "keys": "ctrl+shift+h"
         },
         {
             "command": 
@@ -97,16 +105,7 @@
         },
         {
             "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
+            "keys": "ctrl+f"
         }
     ],
     "copyFormatting": "none",
@@ -132,23 +131,23 @@
             "font": 
             {
                 "face": "Inconsolata Nerd Font Mono",
-                "size": 15.0,
+                "size": 16.0,
                 "weight": "medium"
             },
             "intenseTextStyle": "none",
-            "opacity": 100,
+            "opacity": 80,
             "padding": "8",
             "scrollbarState": "hidden",
-            "useAcrylic": false,
+            "useAcrylic": true,
             "useAtlasEngine": true
         },
         "list": 
         [
             {
+                "commandline": "pwsh.exe -nologo",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
-		"commandline" : "pwsh.exe -nologo",
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
@@ -168,6 +167,18 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{449e0ec4-9d66-57d6-bf88-afbf305bdd42}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{f5a8d89f-79e1-527d-b16b-babfdbf9e35b}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
