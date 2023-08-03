@@ -1,24 +1,25 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
-            "command": 
+            "command":
             {
                 "action": "newTab"
             },
             "keys": "ctrl+t"
         },
         {
-            "command": 
+            "command":
             {
-                "action": "globalSummon"
+                "action": "globalSummon",
+                "toggleVisibility": false
             },
             "keys": "ctrl+`"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "down"
@@ -26,7 +27,7 @@
             "keys": "ctrl+shift+minus"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -34,7 +35,7 @@
             "keys": "ctrl+c"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "commandPalette"
             },
@@ -53,13 +54,13 @@
             "keys": "ctrl+w"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane"
             }
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -68,7 +69,7 @@
             "keys": "ctrl+minus"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "up"
@@ -76,7 +77,7 @@
             "keys": "ctrl+shift+k"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "right"
@@ -84,7 +85,7 @@
             "keys": "ctrl+shift+l"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "left"
@@ -92,7 +93,7 @@
             "keys": "ctrl+shift+h"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "down"
@@ -113,22 +114,22 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 62,
     "initialRows": 30,
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "adjustIndistinguishableColors": "never",
             "colorScheme": "One Half Dark",
             "cursorColor": "#FFFFFF",
             "cursorShape": "filledBox",
             "experimental.retroTerminalEffect": false,
-            "font": 
+            "font":
             {
                 "face": "Inconsolata Nerd Font Mono",
                 "size": 15.0,
@@ -141,7 +142,7 @@
             "useAcrylic": true,
             "useAtlasEngine": true
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "pwsh.exe -nologo",
@@ -182,7 +183,7 @@
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#0C0C0C",
@@ -415,17 +416,17 @@
             "yellow": "#808000"
         }
     ],
-    "themes": 
+    "themes":
     [
         {
             "name": "legacyDark",
-            "tab": 
+            "tab":
             {
                 "background": null,
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "window": 
+            "window":
             {
                 "applicationTheme": "dark",
                 "useMica": false
@@ -433,13 +434,13 @@
         },
         {
             "name": "legacyLight",
-            "tab": 
+            "tab":
             {
                 "background": null,
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "window": 
+            "window":
             {
                 "applicationTheme": "light",
                 "useMica": false
@@ -447,13 +448,13 @@
         },
         {
             "name": "legacySystem",
-            "tab": 
+            "tab":
             {
                 "background": null,
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "window": 
+            "window":
             {
                 "applicationTheme": "system",
                 "useMica": false
