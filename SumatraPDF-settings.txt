@@ -38,8 +38,8 @@ Annotations [
 	HighlightColor = #ffff00
 	UnderlineColor = #cc241d
 	TextIconColor = #ffff00
-	TextIconType = 
-	DefaultAuthor = 
+	TextIconType =
+	DefaultAuthor =
 ]
 
 RememberOpenedFiles = true
@@ -62,6 +62,10 @@ Shortcuts [
 	[
 		Cmd = CmdToggleMenuBar
 		Key = ctrl+m
+	]
+    [
+		Cmd = CmdSaveAnnotations
+		Key = ctrl+a
 	]
 ]
 EscToExit = false
