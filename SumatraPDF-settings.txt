@@ -63,9 +63,13 @@ Shortcuts [
 		Cmd = CmdToggleMenuBar
 		Key = ctrl+m
 	]
-    [
+    	[
 		Cmd = CmdSaveAnnotations
 		Key = ctrl+a
+	]
+	[
+		Cmd = CmdZoom125
+		Key = ctrl+z
 	]
 ]
 EscToExit = false
