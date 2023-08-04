@@ -65,11 +65,15 @@ Shortcuts [
 	]
     	[
 		Cmd = CmdSaveAnnotations
-		Key = ctrl+a
+		Key = s
 	]
 	[
-		Cmd = CmdZoom125
+		Cmd = CmdZoomOut
 		Key = ctrl+z
+	]
+        [
+		Cmd = CmdZoomIn
+		Key = z
 	]
 ]
 EscToExit = false
