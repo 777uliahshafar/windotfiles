@@ -1,0 +1,19 @@
+% package for language codes
+\RequirePackage{rfclang}
+
+% this is used in \text<lang> commands
+\NewConfigure{PrintLang}{2}
+
+\renewcommand\printlang[1]{\a:PrintLang#1\b:PrintLang}
+
+\Configure{PrintLang}{\HCode{<span lang="\GetLanguage">}}{\HCode{</span>}}
+
+% this is used in \begin{<lang>} environment
+\NewConfigure{LangEnv}{2}
+
+\pend:def\Startlang{\a:LangEnv}
+\pend:def\Endlang{\b:LangEnv}
+
+\Configure{LangEnv}{\ifvmode\IgnorePar\fi\EndP\HCode{<div lang="\GetLanguage">}\par}{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+
+
