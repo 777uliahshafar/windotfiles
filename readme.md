@@ -64,5 +64,24 @@ abstract,file,language
 7. Add some custom packages of latex to TEXMF root directory, such as [helpers4ht](https://github.com/michal-h21/helpers4ht).
 - Register the TEXMF root directory `~/.config/mytexmf` in Miktex Console → Settings → Directories → Click Add icon, see [link](https://miktex.org/howto/miktex-console).
 
+# Windows config
+  1. Disable Windows update (optional).
+  2. Import all the registry from `Google Drive > Textediting`.
+  3. Turn off the help improve battery by optimizing the content shown and brightness.
+  4. Disable peek in `sysdm.cpl` for classic alt tab.
+  5. Turn on Show accent color on title bars and windows border on Personalization. Change the custom colors to darkgreen.
+
+  6. Adding tag handler for unsupported file.
+  - Install [Dijji/FileMeta]{https://github.com/Dijji/FileMeta}
+  - Download the .msi file, then double click it.
+  - [How-to]{https://www.thewindowsclub.com/enable-tags-for-unsupported-files-windows}
+
+## Required windows application
+  - Printer driver
+  - Spotify
+  - Google Driver
+  - Authy
+  - 7 Zip
+
 
 
