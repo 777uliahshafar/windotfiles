@@ -1,8 +1,10 @@
 # Clone
+
 1. Clone this in the home directory `cd`
 1. `git clone git@github.com:777uliahshafar/dotfiles-win.git .config`
 
-# Common Installation 
+# Common Installation
+
 1. C++ `vc_redist.x64.exe`
 1. windows terminal (available)
 1. powershell (available)
@@ -16,12 +18,14 @@ PS: available on windows 11
 change the executing policy `Set-ExecutionPolicy RemoteSigned`
 
 # Windows Terminal config
+
 1. Change the font to Inconsolata Nerd Font Mono Medium 15pt [font download](https://www.nerdfonts.com/font-downloads)
 1. Place your config (terminal.json) to windows terminal config (setting.json)
 1. Setting windows terminal appearance (font, transparency) and default.
-1. Enable `Use ... text rendering (Atlas engine)` on Rendering for inverted color cursor. 
+1. Enable `Use ... text rendering (Atlas engine)` on Rendering for inverted color cursor.
 
 # Powershell Installation
+
 1. oh-my-posh `scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json`
 1. PSReadLine `Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck`
 1. posh-git `Install-Module posh-git -Scope CurrentUser`
@@ -34,15 +38,36 @@ change the executing policy `Set-ExecutionPolicy RemoteSigned`
 # Powershell Config
 1. Check the availability powershell profile `Test-Path $PROFILE`, false means it is not exist
 1. Create powershell profile `New-Item -Type file -Path $PROFILE -Force`.
-1. Edit the profile `nvim  $PROFILE`. 
+1. Edit the profile `nvim  $PROFILE`.
 1. Symlink it to your own config. Type `. $env:USERPROFILE\.config\powershell\user_profile.ps1` inside the profile (optional)
 1. Install nerdfont for icon supporting.
 1. Set windows terminal to use nerdfont font and powershell as default shell. This can be edited in json file of windows terminal.
 
 
+# Latex config
 
-
-
+1. Strawberry Perl [link](https://strawberryperl.com/) latex on nvim.
+2. Miktek, latex distribution [link](https://miktex.org/download). Package installation on the fly is much better. Check update on miktex console after installation, latex on nvim.
+3. SumatraPDF, enable all the options on options menu, latex on nvim.
+4. Add SumatraPDF parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this `C:\Users\ul\AppData\Local\SumatraPDF\`.
+5. Zotero, BetterBibtex (synchronous bibliography),
+- Change citation key in Tools → Preferences → BetterBibtex → Citation Keys → Citation key format:
+```
+[auth:lower][year]
+```
+- Change item format to `Better Bibtex` in Tools → Preferences → Exports → Item Format.
+- Omit abstract,file, language from export bib in Tools → Preferences → BetterBibtex → Open Better Bibtex Preferences → Exports → Fields → Fields to omit from export:
+```
+abstract,file,language
+```
+6. SplitShow (dual-head presentation of PDF slides).
+7. Add some custom packages such as [helpers4ht](https://github.com/michal-h21/helpers4ht).
+- Fastest way: one can register `~/.config/mytexmf` to Miktex Console. Or manually:
+- Create a new TEXMF root: `mkdir ~/mytexmf`
+- Create a sub directory: `mkdir -p ~/mytexmf/tex/latex/mystuff`
+- Copy your .cls and/or .sty files to `~/mytexmf/tex/latex/mystuff`, or copy folders to `~/mytexmf/tex/latex/`
+- eg. `~/mytexmf/tex/latex/helpers4ht/` or `~/mytexmf/tex/latex/datetime2-bahasai/datetime2-bahasai.ldf`
+- Register the TEXMF root directory ~/mytexmf in Miktex Console → Settings → Directories, see [link](https://miktex.org/howto/miktex-console).
 
 
 
