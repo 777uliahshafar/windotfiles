@@ -61,13 +61,8 @@ change the executing policy `Set-ExecutionPolicy RemoteSigned`
 abstract,file,language
 ```
 6. SplitShow (dual-head presentation of PDF slides).
-7. Add some custom packages such as [helpers4ht](https://github.com/michal-h21/helpers4ht).
-- Fastest way: one can register `~/.config/mytexmf` to Miktex Console. Or manually:
-- Create a new TEXMF root: `mkdir ~/mytexmf`
-- Create a sub directory: `mkdir -p ~/mytexmf/tex/latex/mystuff`
-- Copy your .cls and/or .sty files to `~/mytexmf/tex/latex/mystuff`, or copy folders to `~/mytexmf/tex/latex/`
-- eg. `~/mytexmf/tex/latex/helpers4ht/` or `~/mytexmf/tex/latex/datetime2-bahasai/datetime2-bahasai.ldf`
-- Register the TEXMF root directory ~/mytexmf in Miktex Console → Settings → Directories, see [link](https://miktex.org/howto/miktex-console).
+7. Add some custom packages of latex to TEXMF root directory, such as [helpers4ht](https://github.com/michal-h21/helpers4ht).
+- Register the TEXMF root directory `~/.config/mytexmf` in Miktex Console → Settings → Directories → Click Add icon, see [link](https://miktex.org/howto/miktex-console).
 
 
 
