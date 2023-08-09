@@ -41,7 +41,7 @@ Set-PSReadLineOption -BellStyle None
 Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'Ctrl+Spacebar'
 Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward 
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 
 Set-PSReadlineOption -Color @{
@@ -62,27 +62,31 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory
 
 # Function to Aliases current direcotry
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
-function academic 
+function academic
 {
     cd 'C:\Users\ul\notes\aca'
     & 'nvim' '.\index.norg'
 }
-function architecture 
+function architecture
 {
     cd 'C:\Users\ul\notes\archi'
     & 'nvim' '.\index.norg'
 }
 function phdjournal
 {
-    cd 'd:\phdjournal'
+    cd '~/Documents/phdjournal/'
     & 'nvim' '.\phdjournal.tex'
+}
+function neorgnotes
+{
+    nvim -c "Neorg workspace aca"
 }
 
 
-# Alias 
+# Alias
 Set-Alias v nvim
 Set-Alias ll ls
-Set-Alias g git 
+Set-Alias g git
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
@@ -92,6 +96,7 @@ Set-Alias nc nvimconfig
 Set-Alias aca academic
 Set-Alias arc architecture
 Set-Alias phd phdjournal
+Set-Alias jot neorgnotes
 
 # Utilities
 function which ($command) {
