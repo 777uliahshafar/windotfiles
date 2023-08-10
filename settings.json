@@ -1,25 +1,41 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
+    "actions": 
     [
         {
-            "command":
+            "command": "toggleAlwaysOnTop",
+            "keys": "alt+f11"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "command": "toggleFocusMode",
+            "keys": "shift+f11"
+        },
+        {
+            "command": 
+            {
+                "action": "globalSummon",
+                "toggleVisibility": false
+            },
+            "keys": "alt+space"
+        },
+        {
+            "command": 
             {
                 "action": "newTab"
             },
             "keys": "ctrl+t"
         },
         {
-            "command":
-            {
-                "action": "globalSummon",
-                "toggleVisibility": false
-            },
-            "keys": "ctrl+`"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "down"
@@ -27,7 +43,29 @@
             "keys": "ctrl+shift+minus"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "splitPane"
+            }
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "ctrl+shift+l"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "ctrl+shift+h"
+        },
+        {
+            "command": 
             {
                 "action": "copy",
                 "singleLine": false
@@ -35,32 +73,18 @@
             "keys": "ctrl+c"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "commandPalette"
             },
             "keys": "ctrl+shift+p"
         },
         {
-            "command": "toggleAlwaysOnTop",
-            "keys": "alt+f11"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
             "command": "closePane",
             "keys": "ctrl+w"
         },
         {
-            "command":
-            {
-                "action": "splitPane"
-            }
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -69,40 +93,12 @@
             "keys": "ctrl+minus"
         },
         {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "ctrl+shift+k"
-        },
-        {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "ctrl+shift+l"
-        },
-        {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "ctrl+shift+h"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "down"
             },
             "keys": "ctrl+shift+j"
-        },
-        {
-            "command": "toggleFocusMode",
-            "keys": "shift+f11"
         },
         {
             "command": "find",
@@ -114,22 +110,21 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 64,
     "initialRows": 30,
-    "newTabMenu":
+    "newTabMenu": 
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
-            "adjustIndistinguishableColors": "never",
             "colorScheme": "One Half Dark",
             "cursorColor": "#FFFFFF",
             "cursorShape": "filledBox",
             "experimental.retroTerminalEffect": false,
-            "font":
+            "font": 
             {
                 "face": "Inconsolata Nerd Font Mono",
                 "size": 15.0,
@@ -142,7 +137,7 @@
             "useAcrylic": true,
             "useAtlasEngine": true
         },
-        "list":
+        "list": 
         [
             {
                 "commandline": "pwsh.exe -nologo",
@@ -168,22 +163,10 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{449e0ec4-9d66-57d6-bf88-afbf305bdd42}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{f5a8d89f-79e1-527d-b16b-babfdbf9e35b}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#0C0C0C",
@@ -416,17 +399,17 @@
             "yellow": "#808000"
         }
     ],
-    "themes":
+    "themes": 
     [
         {
             "name": "legacyDark",
-            "tab":
+            "tab": 
             {
                 "background": null,
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "window":
+            "window": 
             {
                 "applicationTheme": "dark",
                 "useMica": false
@@ -434,13 +417,13 @@
         },
         {
             "name": "legacyLight",
-            "tab":
+            "tab": 
             {
                 "background": null,
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "window":
+            "window": 
             {
                 "applicationTheme": "light",
                 "useMica": false
@@ -448,13 +431,13 @@
         },
         {
             "name": "legacySystem",
-            "tab":
+            "tab": 
             {
                 "background": null,
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "window":
+            "window": 
             {
                 "applicationTheme": "system",
                 "useMica": false
