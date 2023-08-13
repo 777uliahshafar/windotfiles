@@ -12,10 +12,10 @@
           "style": "diamond",
           "powerline_symbol": "\ue0b0",
           "foreground": "#ffffff",
-          "background": "#ff479c",
+          "background": "#01579B",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b0",
-          "template": " \ue5ff {{ .Path }} ",
+          "template": " \udb86\udc26 {{ .Path }} ",
           "properties": {
             "style": "folder"
           }
