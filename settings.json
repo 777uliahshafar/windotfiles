@@ -120,7 +120,7 @@
     {
         "defaults": 
         {
-            "colorScheme": "One Half Dark",
+            "colorScheme": "One Half Dark (moded)",
             "cursorColor": "#FFFFFF",
             "cursorShape": "filledBox",
             "experimental.retroTerminalEffect": false,
@@ -131,10 +131,10 @@
                 "weight": "medium"
             },
             "intenseTextStyle": "none",
-            "opacity": 80,
+            "opacity": 100,
             "padding": "8",
             "scrollbarState": "hidden",
-            "useAcrylic": true,
+            "useAcrylic": false,
             "useAtlasEngine": true
         },
         "list": 
@@ -244,7 +244,7 @@
             "brightBlack": "#5A6374",
             "brightBlue": "#61AFEF",
             "brightCyan": "#56B6C2",
-            "brightGreen": "#16C60C",
+            "brightGreen": "#00ff00",
             "brightPurple": "#C678DD",
             "brightRed": "#E74856",
             "brightWhite": "#FFFFFF",
@@ -252,7 +252,7 @@
             "cursorColor": "#FFFFFF",
             "cyan": "#56B6C2",
             "foreground": "#FFFFFF",
-            "green": "#13A10E",
+            "green": "#1fea00",
             "name": "One Half Dark (moded)",
             "purple": "#C678DD",
             "red": "#C50F1F",
