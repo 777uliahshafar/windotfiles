@@ -30,13 +30,6 @@
         {
             "command": 
             {
-                "action": "newTab"
-            },
-            "keys": "ctrl+t"
-        },
-        {
-            "command": 
-            {
                 "action": "splitPane",
                 "split": "down"
             },
