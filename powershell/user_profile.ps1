@@ -79,7 +79,7 @@ function phdjournal
 }
 function neorgnotes
 {
-    nvim -c "Neorg workspace aca"
+    nvim -c "Neorg workspace main"
 }
 
 
