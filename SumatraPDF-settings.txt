@@ -75,6 +75,14 @@ Shortcuts [
 		Cmd = CmdZoomIn
 		Key = z
 	]
+	[
+		Cmd = CmdFindNext
+		Key = n
+	]
+	[
+		Cmd = CmdFindPrev
+		Key = shift+n
+	]
 ]
 EscToExit = false
 ReuseInstance = false
@@ -83,7 +91,7 @@ ReloadModifiedDocuments = true
 MainWindowBackground = #7fd486
 FullPathInTitle = false
 ShowMenubar = true
-ShowToolbar = true
+ShowToolbar = false
 ShowFavorites = false
 ShowToc = false
 TocDy = 0
