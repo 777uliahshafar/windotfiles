@@ -65,7 +65,7 @@ abstract,file,language
 - Register the TEXMF root directory `~/.config/mytexmf` in Miktex Console → Settings → Directories → Click Add icon, see [link](https://miktex.org/howto/miktex-console).
 
 # Windows config
-  1. Disable Windows update (optional).
+  1. Windows OEM original with sunrise theme.
   2. Import all the registry from `Google Drive > Textediting`.
   3. Turn off the help improve battery by optimizing the content shown and brightness.
   4. Disable peek in `sysdm.cpl` for classic alt tab.
