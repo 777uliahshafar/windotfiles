@@ -82,6 +82,7 @@ abstract,file,language
   - Google Driver
   - Authy
   - 7 Zip
+  - Logi options+ (change strained button functions)
 
 
 
