@@ -76,7 +76,9 @@ abstract,file,language
   - Download the .msi file, then double click it.
   - [How-to]{https://www.thewindowsclub.com/enable-tags-for-unsupported-files-windows}
 
-## Required windows application
+## Required windows application\
+  - Sumatrapdf for compilation viewer
+  - Microsfot edge for default pdf viewer
   - Printer driver
   - Spotify
   - Google Driver
