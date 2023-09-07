@@ -11,12 +11,12 @@
           "type": "path",
           "style": "diamond",
           "powerline_symbol": "\ue0b0",
-          "foreground": "#00FFFF",
+          "foreground": "#FFFFFF",
           "leading_diamond": "<transparent>\ue0b6",
           "template": " {{ .Path }} ",
           "properties": {
-            "folder_icon": "<#00FFFF>\ueaf7",
-            "folder_separator_icon": "<00FFFF>\ue0bd",
+            "folder_icon": "<#FFFFFF>\ueaf7",
+            "folder_separator_icon": "<FFFFFF>\ue0bd",
             "home_icon": "\udb81\udf25",
             "style": "agnoster_short"
           }
@@ -27,7 +27,7 @@
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
           "foreground": "#193549",
-          "background": "#fffb38",
+          "background": "#f8f8f2",
           "template":
 "{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<red> \uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#193549> \uf046 {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}",
           "properties": {
