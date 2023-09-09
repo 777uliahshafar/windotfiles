@@ -69,7 +69,7 @@ abstract,file,language
   2. Import all the registry from `Google Drive > Textediting`.
   3. Turn off the help improve battery by optimizing the content shown and brightness.
   4. Disable peek in `sysdm.cpl` for classic alt tab.
-  5. Turn on Show accent color on title bars and windows border on Personalization. Change the custom colors to darkgreen.
+  5. Use white (light mode) background taskbar.
 
   6. Adding tag handler for unsupported file.
   - Install [Dijji/FileMeta]{https://github.com/Dijji/FileMeta}
