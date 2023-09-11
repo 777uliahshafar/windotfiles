@@ -75,7 +75,6 @@ abstract,file,language
   - Install [Dijji/FileMeta]{https://github.com/Dijji/FileMeta}
   - Download the .msi file, then double click it.
   - [How-to]{https://www.thewindowsclub.com/enable-tags-for-unsupported-files-windows}
-  7. Increase the saturation on Intel Graphics Control Panel to 5.
 
 ## Required windows application\
   - Sumatrapdf for compilation viewer
