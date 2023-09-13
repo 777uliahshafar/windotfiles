@@ -85,7 +85,7 @@ Shortcuts [
 	]
 ]
 EscToExit = false
-ReuseInstance = false
+ReuseInstance = true
 ReloadModifiedDocuments = true
 
 MainWindowBackground = #7fd486
