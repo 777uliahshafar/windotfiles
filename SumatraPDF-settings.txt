@@ -83,6 +83,10 @@ Shortcuts [
 		Cmd = CmdFindPrev
 		Key = shift+n
 	]
+	[
+		Cmd = CmdOpenFile
+		Key = o
+	]
 ]
 EscToExit = false
 ReuseInstance = true
