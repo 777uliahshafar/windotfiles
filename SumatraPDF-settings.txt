@@ -85,7 +85,7 @@ Shortcuts [
 	]
 	[
 		Cmd = CmdOpenFile
-		Key = o
+		Key = w
 	]
 ]
 EscToExit = false
