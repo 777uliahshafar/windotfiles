@@ -59,44 +59,16 @@ Set-PSReadlineOption -Color @{
 
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r' #Psfzf
 
+# load Aliases
+. "$PSScriptRoot\aliases.ps1"
 
-# Function to Aliases current direcotry
-function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
-function academic
+function aliases
 {
-    cd 'C:\Users\ul\notes\aca'
-    & 'nvim' '.\index.norg'
-}
-function architecture
-{
-    cd 'C:\Users\ul\notes\archi'
-    & 'nvim' '.\index.norg'
-}
-function phdjournal
-{
-    cd '~/Documents/phdjournal/'
-    & 'nvim' '.\phdjournal.tex'
-}
-function neorgnotes
-{
-    nvim -c "Neorg workspace main"
+    Get-Content $PSScriptRoot\aliases.ps1 -Tail 20
 }
 
+Set-Alias alias aliases
 
-# Alias
-Set-Alias v nvim
-Set-Alias ll ls
-Set-Alias g git
-Set-Alias grep findstr
-Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
-Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
-
-
-Set-Alias nc nvimconfig
-Set-Alias aca academic
-Set-Alias arc architecture
-Set-Alias phd phdjournal
-Set-Alias jot neorgnotes
 
 # Utilities
 function which ($command) {
