@@ -5,6 +5,12 @@ function neorgnotes
     nvim -c "Neorg workspace main"
 }
 
+function nvimalias
+{
+    cd '~/.config/powershell'
+    & 'nvim' '.\aliases.ps1'
+}
+
 function phdjournal
 {
     cd '~/Documents/phdjournal/'
@@ -20,6 +26,7 @@ Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
+Set-Alias na nvimalias
 Set-Alias jot neorgnotes
 
 Set-Alias phd phdjournal
