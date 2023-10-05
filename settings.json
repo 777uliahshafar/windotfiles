@@ -27,7 +27,7 @@
             },
             "keys": "alt+space"
         },
-        {
+         {
             "command": 
             {
                 "action": "splitPane",
@@ -35,11 +35,20 @@
             },
             "keys": "ctrl+shift+minus"
         },
-        {
+	{
             "command": 
             {
                 "action": "splitPane"
             }
+        },
+	{
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "ctrl+shift+plus"
         },
         {
             "command": 
@@ -75,15 +84,6 @@
         {
             "command": "closePane",
             "keys": "ctrl+w"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "ctrl+minus"
         },
         {
             "command": 
