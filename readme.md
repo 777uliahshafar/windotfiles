@@ -76,6 +76,7 @@ abstract,file,language
   - Download the .msi file, then double click it.
   - [How-to]{https://www.thewindowsclub.com/enable-tags-for-unsupported-files-windows}
   7. Calibrate the display color if necessary.
+  8. VGA driver from intel solve the adjusting brightness
 
 ## Required windows application\
   - Sumatrapdf for compilation viewer
