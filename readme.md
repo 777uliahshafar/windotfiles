@@ -60,7 +60,7 @@ change the executing policy `Set-ExecutionPolicy RemoteSigned`
 ```
 abstract,file,language
 ```
-6. SplitShow (dual-head presentation of PDF slides).
+6. Cimbali/pympress (dual-head presentation of PDF slides) like SplitShow.
 7. Add some custom packages of latex to TEXMF root directory, such as [helpers4ht](https://github.com/michal-h21/helpers4ht).
 - Register the TEXMF root directory `~/.config/mytexmf` in Miktex Console → Settings → Directories → Click Add icon, see [link](https://miktex.org/howto/miktex-console).
 
