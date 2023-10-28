@@ -63,6 +63,11 @@ abstract,file,language
 6. Cimbali/pympress (dual-head presentation of PDF slides) like SplitShow.
 7. Add some custom packages of latex to TEXMF root directory, such as [helpers4ht](https://github.com/michal-h21/helpers4ht).
 - Register the TEXMF root directory `~/.config/mytexmf` in Miktex Console → Settings → Directories → Click Add icon, see [link](https://miktex.org/howto/miktex-console).
+8. textcount, Perl script for counting word `texcount -h` to install it or find it (the package) on miktex console.
+  - `texcount -sum -total .\filename.tex` to show wordcount.
+  - put `%TC:group comment 0 0` before document environment.
+
+ 
 
 # Windows config
   1. Windows OEM original with sunrise theme.
