@@ -1,8 +1,3 @@
-# Clone
-
-1. Clone this in the home directory `cd`
-1. `git clone git@github.com:777uliahshafar/dotfiles-win.git .config`
-
 # Common Installation
 
 1. C++ `vc_redist.x64.exe`
@@ -16,6 +11,11 @@
 
 PS: available on windows 11
 change the executing policy `Set-ExecutionPolicy RemoteSigned`
+
+# Clone Config
+
+1. Clone this in the home directory `cd`
+1. `git clone git@github.com:777uliahshafar/dotfiles-win.git .config`
 
 # Windows Terminal config
 
