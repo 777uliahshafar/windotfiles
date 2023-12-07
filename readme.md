@@ -23,7 +23,7 @@ change the executing policy `Set-ExecutionPolicy -Scope CurrentUser` > `RemoteSi
 # Windows Terminal config
 
 1. Change default profile in startup.
-1. Change the font to Inconsolata Nerd Font Mono Medium 15pt [font download](https://www.nerdfonts.com/font-downloads)
+1. Change the font to Inconsolata Nerd Font Mono Medium 15pt [font download](https://www.nerdfonts.com/font-downloads). Nerd font can provide icon for Terminal-Icons.
 1. Place your config (terminal.json) to windows terminal config (setting.json)
 1. Setting windows terminal appearance (font, transparency) and default.
 1. Enable `Use ... text rendering (Atlas engine)` on Rendering for inverted color cursor.
@@ -45,7 +45,6 @@ change the executing policy `Set-ExecutionPolicy -Scope CurrentUser` > `RemoteSi
 1. Edit the profile `nvim  $PROFILE`.
 1. Symlink it to your own config. Type `. $env:USERPROFILE\.config\powershell\user_profile.ps1` inside the profile (optional)
 1. Install nerdfont for icon supporting.
-1. Set windows terminal to use nerdfont font and powershell as default shell. This can be edited in json file of windows terminal.
 
 
 # Latex config
