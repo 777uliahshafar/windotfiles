@@ -13,12 +13,12 @@
 1. neovim `scoop install neovim`.
 
 PS: available on windows 11
-change the executing policy `Set-ExecutionPolicy RemoteSigned`
+change the executing policy `Set-ExecutionPolicy -Scope CurrentUser` > `RemoteSigned`
 
 # Clone Config
 
 1. Clone this in the home directory `cd`
-1. `git clone git@github.com:777uliahshafar/dotfiles-win.git .config`
+1. `git clone git@github.com:777uliahshafar/windotfiles.git .config`
 
 # Windows Terminal config
 
