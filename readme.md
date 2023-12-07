@@ -54,12 +54,12 @@ change the executing policy `Set-ExecutionPolicy -Scope CurrentUser` > `RemoteSi
 3. SumatraPDF, enable all the options on options menu, latex on nvim.
 4. Add SumatraPDF parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this `C:\Users\ul\AppData\Local\SumatraPDF\`.
 5. Zotero, BetterBibtex (synchronous bibliography),
-- Change citation key in Tools → Preferences → BetterBibtex → Citation Keys → Citation key format:
+- Change item format to `Better Bibtex` in Edit → Preferences → Exports → Item Format.
+- Change citation key in Edit → Preferences → BetterBibtex → Citation Keys → Citation key format:
 ```
 [auth:lower][year]
 ```
-- Change item format to `Better Bibtex` in Tools → Preferences → Exports → Item Format.
-- Omit abstract,file, language from export bib in Tools → Preferences → BetterBibtex → Open Better Bibtex Preferences → Exports → Fields → Fields to omit from export:
+- Omit (abstract,file, language) from export bib in Tools → Preferences → BetterBibtex → Open Better Bibtex Preferences → Exports → Fields → Fields to omit from export:
 ```
 abstract,file,language
 ```
