@@ -2,7 +2,7 @@
 - Run > services.msc > windowsupdate properties > disable 
 - Run > import registry / go to Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU > create dword 32bit named NoAutoUpdate value 1.
 # Common Installation
-
+1. Change the executing policy `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` for installation permission.
 1. C++ `vc_redist.x64.exe`
 1. windows terminal (available)
 1. powershell (available)
@@ -11,9 +11,6 @@
     - Set up git config --global (if necessary)
     - Connect github with ssh.
 1. neovim `scoop install neovim`.
-
-PS: available on windows 11
-change the executing policy `Set-ExecutionPolicy -Scope CurrentUser` > `RemoteSigned`
 
 # Clone Config
 
