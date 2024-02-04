@@ -1,5 +1,6 @@
 # Function to Aliases current direcotry
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
+function getchildtex { dir .\* -include ('*.tex', '*.bib') -recurse }
 function neorgnotes
 {
     nvim -c "Neorg workspace main"
@@ -39,6 +40,7 @@ function microteaching
 # Alias
 Set-Alias v nvim
 Set-Alias ll ls
+Set-Alias la getchildtex
 Set-Alias g git
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
