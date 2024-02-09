@@ -1,5 +1,5 @@
 # Windows update disable
-- Run > services.msc > windowsupdate properties > disable 
+- Run > services.msc > windowsupdate properties > disable
 - Run > import registry / go to Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU > create dword 32bit named NoAutoUpdate value 1.
 # Common Installation
 1. Change the executing policy `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` for installation permission, required by scoop.
@@ -67,7 +67,7 @@ abstract,file,language
   - `texcount -sum -total .\filename.tex` to show wordcount.
   - put `%TC:group comment 0 0` before document environment.
 
- 
+
 
 # Windows config
   1. sunrise theme windows.
@@ -82,12 +82,18 @@ abstract,file,language
   - [How-to]{https://www.thewindowsclub.com/enable-tags-for-unsupported-files-windows}
   7. Calibrate the display color if necessary.
   8. VGA driver from intel solve the adjusting brightness
-  9. xyplorer, save config,File > Settings Special > Backup Application Data Folder.
-    Alternatively, you can set the XYplorer configuration folder in Startup.ini (located in the XYplorer program folder), to a folder that you will automatically backup (i.e. on a separate data partition).
+  9. XYplorer.
 
-## Required windows application\
+## Xyplorer config
+- Active full row select : Tools > Customize List > Full Row Select.
+- Important toolbar : Thumbnail view, Show hiddent items, Show tree
+
+
+
+
+# Required windows application
   - Sumatrapdf for compilation viewer
-  - xyplorer 
+  - xyplorer
   - Microsfot edge for default pdf viewer
   - Printer driver
   - Spotify
