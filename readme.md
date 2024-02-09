@@ -86,7 +86,7 @@ abstract,file,language
 
 ## Xyplorer config
 - Active full row select : Tools > Customize List > Full Row Select.
-- Important toolbar : Thumbnail view, Show hiddent items, Show tree
+- Important toolbar : Thumbnail view, Show hidden items, Show tree, floating preview.
 
 
 
