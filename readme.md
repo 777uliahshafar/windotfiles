@@ -82,16 +82,17 @@ abstract,file,language
   - [How-to]{https://www.thewindowsclub.com/enable-tags-for-unsupported-files-windows}
   7. Calibrate the display color if necessary.
   8. VGA driver from intel solve the adjusting brightness
+  9. xyplorer, file > setting special > load configuration
 
 ## Required windows application\
   - Sumatrapdf for compilation viewer
+  - xyplorer 
   - Microsfot edge for default pdf viewer
   - Printer driver
   - Spotify
   - Google Driver
   - Authy
   - 7 Zip
-  - Logi options+ (change strained button functions)
 
 
 
