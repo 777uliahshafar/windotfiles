@@ -70,7 +70,7 @@ abstract,file,language
  
 
 # Windows config
-  1. Windows OEM original with sunrise theme.
+  1. sunrise theme windows.
   2. Import all the registry from `Google Drive > Textediting`.
   3. Turn off the help improve battery by optimizing the content shown and brightness.
   4. Disable peek in `sysdm.cpl` for classic alt tab.
@@ -82,7 +82,8 @@ abstract,file,language
   - [How-to]{https://www.thewindowsclub.com/enable-tags-for-unsupported-files-windows}
   7. Calibrate the display color if necessary.
   8. VGA driver from intel solve the adjusting brightness
-  9. xyplorer, file > setting special > load configuration
+  9. xyplorer, save config,File > Settings Special > Backup Application Data Folder.
+    Alternatively, you can set the XYplorer configuration folder in Startup.ini (located in the XYplorer program folder), to a folder that you will automatically backup (i.e. on a separate data partition).
 
 ## Required windows application\
   - Sumatrapdf for compilation viewer
