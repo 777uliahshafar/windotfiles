@@ -87,6 +87,11 @@ abstract,file,language
 ## Xyplorer config
 - Active full row select : Tools > Customize List > Full Row Select.
 - Important toolbar : Thumbnail view, Show hidden items, Show tree, floating preview.
+- Config
+- Configuration | Other | Shell Integration | Default File Manager | [x] XYplorer in shell context menu.
+- Configuration | Other | Shell Integration | Default File Manager | [x] XYplorer is default file manager.
+- Configuration | Other | Shell Integration | Show the 64bit context menu
+
 
 
 
