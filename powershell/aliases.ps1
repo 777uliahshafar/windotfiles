@@ -39,8 +39,7 @@ function microteaching
 
 # Alias
 Set-Alias v nvim
-Set-Alias ll ls
-Set-Alias la getchildtex
+Set-Alias ll getchildtex
 Set-Alias g git
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
