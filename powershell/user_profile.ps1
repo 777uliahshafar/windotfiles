@@ -31,6 +31,9 @@ Receive-Job $PSReadLine -Wait -AutoRemoveJob
 Receive-Job $PSFzf -Wait -AutoRemoveJob
 Receive-Job $light -Wait -AutoRemoveJob
 
+# Chat gpt.nvim
+$OPENAI_API_KEY = Get-Content C:\Users\uliah\.config\powershell\chatgptkey.txt
+
 # Settings
 
 $env:POSH_GIT_ENABLED = $true # Posh git
