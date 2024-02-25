@@ -34,6 +34,7 @@
     - [link](https://gist.github.com/markwragg/6301bfcd56ce86c3de2bd7e2f09a8839)
 1. z `install-Module -Name z -Force`
 1. PSFzf `scoop install fzf  && Install-Module -Name PSFzf -Scope CurrentUser -Force`. Another way of install `winget install fzf`.
+1. ChatGPT.nvim, adjust the API key in powershell folder. It has alread loaded in powershell config.
 
 
 # Powershell Config
@@ -91,10 +92,6 @@ abstract,file,language
 - Configuration | Other | Shell Integration | Default File Manager | [x] XYplorer in shell context menu.
 - Configuration | Other | Shell Integration | Default File Manager | [x] XYplorer is default file manager.
 - Configuration | Other | Shell Integration | Show the 64bit context menu
-
-
-
-
 
 # Required windows application
   - Sumatrapdf for compilation viewer
