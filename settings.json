@@ -116,7 +116,7 @@
                 "size": 15.0,
                 "weight": "medium"
             },
-            "intenseTextStyle": "none",
+	    "intenseTextStyle": "bold",
             "opacity": 100,
             "padding": "8",
             "scrollbarState": "hidden",
