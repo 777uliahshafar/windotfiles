@@ -1,6 +1,7 @@
 # Windows update disable
 - Run > services.msc > windowsupdate properties > disable
 - Run > import registry / go to Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU > create dword 32bit named NoAutoUpdate value 1.
+
 # Common Installation
 1. Change the executing policy `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` for installation permission, required by scoop.
 1. C++ `vc_redist.x64.exe`
@@ -35,7 +36,8 @@
 1. z `install-Module -Name z -Force`
 1. PSFzf `scoop install fzf  && Install-Module -Name PSFzf -Scope CurrentUser -Force`. Another way of install `winget install fzf`.
 1. ChatGPT.nvim, adjust the API key in powershell folder. It has alread loaded in powershell config.
-
+1. Pandoc, either installing from msi installer or winget. `winget install --source winget --exact --id JohnMacFarlane.Pandoc`
+1. Pandoc latex template, convert md to pdf with template. Move the template eisvogel.latex in `C:\Users\USERNAME\AppData\Roaming\pandoc\templates\`, create one if there is no path/folder. Source `https://github.com/Wandmalfarbe/pandoc-latex-template`
 
 # Powershell Config
 1. Check the availability powershell profile `Test-Path $PROFILE`, false means it is not exist
