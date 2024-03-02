@@ -82,10 +82,6 @@
             "keys": "ctrl+shift+p"
         },
         {
-            "command": "closePane",
-            "keys": "ctrl+w"
-        },
-        {
             "command": 
             {
                 "action": "moveFocus",
@@ -93,10 +89,6 @@
             },
             "keys": "ctrl+shift+j"
         },
-        {
-            "command": "find",
-            "keys": "ctrl+f"
-        }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
@@ -124,7 +116,7 @@
                 "size": 15.0,
                 "weight": "medium"
             },
-            "intenseTextStyle": "none",
+	    "intenseTextStyle": "bold",
             "opacity": 100,
             "padding": "8",
             "scrollbarState": "hidden",
