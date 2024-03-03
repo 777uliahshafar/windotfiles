@@ -1,9 +1,9 @@
 # Function to Aliases current direcotry
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
 function getchildtex { dir .\* -include ('*.tex', '*.bib') -recurse }
-function neorgnotes
+function obsidian
 {
-    nvim -c "Neorg workspace main"
+    nvim -c "ObsidianSearch"
 }
 
 function nvimalias
@@ -47,7 +47,7 @@ Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nvc vimmyhelp
-Set-Alias jot neorgnotes
+Set-Alias ww obsidian
 
 # Set-Alias phd phdjournal
 Set-Alias sta statistika
