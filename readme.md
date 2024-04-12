@@ -12,6 +12,7 @@
     - Set up git config --global (if necessary)
     - Connect github with ssh.
 1. neovim `scoop install neovim`.
+1. okular `choco install okular`.
 
 # Clone Config
 
