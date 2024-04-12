@@ -7,7 +7,7 @@
 1. C++ `vc_redist.x64.exe`
 1. windows terminal (available)
 1. powershell (available)
-1. winget (available/msixbundlegithubrepo), scoop `iwr -useb get.scoop.sh | iex`, chocolatey `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+1. winget (available/msixbundlegithubrepo), scoop `iwr -useb get.scoop.sh | iex`, chocolatey `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))` (run as admin powershell not cmd).
 1. git `winget install -e --id Git.Git`
     - Set up git config --global (if necessary)
     - Connect github with ssh.
