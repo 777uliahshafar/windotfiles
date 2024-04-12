@@ -7,7 +7,7 @@
 1. C++ `vc_redist.x64.exe`
 1. windows terminal (available)
 1. powershell (available)
-1. winget (available/msixbundlegithubrepo), scoop `iwr -useb get.scoop.sh | iex`, chocolatey
+1. winget (available/msixbundlegithubrepo), scoop `iwr -useb get.scoop.sh | iex`, chocolatey `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 1. git `winget install -e --id Git.Git`
     - Set up git config --global (if necessary)
     - Connect github with ssh.
