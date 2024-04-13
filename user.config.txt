@@ -1,15 +1,35 @@
 pref_user.config
-ruler_padding 3.0
+ruler_padding 30.0
+ruler_x_padding 10.0
 inverse_search_command 		cmd /c start /min "" "C:\Users\uliah\scoop\shims\nvim.exe" -r -g %1:%2
-font_size 20
+font_size 16
 status_bar_font_size 20
 super_fast_search 1
 case_sensitive_search 0
+dark_mode_contrast 0.89
+wheel_zoom_on_cursor 1
 # shared_database_path C:\Users\uliah\Documents\shared.db
 ---
 keys_user.config
 move_left           l
 move_right          h
-goto_left_smart    <C-h> 
-goto_right_smart    <C-l> 
+goto_left_smart    H
+goto_right_smart    L
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
+
+add_highlight A
+add_highlight_with_current_type a
+goto_highlight ga
+goto_highlight_g gA
+delete_highlight da
+goto_next_highlight gna
+goto_prev_highlight gNa
+
+enter_visual_mark_mode <S-<space>>
+ 
+toggle_mouse_drag_mode <space>
+toggle_select_highlight <C-a>
+
+none <f5>
+none <f9>
+none <f6>
