@@ -1,6 +1,6 @@
 pref_user.config
 custom_background_color              0.984 0.945 0.78
-custom_text_color                    0 0 0.029
+custom_text_color                    0.12 0.12 0.12
 ruler_padding 30.0
 ruler_x_padding 10.0
 inverse_search_command "C:\Users\uliah\scoop\shims\nvim.exe" -r -g %1:%2
