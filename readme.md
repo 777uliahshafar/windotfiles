@@ -54,7 +54,7 @@
 3. SumatraPDF, enable all the options on options menu, latex on nvim.
 4. Add SumatraPDF parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for local installation  `C:\Users\ul\AppData\Local\SumatraPDF\` or this for global installation `C:\Program Files\SumatraPDF`. or
 5. Download and Install sioyek (either clone or installer). Add Sioyek parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for file location such as `C:\Program Files\Sioyek`  or anywhere Sioyek is located.
-6. Zotero, BetterBibtex (synchronous bibliography),
+6. Zotero, Add-ons: BetterBibtex (synchronous bibliography), zotfile, zotero-night
 - Change item format to `Better Bibtex` in Edit → Preferences → Exports → Item Format.
 - Change citation key in Edit → Preferences → BetterBibtex → Citation Keys → Citation key format:
 ```
