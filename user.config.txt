@@ -10,7 +10,7 @@ super_fast_search 1
 case_sensitive_search 0
 dark_mode_contrast 0.98
 wheel_zoom_on_cursor 1
-shared_database_path D:\sciassets\shared.db
+#shared_database_path D:\sciassets\shared.db may cause error
 ---
 keys_user.config
 move_left           l
