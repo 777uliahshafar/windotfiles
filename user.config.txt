@@ -16,8 +16,8 @@ wheel_zoom_on_cursor 1
 keys_user.config
 move_left           l
 move_right          h
-goto_left_smart    H
-goto_right_smart    L
+goto_left_smart    <S-h>
+goto_right_smart    <S-l>
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 
 toggle_visual_scroll <f1>
@@ -31,11 +31,11 @@ open_document_embedded <S-o>
 open_document <C-S-o>
 
 embed_annotations <C-s>
-goto_left_smart Z
+goto_left_smart <S-z>
 
-toggle_smooth_scroll_mode S
+toggle_smooth_scroll_mode <S-s>
 
-add_highlight A
+add_highlight <S-a>
 add_highlight_with_current_type a
 goto_highlight ga
 goto_highlight_g gA
@@ -43,8 +43,9 @@ delete_highlight da
 goto_next_highlight gna
 goto_prev_highlight gNa
 
+zoom_in <C-=>
+zoom_out <C-0>
 
- 
 toggle_mouse_drag_mode <space>
 toggle_select_highlight <C-a>
 toggle_custom_color <f5>
