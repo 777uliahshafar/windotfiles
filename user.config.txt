@@ -2,7 +2,7 @@ pref_user.config
 custom_background_color    0.122 0.122 0.157
 custom_text_color    0.847 0.871 0.914 0.851
 status_bar_text_color   0.847 0.871 0.914 0.851
-ruler_padding 50.0
+ruler_padding 25.0
 #ruler_x_padding 10.0
 inverse_search_command "C:\Users\uliah\scoop\shims\nvim.exe" -r -g %1:%2
 font_size 18
@@ -11,7 +11,7 @@ super_fast_search 1
 case_sensitive_search 0
 dark_mode_contrast 0.98
 wheel_zoom_on_cursor 1
-#shared_database_path D:\sciassets\shared.db may cause error
+#shared_database_path D:\sciassets\shared.db
 ---
 keys_user.config
 move_left           l
@@ -21,7 +21,7 @@ goto_right_smart    <S-l>
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 
 toggle_visual_scroll <f1>
-fit_to_page_width_smart <f2>
+toggle_mouse_drag_mode <f2>
 fit_to_page_width_smart;zoom_in_cursor;zoom_in_cursor;zoom_in_cursor <f3>
 
 toggle_dark_mode <A-r>
@@ -31,7 +31,7 @@ open_document_embedded <S-o>
 open_document <C-S-o>
 
 embed_annotations <C-s>
-goto_left_smart <S-z>
+
 
 toggle_smooth_scroll_mode <S-s>
 
@@ -44,13 +44,14 @@ goto_next_highlight gna
 goto_prev_highlight gNa
 
 zoom_in <C-=>
-zoom_out <C-0>
+fit_to_page_width_smart <C-0>
 
-toggle_mouse_drag_mode <space>
 toggle_select_highlight <C-a>
 toggle_custom_color <f5>
 
 none <f9>
 none <f6>
+
+enter_visual_mark_mode <S-z>
 
 command c
