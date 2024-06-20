@@ -2,6 +2,7 @@ pref_user.config
 custom_background_color    0.122 0.122 0.157
 custom_text_color    0.847 0.871 0.914 0.851
 status_bar_text_color   0.847 0.871 0.914 0.851
+page_separator_color    0.847 0.871 0.914 0.851
 ruler_padding 25.0
 #ruler_x_padding 10.0
 inverse_search_command "C:\Users\uliah\scoop\shims\nvim.exe" -r -g %1:%2
@@ -11,7 +12,7 @@ super_fast_search 1
 case_sensitive_search 0
 dark_mode_contrast 0.98
 wheel_zoom_on_cursor 1
-#shared_database_path D:\sciassets\shared.db
+page_separator_width 2
 ---
 keys_user.config
 move_left           l
@@ -30,10 +31,7 @@ open_prev_doc o
 open_document_embedded <S-o>
 open_document <C-S-o>
 
-embed_annotations <C-s>
-
-
-toggle_smooth_scroll_mode <S-s>
+embed_annotations <C-d>
 
 add_highlight <S-a>
 add_highlight_with_current_type a
@@ -46,8 +44,8 @@ goto_prev_highlight gNa
 zoom_in <C-=>
 fit_to_page_width_smart <C-0>
 
-toggle_select_highlight <C-a>
 toggle_custom_color <f5>
+toggle_smooth_scroll_mode <S-s>
 
 none <f9>
 none <f6>
