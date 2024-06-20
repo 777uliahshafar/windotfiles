@@ -110,7 +110,8 @@ treechildren {
   border-bottom: 1px solid #1d1d1d !important;
 }
 .virtualized-table:not(:focus) .row.selected {
-  background: #7e7e7e !important;
+  background: #434c5e !important;
+  color: #f8f8f2 !important;
   border: 0 !important;
   border-bottom: 1px solid #1d1d1d !important;
 }
