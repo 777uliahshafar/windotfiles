@@ -1,0 +1,36 @@
+body {
+  background: #232326 !important;
+}
+h1,
+h2,
+h3,
+p {
+  color: #f8f8f2 !important;
+}
+
+pre {
+  background: dimgray !important;
+  color: #f1f1f1;
+}
+.citation.selected,
+.citation:hover {
+  background-color: dimgray;
+}
+.toolbar {
+  background: #f1f1f1 !important;
+}
+.toolbar-button {
+  width: 28px;
+  height: 28px;
+  color: #1d2021 !important;
+}
+.toolbar-button:hover {
+  background-color: dimgray;
+  color: white !important;
+}
+
+.toolbar-button:active,
+.toolbar-button.active {
+  background-color: dimgray;
+  color: white !important;
+}
