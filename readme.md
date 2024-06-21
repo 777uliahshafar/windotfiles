@@ -65,6 +65,12 @@
 abstract,file,language
 ```
 6. Zotero dark theme: go to `C:\Users\User_name\AppData\Roaming\Zotero\Zotero\Profiles\user_profile.default\` → Create folder `chrome` → paste `userChrome.css`
+6. Dark theme in the Note Editor :
+- Go to Preferences -> Advanced -> Config Editor
+- Select "I accept the risks!"
+- Search extensions.zotero.note.css and double-click it
+- Insert the string in the `noteEditor.css` file
+- Click "OK" or close the dialog box
 6. Renaming propertis zotfile : {%t-}{%a-}{%y}
 6. Cimbali/pympress (dual-head presentation of PDF slides) like SplitShow.`winget install pympress`
 7. Add some custom packages of latex to TEXMF root directory, such as [helpers4ht](https://github.com/michal-h21/helpers4ht).
