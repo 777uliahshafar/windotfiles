@@ -5,10 +5,13 @@
 }
 
 /*change background color and text color of zotero toolbar and menubar*/
-#zotero-tb,
-#zotero-toolbar,
 #navigator-toolbox,
 #tab-bar-container {
+  background: #f8f8f2 !important;
+  color: black !important;
+}
+#zotero-tb,
+#zotero-toolbar {
   background: #2e3441 !important;
   color: #f8f8f2 !important;
 }
@@ -18,7 +21,7 @@
 
 /*change color of menu items to white*/
 #navigator-toolbox menu {
-  color: #f8f8f2 !important;
+  color: black !important;
 }
 
 /*change color of menu items in drop down menus back to black*/
@@ -106,12 +109,12 @@ treechildren {
 }
 .virtualized-table .row.selected {
   background: #434c5e !important;
+  color: #f8f8f2 !important;
   border: 0 !important;
   border-bottom: 1px solid #1d1d1d !important;
 }
 .virtualized-table:not(:focus) .row.selected {
   background: #434c5e !important;
-  color: #f8f8f2 !important;
   border: 0 !important;
   border-bottom: 1px solid #1d1d1d !important;
 }
@@ -290,7 +293,6 @@ treechildren {
 
 /*Change color of fields in item pane (clicky items) when hovering */
 #zotero-item-pane-content .zotero-clicky:hover {
-  /* color: black !important; */
   border-radius: 0px !important;
   color: #f8f8f2 !important;
   background: #434c5e !important;
@@ -506,63 +508,16 @@ prefwindow .chromeclass-toolbar {
 /*about dialog*/
 #aboutcontent {
   background: #474749 !important;
-  color: white !important;
+  color: #323234 !important;
   padding: 10px;
 }
 
 #version {
-  color: white !important;
+  color: #323234 !important;
 }
 
 /*advanced search dialog*/
 #zotero-advanced-search-dialog #zotero-search-box-controls {
   color: black !important;
   background: #7e7e7e !important;
-}
-
-/*Note editor - ongoing*/
-#zotero-note-editor linksbox {
-  background-color: #474749 !important;
-  color: #f8f8f2 !important;
-}
-
-#zotero-note-window h1 {
-  color: #f8f8f2;
-  font-size: 1.6em;
-  padding-bottom: none;
-}
-
-#zotero-note-window h2 {
-  color: #f8f8f2;
-  font-size: 1.4em;
-  font-weight: bold;
-  padding-bottom: none;
-  border-bottom: none;
-}
-
-#zotero-note-window h3 {
-  color: #f8f8f2;
-  font-size: 1.2em;
-}
-
-#zotero-note-window p {
-  text-indent: 1.75em;
-}
-
-#zotero-note-window ul,
-ol {
-  padding-left: 1.75em;
-}
-
-#zotero-note-window blockquote {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  padding-left: 1.55em;
-  border-left: 3px solid darkgrey;
-  color: white (255, 248, 248);
-}
-
-#zotero-note-window blockquote p {
-  text-indent: 0;
 }
