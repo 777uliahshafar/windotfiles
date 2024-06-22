@@ -1,11 +1,48 @@
 body {
   background: #232326 !important;
+  max-width: 35em;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 h1,
 h2,
 h3,
 p {
   color: #f8f8f2 !important;
+}
+h1 {
+  font-size: 1.6em;
+  padding-bottom: none;
+}
+h2 {
+  font-size: 1.4em;
+  font-weight: bold;
+  padding-bottom: none;
+  border-bottom: none;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+p {
+  text-indent: 1.75em;
+}
+ul,
+ol {
+  padding-left: 1.75em;
+}
+
+blockquote {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-left: 1.55em;
+  border-left: 3px solid darkgrey;
+  color: white (255, 248, 248);
+}
+blockquote p {
+  text-indent: 0;
 }
 
 pre {
