@@ -3,7 +3,7 @@ custom_background_color    0.122 0.122 0.157
 custom_text_color    0.847 0.871 0.914 0.851
 status_bar_text_color   0.847 0.871 0.914 0.851
 page_separator_color    0.847 0.871 0.914 0.851
-ruler_padding 25.0
+ruler_padding 18.0
 #ruler_x_padding 10.0
 inverse_search_command "C:\Users\uliah\scoop\shims\nvim.exe" -r -g %1:%2
 font_size 18
@@ -17,7 +17,7 @@ page_separator_width 2
 keys_user.config
 move_left           l
 move_right          h
-goto_left_smart    <S-h>
+goto_left_smart    <S-z>
 goto_right_smart    <S-l>
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 
@@ -47,9 +47,12 @@ fit_to_page_width_smart <C-0>
 toggle_custom_color <f5>
 toggle_smooth_scroll_mode <S-s>
 
-none <f9>
-none <f6>
+unbound <f9>
+unbound <f6>
+unbound ]]
 
-enter_visual_mark_mode <S-z>
+enter_visual_mark_mode [[
+
+overview_definition <S-l>
 
 command c
