@@ -28,7 +28,7 @@ fit_to_page_width_smart;zoom_in_cursor;zoom_in_cursor;zoom_in_cursor <f3>
 toggle_dark_mode <A-r>
 
 open_prev_doc o
-open_document_embedded <S-o>
+open_document_embedded_from_current_path <S-o>
 open_document <C-S-o>
 
 embed_annotations <C-d>
