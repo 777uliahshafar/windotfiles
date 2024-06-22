@@ -21,9 +21,9 @@ goto_left_smart    <S-z>
 goto_right_smart    <S-l>
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 
-toggle_visual_scroll <f1>
+toggle_visual_scroll <f3>
 toggle_mouse_drag_mode <f2>
-fit_to_page_width_smart;zoom_in_cursor;zoom_in_cursor;zoom_in_cursor <f3>
+fit_to_page_width_smart;zoom_in_cursor;zoom_in_cursor;zoom_in_cursor <f1>
 
 toggle_dark_mode <A-r>
 
@@ -50,6 +50,7 @@ toggle_smooth_scroll_mode <S-s>
 unbound <f9>
 unbound <f6>
 unbound ]]
+unbound =
 
 enter_visual_mark_mode [[
 
