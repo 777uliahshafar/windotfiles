@@ -5,23 +5,26 @@
 }
 
 /*change background color and text color of zotero toolbar and menubar*/
-#navigator-toolbox,
-#tab-bar-container {
-  background: #f8f8f2 !important;
+
+#zotero-toolbar {
+  background: #f1f1f1 !important;
   color: black !important;
 }
-#zotero-tb,
+
 #zotero-toolbar {
+  border-bottom: 1px solid #ccc !important;
+}
+
+#navigator-toolbox,
+#tab-bar-container,
+#zotero-tb {
   background: #2e3441 !important;
   color: #f8f8f2 !important;
-}
-#zotero-toolbar {
-  border-bottom: 1px solid #1d1d1d !important;
 }
 
 /*change color of menu items to white*/
 #navigator-toolbox menu {
-  color: black !important;
+  color: #f8f8f2 !important;
 }
 
 /*change color of menu items in drop down menus back to black*/
@@ -40,6 +43,9 @@
   color: unset !important;
 }
 
+#navigator-toolbox menu:last-child {
+  color: unset !important;
+}
 /*Change color of tags selector below collections tree*/
 #zotero-tag-selector-container {
   border-bottom: 1px solid #1d1d1d !important;
@@ -82,9 +88,9 @@
 
 #zotero-tb-search {
   -moz-appearance: none !important;
-  background-color: #474749 !important;
-  color: white !important;
-  border: 1px solid #1d1d1d !important;
+  background-color: white !important;
+  color: #474749 !important;
+  border: 1px solid #f1f1f1 !important;
 }
 
 #zotero-pane {
