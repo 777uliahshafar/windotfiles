@@ -1,6 +1,6 @@
 pref_user.config
 custom_background_color    0.122 0.122 0.147
-custom_text_color    0.847 0.871 0.854 0.651
+custom_text_color    0.847 0.871 0.854 0.851
 status_bar_text_color   0.847 0.871 0.914 0.851
 page_separator_color    0.847 0.871 0.914 0.851
 ruler_padding 18.0
