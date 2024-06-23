@@ -5,14 +5,19 @@ custom_text_color     0.97255 0.97255 0.94902
 visual_mark_color    0.15686 0.16471 0.21176 0.8
 status_bar_text_color   0.847 0.871 0.914 0.851
 page_separator_color    0.847 0.871 0.914 0.851
-ruler_padding 18.0
-#ruler_x_padding 10.0
+link_highlight_color    0.38431 0.44706 0.64314
+synctex_highlight_color    0.31373 0.98039 0.48235
+ruler_padding 32.0
+ruler_x_padding 5.0
+visual_mark_next_page_fraction	0.75
+visual_mark_next_page_threshold	0.25
+move_screen_ratio 0.5
 inverse_search_command "C:\Users\uliah\scoop\shims\nvim.exe" -r -g %1:%2
 font_size 18
 status_bar_font_size 21
 super_fast_search 1
 case_sensitive_search 0
-dark_mode_contrast 0.98
+dark_mode_contrast 0.96
 wheel_zoom_on_cursor 1
 page_separator_width 2
 ---
