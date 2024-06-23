@@ -1,7 +1,7 @@
 pref_user.config
 startup_commands    toggle_custom_color
-custom_background_color    0.122 0.122 0.147
-custom_text_color    0.847 0.871 0.942 0.851
+custom_background_color    0.122 0.122 0.157
+custom_text_color     0.97255 0.97255 0.94902
 status_bar_text_color   0.847 0.871 0.914 0.851
 page_separator_color    0.847 0.871 0.914 0.851
 ruler_padding 18.0
