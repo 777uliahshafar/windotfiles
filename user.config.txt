@@ -48,7 +48,6 @@ goto_next_highlight gna
 goto_prev_highlight gNa
 
 zoom_in_cursor <C-=>
-zoom_out_cursor <C-0>
 
 toggle_custom_color <f5>
 toggle_smooth_scroll_mode <S-s>
