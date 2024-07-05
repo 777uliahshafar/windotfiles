@@ -7,6 +7,7 @@ status_bar_text_color   0.847 0.871 0.914 0.851
 page_separator_color    0.847 0.871 0.914 0.851
 link_highlight_color    0.38431 0.44706 0.64314
 synctex_highlight_color    0.31373 0.98039 0.48235
+highlight_color_a    1.00000 0.72157 0.42353
 ruler_padding 32.0
 ruler_x_padding 5.0
 visual_mark_next_page_fraction	0.75
