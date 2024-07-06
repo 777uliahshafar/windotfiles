@@ -1,0 +1,34 @@
+<h1><span>${topItem.getField('title')}</span></h1>\n
+<hr/>
+</span></h1>\n <h2 style="color: #F1F8E9;">💡 Meta Data
+</h2>
+<table>
+    <tr>
+        <th><p style="text-align: right">Title </p></th>
+        <td > ${topItem.getField('title')}</td>
+    </tr>
+    <tr>
+    <th><p style="text-align: right">Journal </p></th>
+    <td> ${topItem.getField('publicationTitle')}&nbsp;<em>(${topItem.getField('DOI')})</em>
+    </td>
+    </tr>
+    <tr>
+        <th><p style="text-align: right">Authors </p></th>
+        <td> ${topItem.getField('authors')}</td>
+    </tr>
+    <th><p style="text-align: right">Pub.date </p></th>
+    <td> ${topItem.getField('date')}</td>
+</table>
+</span></h1>\n <h2>📜 Background & Aim</h2>
+<hr/>
+<p></p>
+</span></h1>\n <h2>&#x1F4CA Detail</h2>
+<hr/>
+<p></p>
+</span></h1>\n <h2>🚩 Sum</h2>
+<hr/>
+<p></p>
+
+</span></h1>\n <h2>📌 Thought & Quest</h2>
+<hr/>
+<p></p>
