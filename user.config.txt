@@ -31,6 +31,7 @@ move_right          h
 goto_left_smart    <S-z>
 goto_right_smart    <S-l>
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
+move_visual_mark_down;move_visual_mark_down;move_visual_mark_down <space>
 
 toggle_custom_color <f5>
 fit_to_page_width_smart;zoom_in_cursor;zoom_in_cursor;zoom_in_cursor <f2>
