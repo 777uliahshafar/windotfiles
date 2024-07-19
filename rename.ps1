@@ -1,6 +1,7 @@
 $path = "."
 $fileTypes = ".*.jpg|.*.bmp|.*.png|.*.gif|.*.tif"
 $files = Get-ChildItem -exclude "bg.jpg", "chamaeleon_hochformat.png", "guide.png", "kopfhoerer.png" -Recurse | Where-Object FullName -Match ".*$path*"
+//script won't work without the existing of exclusion files.
 $counter = 1
 $dir = ""
 
