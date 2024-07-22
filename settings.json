@@ -4,7 +4,7 @@
   "actions": [
      {
       "command": "toggleFullscreen",
-      "keys": "alt+f"
+      "keys": "alt+space"
     },
     {
       "command": "toggleAlwaysOnTop",
