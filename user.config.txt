@@ -1,5 +1,5 @@
 pref_user.config
-startup_commands    toggle_custom_color;toggle_visual_scroll
+startup_commands    toggle_custom_color;toggle_visual_scroll;
 custom_background_color    0.122 0.122 0.157
 custom_text_color     0.97255 0.97255 0.94902
 visual_mark_color    0.15686 0.16471 0.21176 0.8
@@ -24,6 +24,7 @@ case_sensitive_search 0
 dark_mode_contrast 0.96
 wheel_zoom_on_cursor 1
 page_separator_width 2
+smooth_scroll_speed 6
 ---
 keys_user.config
 move_left           l
