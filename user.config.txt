@@ -57,7 +57,7 @@ goto_prev_highlight gNa
 zoom_in_cursor <C-=>
 unbound =
 
-toggle_smooth_scroll_mode <S-s>
+toggle_smooth_scroll_mode <C-<space>>
 
 unbound <f9>
 unbound <f6>
