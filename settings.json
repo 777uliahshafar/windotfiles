@@ -16,13 +16,6 @@
     },
     {
       "command": {
-        "action": "globalSummon",
-        "toggleVisibility": false
-      },
-      "keys": "alt+`"
-    },
-    {
-      "command": {
         "action": "splitPane",
         "split": "down"
       },
