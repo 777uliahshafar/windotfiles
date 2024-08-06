@@ -1,7 +1,7 @@
 # Function to Aliases current direcotry
-function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
 function getchildtex { dir .\* -include ('*.tex', '*.bib') -recurse }
-function obsidian
+function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
+function obsidiansearch
 {
     nvim -c "ObsidianSearch"
 }
@@ -12,33 +12,61 @@ function nvimalias
     & 'nvim' '.\aliases.ps1'
 }
 
-function vimmyhelp
+function obsidian
 {
-    cd '~/vim-myhelp/doc'
-    & 'nvim' '.\mycheat.txt'
+    cd '~/obs'
+    & 'nvim' '.\1714384690-MAIN.md'
+}
+
+function obsprop
+{
+    cd '~/obs'
+    & 'nvim' '.\1709363398-JGCC.md'
+}
+
+function obseng
+{
+    cd '~/obs'
+    & 'nvim' '.\1719618861-VQGL.md'
 }
 
 
-function statistika
+
+
+function element
 {
-    cd 'D:\knstatistika'
-    & 'nvim' '.\main.tex'
+    cd 'D:\element'
+    & 'nvim' '.\element.tex'
 }
 
-function interviewbpi
+function proposalstudy
 {
-    cd 'D:\interviewbpi'
-    & 'nvim' '.\interview.tex'
+    cd 'D:\phdprop\'
+    & 'nvim' '.\subfiles\aasprop.tex'
 }
 
-function microteaching
+function essay
 {
-    cd 'D:\microteach'
-    & 'nvim' '.\microteach.tex'
+    cd 'D:\essay\subfiles'
 }
+
+function aasessay
+{
+    cd 'D:\essay\subfiles\'
+    & 'nvim' '.\aasessay.tex'
+}
+
+function karakter
+{
+    cd 'D:\karakter\'
+    & 'nvim' '.\karakter.tex'
+}
+
+
 
 # Alias
 Set-Alias v nvim
+Set-Alias vo obsidian
 Set-Alias ll getchildtex
 Set-Alias g git
 Set-Alias grep findstr
@@ -47,11 +75,15 @@ Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nvc vimmyhelp
-Set-Alias ww obsidian
 
 # Set-Alias phd phdjournal
-Set-Alias sta statistika
+Set-Alias st statistika
 Set-Alias int interviewbpi
 
-Set-Alias mt microteaching
-
+Set-Alias el element
+Set-Alias pr proposalstudy
+Set-Alias es essay
+Set-Alias as aasessay
+Set-Alias ka karakter
+Set-Alias vp obsprop
+Set-Alias ve obseng
