@@ -65,6 +65,7 @@ function karakter
 
 
 # Alias
+Set-Alias al alias
 Set-Alias v nvim
 Set-Alias vo obsidian
 Set-Alias ll getchildtex
