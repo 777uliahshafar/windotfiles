@@ -24,7 +24,8 @@ case_sensitive_search 0
 dark_mode_contrast 0.96
 wheel_zoom_on_cursor 1
 page_separator_width 2
-smooth_scroll_speed 6
+smooth_scroll_speed 8
+smooth_scroll drag 3500
 ---
 keys_user.config
 move_left           l
