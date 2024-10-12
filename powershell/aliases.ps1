@@ -67,7 +67,7 @@ function karakter
 # Alias
 Set-Alias al alias
 Set-Alias v nvim
-Set-Alias vo obsidian
+Set-Alias o obsidian
 Set-Alias ll getchildtex
 Set-Alias g git
 Set-Alias grep findstr
