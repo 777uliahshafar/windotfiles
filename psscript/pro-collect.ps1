@@ -1,8 +1,10 @@
 $source = "D:\projectfiles\*" # it should include \*
 $destination = "D:\projectfiles\assets"
-$format = '*.txt', '*.docx', '*.jpg', '*.png'
+# $format = '*.txt', '*.docx', '*.jpg', '*.png'
+$rawFiles = '*.jpg', '*.png','*.jpeg','*.tif','*.tiff','*.bmp','*.eps','*.heic','*.raw','*.psb','*.psdc','*.webp'
+
 Write-Host "Moving all files in '$($source)' to '$($destination)'"
-Get-ChildItem -Path $source -File -Include $format | ForEach-Object {
+Get-ChildItem -Path $source -File -Include $rawFiles | ForEach-Object {
     $destPath = Join-Path -Path $destination -ChildPath $_.Name
     if (Test-Path $destPath) {
         $counter = 1
@@ -11,7 +13,7 @@ Get-ChildItem -Path $source -File -Include $format | ForEach-Object {
             $counter++
         }
     }
-    Move-Item -Path $_.FullName -Destination $destPath
+    Move-Item -Path $_.FullName -Destination $destPath -whatif
 }
 
 # run to stop script: Unregister-Event FileCreated
@@ -23,9 +25,9 @@ $fsw = New-Object IO.FileSystemWatcher $folder, $filter -Property @{IncludeSubdi
 Register-ObjectEvent $fsw Created -SourceIdentifier FileCreated -Action {
 $source = "D:\projectfiles\*" # it should include \*
 $destination = "D:\projectfiles\assets"
-$format = '*.txt', '*.docx', '*.jpg', '*.png'
+$rawFiles = '*.txt', '*.docx', '*.jpg', '*.png'
 Write-Host "Moving all files in '$($source)' to '$($destination)'"
-Get-ChildItem -Path $source -File -Include $format | ForEach-Object {
+Get-ChildItem -Path $source -File -Include $rawFiles | ForEach-Object {
     $destPath = Join-Path -Path $destination -ChildPath $_.Name
     if (Test-Path $destPath) {
         $counter = 1
@@ -37,3 +39,4 @@ Get-ChildItem -Path $source -File -Include $format | ForEach-Object {
     Move-Item -Path $_.FullName -Destination $destPath
 }
 }
+
