@@ -18,6 +18,11 @@ function obsidian
     & 'nvim' '.\1714384690-MAIN.md'
 }
 
+function cropbottomsideimg
+{
+magick *.jpg  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].jpg' &&  magick *.png  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].png' &&  magick *.jpeg  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].jpeg' &&  magick *.tif  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].tif' &&  magick *.tiff  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].tiff' &&  magick *.eps  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].eps' &&  magick *.heic  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].heic' &&  magick *.webp  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].webp' &&  magick *.raw  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].raw'
+}
+
 function obsprop
 {
     cd '~/obs'
@@ -88,3 +93,4 @@ Set-Alias as aasessay
 Set-Alias ka karakter
 Set-Alias vp obsprop
 Set-Alias ve obseng
+Set-Alias cropbot cropbottomsideimg
