@@ -1,6 +1,6 @@
-$path = "C:\Users\uliah\Documents\yos\"
+. ./variable.ps1
 
-cd ${path}
+cd ${rmpath}
 mkdir ./crop
 magick mogrify -gravity South -chop 0x72 -rotate "+90>" -path ./crop *.jpg
 

@@ -1,8 +1,4 @@
-$path = "D:\projectfiles\"
-$rawFiles = ".*.jpg|.*.png|.*.jpeg|.*.tif|.*.tiff|.*.bmp|.*.eps|.*.heic|.*.raw|.*.psb|.*.psdc|.*.webp"
-$revFiles = ".*.pln|.*.pla|.*.blend|.*.tpl|.*.3dm|.*.3ds|.*.ai|.*.ind|.*.indb|.*.inx|.*.idml|.*.pmd|.*.psd|.*.psb|.*.dwg|.*.dgn|.*.dwf|.*.dxf|.*.skp|.*.rvt|.*.rfa|.*.rft|.*.rte|.*.doc|.*.docx|.*.xlsx|.*.pptx|.*.txt"
-$verFiles = ".*.pdf"
-$files = Get-ChildItem -Path $path -Exclude *raw*, *rev*, *ver*
+. ./variable.ps1
 
 foreach ($file in $files) {
     $name = $file.Name
