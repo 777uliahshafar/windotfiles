@@ -13,7 +13,7 @@ Get-ChildItem -Path $source -File -Include $rawFiles | ForEach-Object {
             $counter++
         }
     }
-    Move-Item -Path $_.FullName -Destination $destPath -whatif
+    Move-Item -Path $_.FullName -Destination $destPath
 }
 
 # run to stop script: Unregister-Event FileCreated
