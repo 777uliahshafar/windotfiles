@@ -10,7 +10,6 @@ $verFiles = ".*.pdf"
 # pro-collect moving certain file script
 $source = "D:\adil\*" # it should include \*
 $destination = "D:\adil\assets\"
-$folder = 'D:\adil\' # Enter the root path you want to monitor.
 $transferFiles = '*.jpg', '*.png','*.jpeg','*.tif','*.tiff','*.bmp','*.eps','*.heic','*.raw','*.psb','*.psdc','*.webp'
 
 # assets-rename script
