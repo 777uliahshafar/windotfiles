@@ -5,7 +5,7 @@ $CollectShortcutFile = "${PSScriptRoot}\pro-collect.lnk"
 $ArgumentsToCollectSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\pro-collect.ps1"
 $RenameShortcutFile = "${PSScriptRoot}\pro-rename.lnk"
 $ArgumentsToRenameSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\pro-rename.ps1"
-$AssShortcutFile = "${PSScriptRoot}\ass-rename.lnk"
+$AssShortcutFile = "${PSScriptRoot}\assets\ass-rename.lnk"
 $ArgumentsToAssSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\ass-rename.ps1"
 
 $WScriptShell = New-Object -ComObject WScript.Shell
