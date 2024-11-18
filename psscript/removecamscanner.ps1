@@ -1,4 +1,4 @@
-. ./variable.ps1
+. .\"variableonlytweakme.ps1"
 
 cd ${rmpath}
 mkdir ./crop

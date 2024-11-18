@@ -1,4 +1,4 @@
-. ./variable.ps1
+. (Join-Path $PSScriptRoot Variable.ps1)
 
 $files = Get-ChildItem -Path $asspath -Exclude *raw*, *rev*, *ver*
 
