@@ -8,5 +8,5 @@ Write-Host -NoNewLine 'Press any key to generate pdf...';
 $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
 
 cd crop
-magick *.jpg -page A4 -strip -kuwahara "1.5" -modulate "100,90" -level "5,92%,0.74" -set filename:f "%t-paper" '%[filename:f].pdf'
+magick *.jpg -page A4 -strip -kuwahara "1.5" -modulate "100,90" -level "5,92%,0.74" -set filename:f "%t-combined" '%[filename:f].pdf'
 
