@@ -1,7 +1,7 @@
 . (Join-Path $PSScriptRoot Variable.ps1)
 
 Write-Host "Moving raw files in '$($source)' to '$($destination)'"
-Get-ChildItem -Path $source -File -Include $transferFiles -Exclude *rev*, *ver* | ForEach-Object {
+Get-ChildItem -Path $source -File -Include $transferFiles *rev* -Exclude *raw*, *ver* | ForEach-Object {
     $destPath = Join-Path -Path $destination -ChildPath $_.Name
     if (Test-Path $destPath) {
         $counter = 1
@@ -10,5 +10,5 @@ Get-ChildItem -Path $source -File -Include $transferFiles -Exclude *rev*, *ver* 
             $counter++
         }
     }
-    Move-Item -Path $_.FullName -Destination $destPath
+    Copy-Item -Path $_.FullName -Destination $destPath
 }
