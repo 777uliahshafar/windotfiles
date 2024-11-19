@@ -7,6 +7,8 @@ $RenameShortcutFile = "${PSScriptRoot}\pro-rename.lnk"
 $ArgumentsToRenameSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\pro-rename.ps1"
 $AssShortcutFile = "${PSScriptRoot}\assets\ass-rename.lnk"
 $ArgumentsToAssSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\ass-rename.ps1"
+$StampShortcutFile = "${PSScriptRoot}\assets\pro-watermark.lnk"
+$ArgumentsToStampSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\pro-watermark.ps1"
 
 $WScriptShell = New-Object -ComObject WScript.Shell
 $shortcut = $WScriptShell.CreateShortcut($CollectShortcutFile)
@@ -27,4 +29,12 @@ $shortcut = $WScriptShell.CreateShortcut($AssShortcutFile)
 
 $Shortcut.TargetPath = $ShortcutTarget
 $Shortcut.Arguments = $ArgumentsToAssSourceExe
+$Shortcut.Save()
+
+
+$WScriptShell = New-Object -ComObject WScript.Shell
+$shortcut = $WScriptShell.CreateShortcut($StampShortcutFile)
+
+$Shortcut.TargetPath = $ShortcutTarget
+$Shortcut.Arguments = $ArgumentsToStampSourceExe
 $Shortcut.Save()
