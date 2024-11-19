@@ -19,22 +19,18 @@ $Shortcut.Arguments = $ArgumentsToCollectSourceExe
 $Shortcut.Save()
 
 $shortcut = $WScriptShell.CreateShortcut($RenameShortcutFile)
-
 $Shortcut.TargetPath = $ShortcutTarget
 $shortcut.WindowStyle = $style
 $Shortcut.Arguments = $ArgumentsToRenameSourceExe
 $Shortcut.Save()
 
 $shortcut = $WScriptShell.CreateShortcut($AssShortcutFile)
-
 $Shortcut.TargetPath = $ShortcutTarget
 $shortcut.WindowStyle = $style
 $Shortcut.Arguments = $ArgumentsToAssSourceExe
 $Shortcut.Save()
 
-
 $shortcut = $WScriptShell.CreateShortcut($StampShortcutFile)
-
 $Shortcut.TargetPath = $ShortcutTarget
 $shortcut.WindowStyle = $style
 $Shortcut.Arguments = $ArgumentsToStampSourceExe
