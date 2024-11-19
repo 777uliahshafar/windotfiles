@@ -9,6 +9,7 @@ $verFiles = ".*.pdf"
 
 # pro-backup moving certain file script
 $source = "D:\adil\*" # it should include \*
+$mksource = "D:\adil\" # it should include \*
 $destination = "D:\adil\backup\"
 $transferFiles = '*.pln','*.pla','*.blend','*.tpl','*.3dm','*.3ds','*.ai','*.ind','*.indb','*.inx','*.idml','*.pmd','*.psd','*.psb','*.dwg','*.dgn','*.dwf','*.dxf','*.skp','*.rvt','*.rfa','*.rft','*.rte','*.doc','*.docx','*.xlsx','*.pptx','*.txt'
 
