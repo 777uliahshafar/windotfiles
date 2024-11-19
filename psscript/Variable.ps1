@@ -18,5 +18,5 @@ $assFiles = ".*.jpg|.*.png|.*.jpeg|.*.tif|.*.tiff|.*.bmp|.*.eps|.*.heic|.*.raw|.
 
 
 # addwatermark script
-$stamppath = "C:\Users\uliah\documents\yos\crop"
-$includestamp = ".*.jpg| .*.png"
+$stamppath = "D:\adil"
+$stampcheckFile = "$PSScriptRoot\watermark\trans_stamp3.png"
