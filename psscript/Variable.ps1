@@ -15,7 +15,7 @@ $transferFiles = '*.pln','*.pla','*.blend','*.tpl','*.3dm','*.3ds','*.ai','*.ind
 
 
 # pro-assets script
-$asspath = "C:\Users\uliah\Documents\yos\crop"
+$asspath = "D:\adil"
 $assFiles = ".*.jpg|.*.png|.*.jpeg|.*.tif|.*.tiff|.*.bmp|.*.eps|.*.heic|.*.raw|.*.psb|.*.psdc|.*.webp|.*.pln|.*.pla|.*.blend|.*.tpl|.*.3dm|.*.3ds|.*.ai|.*.ind|.*.indb|.*.inx|.*.idml|.*.pmd|.*.psd|.*.psb|.*.dwg|.*.dgn|.*.dwf|.*.dxf|.*.skp|.*.rvt|.*.rfa|.*.rft|.*.rte|.*.doc|.*.docx|.*.xlsx|.*.pptx|.*.txt|.*.pdf"
 
 
