@@ -1,6 +1,12 @@
 # Function to Aliases current direcotry
 function getchildtex { dir .\* -include ('*.tex', '*.bib') -recurse }
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
+
+function lstex {
+    Get-ChildItem -Path "D:\","E:\" -Filter "*.tex" -recurse `
+          | Select-Object -ExpandProperty Directory | Get-Unique
+}
+
 function obsidiansearch
 {
     nvim -c "ObsidianSearch"
@@ -16,11 +22,6 @@ function obsidian
 {
     cd '~/obs'
     & 'nvim' '.\1714384690-MAIN.md'
-}
-
-function cropbottomsideimg
-{
-magick *.jpg  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].jpg' &&  magick *.png  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].png' &&  magick *.jpeg  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].jpeg' &&  magick *.tif  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].tif' &&  magick *.tiff  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].tiff' &&  magick *.eps  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].eps' &&  magick *.heic  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].heic' &&  magick *.webp  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].webp' &&  magick *.raw  -gravity South -chop 0x72 -set filename:f "%t-chop" '%[filename:f].raw'
 }
 
 function obsprop
@@ -72,6 +73,7 @@ function karakter
 # Alias
 Set-Alias al alias
 Set-Alias v nvim
+Set-Alias lt lstex
 Set-Alias o obsidian
 Set-Alias ll getchildtex
 Set-Alias g git
@@ -93,4 +95,4 @@ Set-Alias as aasessay
 Set-Alias ka karakter
 Set-Alias vp obsprop
 Set-Alias ve obseng
-Set-Alias cropbot cropbottomsideimg
+
