@@ -1,4 +1,7 @@
-$files = Get-ChildItem -Path "D:\lecture\bkd-2024-1" -Exclude *bkd*.pdf, *bkd*.jpg, *bkd*.png, *bkd*.jpeg
+$bkdFiles = ".*.pdf|.*.jpg|.*.png|.*.jpeg"
+$bkdpath = "D:\lecture\bkd-2024-1"
+$files = Get-ChildItem -Path $bkdpath -Exclude *bkd*.pdf, *bkd*.jpg, *bkd*.jpeg, *bkd*.png
+
 foreach ($file in $files) {
     $name = $file.Name
     $fullname = $file.FullName
@@ -6,10 +9,8 @@ foreach ($file in $files) {
     $dir = $file.Directory.Name
     $CapitalizedName = (Get-Culture).textinfo.tolower($file.BaseName.tolower()) -replace '\W','-'
     $base = $CapitalizedName
-    $counter = 1
 
-    if ($name -Match ".*.pdf|.*.jpg|.*.png|.*.jpeg" ) {
+    if ($name -Match $bkdFiles  ) {
         Rename-Item $fullname "$base-$dir$extension"
-    $counter++
     }
 }
