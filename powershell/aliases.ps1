@@ -3,8 +3,7 @@ function getchildtex { dir .\* -include ('*.tex', '*.bib') -recurse }
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
 
 function lstex {
-    Get-ChildItem -Path "D:\","E:\" -Filter "*.tex" -recurse `
-          | Select-Object -ExpandProperty Directory | Get-Unique
+    Get-ChildItem -Path "D:\","E:\" -Filter "*.tex" -recurse | Select-Object -ExpandProperty Directory | Get-Unique
 }
 
 function obsidiansearch
