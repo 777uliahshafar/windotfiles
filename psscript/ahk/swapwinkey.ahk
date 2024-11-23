@@ -72,9 +72,6 @@ else if (Add = 111) {
 	else if (SizeCycle = 1) {
 		MoveWindow(0, 66.6666) ;;; Left 2/3
 	}
-	else if (SizeCycle = 2) {
-		MoveWindow(33.3333, 33.3333) ;;; Middle 1/3
-	}
 	else if (SizeCycle = 3) {
 		MoveWindow(33.3333, 66.6666) ;;; Right 2/3
 	}
@@ -101,6 +98,15 @@ MoveWindow(XP, WP) {
 	WinRestore, %WinTitle%
 	WinMove, %WinTitle%,, %XNew%, %TopNew%, %WNew%, %HNew%
 }
+#Left::
+	; Windows key + Left arrow ; Cycle left
+	MoveCycle(-1)
+return
+
+#Right::
+	; Windows key + Right arrow ; Cycle right
+	MoveCycle(1)
+return
 
 
 ^Right::
