@@ -17,6 +17,12 @@ function nvimalias
     & 'nvim' '.\aliases.ps1'
 }
 
+function nvimmyhelp
+{
+    cd '~/vim-myhelp/doc/'
+    & 'nvim' '.\mycheat.txt'
+}
+
 function obsidian
 {
     cd '~/obs'
@@ -81,7 +87,7 @@ Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
 Set-Alias na nvimalias
-Set-Alias nvc vimmyhelp
+Set-Alias nh nvimmyhelp
 
 # Set-Alias phd phdjournal
 Set-Alias st statistika
