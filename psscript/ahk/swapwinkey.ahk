@@ -137,26 +137,26 @@ MoveWindow(XP, WP) {
 	WinRestore, %WinTitle%
 	WinMove, %WinTitle%,, %XNew%, %TopNew%, %WNew%, %HNew%
 }
-#Left::
+#Up::
 	; Windows key + Left arrow ; Cycle left
 	MoveCycle(-1)
 return
 
-#Right::
+#Down::
 	; Windows key + Right arrow ; Cycle right
 	MoveCycle(1)
 return
 
 
-^Right::
+;^Right::
 	; CTRL + Windows key + Left arrow ; Force Left 2/3
-	MoveCycle(111)
-return
+	;MoveCycle(111)
+;return
 
-^Left::
+;^Left::
 	; CTRL + Windows key + Left arrow ; Force Left 2/3
-	MoveCycle(333)
-return
+	;MoveCycle(333)
+;return
 
 ^+Right::
 	; CTRL + Windows key + Left arrow ; Force Left 2/3
