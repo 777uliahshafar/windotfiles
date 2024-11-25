@@ -6,7 +6,7 @@ foreach ($file in $files) {
     $name = $file.Name
     $fullname = $file.FullName
     $extension = $file.Extension
-    $CapitalizedName = (Get-Culture).textinfo.tolower($file.BaseName.tolower()) -replace '\W,-','-'
+    $CapitalizedName = (Get-Culture).textinfo.tolower($file.BaseName.tolower()) -replace '\W','-' -replace '_','-' -replace '-','-'
     $base = $CapitalizedName
     $suf = "rw"
     $counter = 1

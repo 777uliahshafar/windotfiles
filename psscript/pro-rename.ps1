@@ -7,7 +7,7 @@ foreach ($file in $files) {
     $fullname = $file.FullName
     $extension = $file.Extension
     $dir = $file.Directory.Name
-    $CapitalizedName = (Get-Culture).textinfo.tolower($file.BaseName.tolower()) -replace '\W','-'
+    $CapitalizedName = (Get-Culture).textinfo.tolower($file.BaseName.tolower()) -replace '\W','-' -replace '_','-' -replace '-','-'
     $base = $CapitalizedName
     $suf = "REV"
     $counter = 1
@@ -24,7 +24,7 @@ foreach ($file in $files) {
     $fullname = $file.FullName
     $extension = $file.Extension
     $dir = $file.Directory.Name
-    $CapitalizedName = (Get-Culture).textinfo.tolower($file.BaseName.tolower()) -replace '\W','-'
+    $CapitalizedName = (Get-Culture).textinfo.tolower($file.BaseName.tolower()) -replace '\W','-' -replace '_','-' -replace '-','-'
     $base = $CapitalizedName
     $suf = "ver"
     $counter = 1

@@ -20,7 +20,7 @@ AltTab(){
         WinGetTitle, title, ahk_id %this_ID%
         If (title = "")
             continue
-        If (!IsWindow(WinExist("ahk_id" . this_ID))) 
+        If (!IsWindow(WinExist("ahk_id" . this_ID)))
             continue
         WinActivate, ahk_id %this_ID%, ,2
             break
@@ -54,7 +54,7 @@ FixedWindow(winTitle,XP, WP) {
 
 	; Get Taskbar height
 	WinGetPos,,, tbW, tbH, ahk_class Shell_TrayWnd
-	
+
 	; Calculate new position and size
 	XNew := (A_ScreenWidth * XP / 100)
 	WNew := (A_ScreenWidth * WP / 100)
@@ -72,7 +72,7 @@ AltWindow(winTitle,XP, WP) {
 
 	; Get Taskbar height
 	WinGetPos,,, tbW, tbH, ahk_class Shell_TrayWnd
-	
+
 	; Calculate new position and size
 	XNew := (A_ScreenWidth * XP / 100)
 	WNew := (A_ScreenWidth * WP / 100)
@@ -85,18 +85,18 @@ AltWindow(winTitle,XP, WP) {
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
-F9::
+^d::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
 FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
 Return
 
-F10::
+^f::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
 FixedWindow("ahk_exe sioyek.exe" , 34.4444, 66.66666)
 AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
 Return
 
-F8::
+^g::
 WinActivate, % chrome := "ahk_exe chrome.EXE"
 WinMaximize, %chrome%
 Return
