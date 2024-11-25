@@ -1,19 +1,15 @@
 pref_user.config
-startup_commands    toggle_custom_color;toggle_visual_scroll;
+startup_commands    toggle_custom_color;toggle_visual_scroll
 custom_background_color    0.122 0.122 0.157
-custom_text_color     0.97255 0.97255 0.94902
+custom_text_color     0.99255 0.98255 0.94902
 visual_mark_color    0.15686 0.16471 0.21176 0.8
 status_bar_text_color   0.847 0.871 0.914 0.851
 page_separator_color    0.847 0.871 0.914 0.851
 link_highlight_color    0.38431 0.44706 0.64314
 synctex_highlight_color    0.31373 0.98039 0.48235
-highlight_color_a    1.00000 0.72157 0.42353
-highlight_color_w    0.31373 0.98039 0.48235
-highlight_color_s    0.54510 0.91373 0.99216
-highlight_color_d    1.00000 0.47451 0.77647
-ruler_padding 32.0
+ruler_padding 25.0
 ruler_x_padding 5.0
-visual_mark_next_page_fraction	0.75
+visual_mark_next_page_fraction	0.65
 visual_mark_next_page_threshold	0.25
 move_screen_ratio 0.5
 inverse_search_command "C:\Users\uliah\scoop\shims\nvim.exe" -r -g %1:%2
@@ -26,6 +22,16 @@ wheel_zoom_on_cursor 1
 page_separator_width 2
 smooth_scroll_speed 8
 smooth_scroll drag 3500
+
+highlight_color_a 		0.94510 0.98039 0.54902
+highlight_color_q		0.31373 0.98039 0.48235
+highlight_color_z		0.54510 0.91373 0.99216
+highlight_color_w		1.00000 0.47451 0.77647
+highlight_color_s		0.74118 0.57647 0.97647
+highlight_color_x		1.00000 0.33333 0.33333
+highlight_color_e		0.94510 0.98039 0.54902
+highlight_color_d    0.31373 0.98039 0.48235
+highlight_color_c    0.54510 0.91373 0.99216
 ---
 keys_user.config
 move_left           l
