@@ -68,6 +68,23 @@ FixedWindow(winTitle,XP, WP) {
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
+AltWindow(winTitle,XP, WP) {
+
+	; Get Taskbar height
+	WinGetPos,,, tbW, tbH, ahk_class Shell_TrayWnd
+	
+	; Calculate new position and size
+	XNew := (A_ScreenWidth * XP / 100)
+	WNew := (A_ScreenWidth * WP / 100)
+	HNew := (A_ScreenHeight - tbH)
+	TopNew := 2
+	 If WinExist(winTitle) {
+	; MsgBox, %XNew% - %WNew% ; DEBUG
+	WinRestore, %WinTitle%
+	WinMove, %WinTitle%,, %XNew%, %TopNew%, %WNew%, %HNew%
+} Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
+}
+
 F9::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
 FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
@@ -76,9 +93,10 @@ Return
 F10::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
 FixedWindow("ahk_exe sioyek.exe" , 34.4444, 66.66666)
+AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
 Return
 
 F8::
-WinActivate, % ppt := "ahk_exe POWERPNT.EXE"
-WinMaximize, %ppt%
+WinActivate, % chrome := "ahk_exe chrome.EXE"
+WinMaximize, %chrome%
 Return
