@@ -33,7 +33,7 @@ move_right          h
 goto_bottom_of_page;goto_left   Z
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 move_visual_mark_down;move_visual_mark_down;move_visual_mark_down <space>
-move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>> 
+move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>>
 
 toggle_custom_color <f5>
 fit_to_page_width_smart  <f3>
@@ -64,6 +64,7 @@ unbound =
 
 unbound <f10>
 unbound <f9>
+unbound <f8>
 unbound <f6>
 unbound ]]
 
