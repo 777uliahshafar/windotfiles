@@ -2,7 +2,7 @@
 ; Windows Key and Alt Key Switch
 ; ************************
 Alt::LWin
-<#F4::!F4
+#F4::!F4
 
 
 LWin::Alt
