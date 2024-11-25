@@ -85,18 +85,18 @@ AltWindow(winTitle,XP, WP) {
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
-^d::
+^f::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
 FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
 Return
 
-^f::
+^g::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
 FixedWindow("ahk_exe sioyek.exe" , 34.4444, 66.66666)
 AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
 Return
 
-^g::
+^m::
 WinActivate, % chrome := "ahk_exe chrome.EXE"
 WinMaximize, %chrome%
 Return
