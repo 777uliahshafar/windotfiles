@@ -30,26 +30,27 @@ smooth_scroll drag 3500
 keys_user.config
 move_left           l
 move_right          h
-goto_left_smart    <S-z>
-goto_right_smart    <S-l>
+goto_bottom_of_page;goto_left   Z
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 move_visual_mark_down;move_visual_mark_down;move_visual_mark_down <space>
-move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>>
+move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>> 
 
 toggle_custom_color <f5>
-fit_to_page_width_smart;zoom_in_cursor;zoom_in_cursor;zoom_in_cursor <f2>
-toggle_visual_scroll <f1>
+fit_to_page_width_smart  <f3>
+toggle_visual_scroll <f2>
 
-toggle_mouse_drag_mode <A-r>
-# the keymap used in dark mode chrome as well integrated in mouse.
+toggle_mouse_drag_mode <f1>
+
+toggle_smooth_scroll_mode <A-r>
 
 open_prev_doc o
-open_document_embedded_from_current_path <S-o>
+open_document_embedded_from_current_path O
 open_document <C-S-o>
+
 
 embed_annotations <C-d>
 
-add_highlight <S-a>
+add_highlight A
 add_highlight_with_current_type a
 goto_highlight ga
 goto_highlight_g gA
@@ -60,14 +61,15 @@ goto_prev_highlight gNa
 zoom_in_cursor <C-=>
 unbound =
 
-toggle_smooth_scroll_mode <C-<space>>
 
+unbound <f10>
 unbound <f9>
 unbound <f6>
 unbound ]]
 
-enter_visual_mark_mode [[
+enter_visual_mark_mode ;
 
-overview_definition <S-l>
+overview_definition L
 
 command c
+close_window q
