@@ -47,7 +47,7 @@ toggle_visual_scroll <f2>
 
 toggle_mouse_drag_mode <f1>
 
-toggle_smooth_scroll_mode <C-z>
+toggle_smooth_scroll_mode <C-i>
 
 open_prev_doc o
 open_document_embedded_from_current_path O
