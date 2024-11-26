@@ -1,31 +1,8 @@
 ﻿; ************************
-; Windows Key and Alt Key Switch
+; Most common programs
 ; ************************
-Alt::LWin
-#F4::!F4
 
 
-LWin::Alt
-
-<#Tab:: AltTab()
-
-AltTab(){
-    list := ""
-    WinGet, id, list
-    Loop, %id%
-    {
-        this_ID := id%A_Index%
-        IfWinActive, ahk_id %this_ID%
-            continue
-        WinGetTitle, title, ahk_id %this_ID%
-        If (title = "")
-            continue
-        If (!IsWindow(WinExist("ahk_id" . this_ID)))
-            continue
-        WinActivate, ahk_id %this_ID%, ,2
-            break
-    }
-}
 
 ;-----------------------------------------------------------------
 ; Check whether the target window is activation target
@@ -85,18 +62,18 @@ AltWindow(winTitle,XP, WP) {
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
-^b::
+!1::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
 FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
 Return
 
-^m::
+!2::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
 FixedWindow("ahk_exe sioyek.exe" , 34.4444, 66.66666)
 AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
 Return
 
-^g::
+!3::
 WinActivate, % chrome := "ahk_exe chrome.EXE"
 WinMaximize, %chrome%
 Return
