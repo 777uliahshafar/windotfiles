@@ -74,6 +74,15 @@ AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
 Return
 
 !3::
+Toggle := !Toggle
+If (Toggle)
+{
 WinActivate, % chrome := "ahk_exe chrome.EXE"
 WinMaximize, %chrome%
-Return
+}
+else
+{
+WinActivate, % wt := "ahk_exe WindowsTerminal.EXE"
+WinMaximize, %wt%
+}
+return ;using return to end the hotkey definition.
