@@ -62,6 +62,15 @@ AltWindow(winTitle,XP, WP) {
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
+SwitchWindow(winTitle){
+	 If WinExist(winTitle) {
+	; MsgBox, %XNew% - %WNew% ; DEBUG
+    WinActivate, %winTitle%
+    WinRestore, %winTitle%
+} Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
+}
+
+
 !1::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
 FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
@@ -84,5 +93,17 @@ else
 {
 WinActivate, % wt := "ahk_exe WindowsTerminal.EXE"
 WinMaximize, %wt%
+}
+return ;using return to end the hotkey definition.
+
+!`::
+Toggle := !Toggle
+If (Toggle)
+{
+SwitchWindow("ahk_exe sioyek.exe")
+}
+else
+{
+SwitchWindow("ahk_exe chrome.exe")
 }
 return ;using return to end the hotkey definition.
