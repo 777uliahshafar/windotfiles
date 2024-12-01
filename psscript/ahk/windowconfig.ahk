@@ -37,12 +37,10 @@ FixedWindow(winTitle,XP, WP) {
 	WNew := (A_ScreenWidth * WP / 100)
 	HNew := (A_ScreenHeight - tbH)
 	TopNew := 2
-	 If WinExist(winTitle) {
 	; MsgBox, %XNew% - %WNew% ; DEBUG
 	WinRestore, %WinTitle%
 	WinMove, %WinTitle%,, %XNew%, %TopNew%, %WNew%, %HNew%
 	WinActivate
-} Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
 AltWindow(winTitle,XP, WP) {
@@ -55,11 +53,9 @@ AltWindow(winTitle,XP, WP) {
 	WNew := (A_ScreenWidth * WP / 100)
 	HNew := (A_ScreenHeight - tbH)
 	TopNew := 2
-	 If WinExist(winTitle) {
 	; MsgBox, %XNew% - %WNew% ; DEBUG
 	WinRestore, %WinTitle%
 	WinMove, %WinTitle%,, %XNew%, %TopNew%, %WNew%, %HNew%
-} Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
 SwitchWindow(winTitle){
@@ -74,6 +70,7 @@ SwitchWindow(winTitle){
 !1::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
 FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
+AltWindow("ahk_exe chrome.exe" , 62.2222, 33.3333)
 Return
 
 !2::
