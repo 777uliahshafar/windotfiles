@@ -29,9 +29,19 @@ function obsidian
     & 'nvim' '.\1714384690-MAIN.md'
 }
 
-function compressimghere
+function compressjpghere
 {
-magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg' && magick *.jpeg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg' && magick *.png -sampling-factor 4:2:0 -strip -quality 80 -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].png'
+magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
+}
+
+function compressjpeghere
+{
+magick *.jpeg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
+}
+
+function compresspnghere
+{
+magick *.png -sampling-factor 4:2:0 -strip -quality 80 -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].png'
 }
 
 function pdf2jpeghere
@@ -96,7 +106,9 @@ Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
-Set-Alias compressimg compressimghere
+Set-Alias compressjpg compressjpghere
+Set-Alias compressjpeg compressjpeghere
+Set-Alias compresspng compresspnghere
 Set-Alias pdf2img pdf2jpeghere
 
 # Set-Alias phd phdjournal
