@@ -1,6 +1,6 @@
 . (Join-Path $PSScriptRoot Variable.ps1)
 
-$files = Get-ChildItem -Path $asspath -Exclude *rw*, *rev*, *ver*
+$files = Get-ChildItem -Path $propath\assets -Exclude *rw*, *rev*, *ver*
 
 foreach ($file in $files) {
     $name = $file.Name

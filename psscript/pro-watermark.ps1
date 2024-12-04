@@ -1,11 +1,11 @@
 . (Join-Path $PSScriptRoot Variable.ps1)
 
-$files = Get-ChildItem -Path $stamppath
+$files = Get-ChildItem -Path $propath
 
 #Check if the source file exists
 If (Test-Path $stampcheckFile) {
 foreach ($file in $files) {
-magick mogrify -gravity southeast -geometry +10+10 -draw "image Over 0,0 320,100 '$PSScriptRoot\watermark\trans_stamp3.png'" -path $stamppath\publish $stamppath\*ver*.jpg $stamppath\*ver*.png
+magick mogrify -gravity southeast -geometry +10+10 -draw "image Over 0,0 320,100 '$PSScriptRoot\watermark\trans_stamp3.png'" -path $propath\publish $propath\*ver*.jpg $propath\*ver*.png
 }
 } else {
 magick -list font > $PSScriptRoot\watermark\fonts.txt
@@ -14,5 +14,5 @@ magick -size 320x100 xc:black -font Segoe-UI-Italic -pointsize 72 -fill white   
 
 magick composite -compose CopyOpacity $PSScriptRoot\watermark\mask_mask.jpg   $PSScriptRoot\watermark\trans_stamp.png $PSScriptRoot\watermark\trans_stamp3.png
 
-magick mogrify -gravity southeast -geometry +10+10 -draw "image Over 0,0 320,100 '$PSScriptRoot\watermark\trans_stamp3.png'" -path $stamppath\publish $stamppath\*ver*.jpg $stamppath\*ver*.png
+magick mogrify -gravity southeast -geometry +10+10 -draw "image Over 0,0 320,100 '$PSScriptRoot\watermark\trans_stamp3.png'" -path $propath\publish $propath\*ver*.jpg $propath\*ver*.png
 }

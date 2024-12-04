@@ -1,6 +1,6 @@
 . (Join-Path $PSScriptRoot Variable.ps1)
 
-$files = Get-ChildItem -Path $renamepath -Exclude *raw*, *rev*, *ver*
+$files = Get-ChildItem -Path $propath -Exclude *raw*, *rev*, *ver*
 
 foreach ($file in $files) {
     $name = $file.Name

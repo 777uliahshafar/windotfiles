@@ -1,24 +1,20 @@
 # removecamscanner script
 $rmpath = "path-to-execution-folder"
 
+$propath = "D:\adil"
+
 # pro-rename script
-$renamepath = "D:\adil\"
 $rawFiles = ".*.jpg|.*.png|.*.jpeg|.*.tif|.*.tiff|.*.bmp|.*.eps|.*.heic|.*.raw|.*.psb|.*.psdc|.*.webp|.*.pln|.*.pla|.*.blend|.*.tpl|.*.3dm|.*.3ds|.*.ai|.*.ind|.*.indb|.*.inx|.*.idml|.*.pmd|.*.psd|.*.psb|.*.dwg|.*.dgn|.*.dwf|.*.dxf|.*.skp|.*.rvt|.*.rfa|.*.rft|.*.rte|.*.doc|.*.docx|.*.xlsx|.*.pptx|.*.txt"
 $revFiles = ".*.pln|.*.pla|.*.blend|.*.tpl|.*.3dm|.*.3ds|.*.ai|.*.ind|.*.indb|.*.inx|.*.idml|.*.pmd|.*.psd|.*.psb|.*.dwg|.*.dgn|.*.dwf|.*.dxf|.*.skp|.*.rvt|.*.rfa|.*.rft|.*.rte|.*.doc|.*.docx|.*.xlsx|.*.pptx|.*.txt"
 $verFiles = ".*.pdf|.*.jpg|.*.png|.*.jpeg|.*.tif|.*.tiff|.*.bmp|.*.eps|.*.heic|.*.raw|.*.psb|.*.psdc|.*.webp"
 
 # pro-backup moving certain file script
-$source = "D:\adil\*" # it should include \*
-$mksource = "D:\adil\" # it should include \*
-$destination = "D:\adil\backup\"
 $transferFiles = '*.pln','*.pla','*.blend','*.tpl','*.3dm','*.3ds','*.ai','*.ind','*.indb','*.inx','*.idml','*.pmd','*.psd','*.psb','*.dwg','*.dgn','*.dwf','*.dxf','*.skp','*.rvt','*.rfa','*.rft','*.rte','*.doc','*.docx','*.xlsx','*.pptx','*.txt'
 
 
 # pro-assets script
-$asspath = "D:\new folder"
 $assFiles = ".*.jpg|.*.png|.*.jpeg|.*.tif|.*.tiff|.*.bmp|.*.eps|.*.heic|.*.raw|.*.psb|.*.psdc|.*.webp|.*.pln|.*.pla|.*.blend|.*.tpl|.*.3dm|.*.3ds|.*.ai|.*.ind|.*.indb|.*.inx|.*.idml|.*.pmd|.*.psd|.*.psb|.*.dwg|.*.dgn|.*.dwf|.*.dxf|.*.skp|.*.rvt|.*.rfa|.*.rft|.*.rte|.*.doc|.*.docx|.*.xlsx|.*.pptx|.*.txt|.*.pdf"
 
 
 # addwatermark script
-$stamppath = "D:\adil"
 $stampcheckFile = "$PSScriptRoot\watermark\trans_stamp3.png"
