@@ -18,4 +18,3 @@ foreach ($file in $files) {
     }
 }
 
-magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compress" '%[filename:f].jpg' && magick *.jpeg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compress" '%[filename:f].jpg' && magick *.png -sampling-factor 4:2:0 -strip -quality 80 -colorspace sRGB -set filename:f "%t-compress" '%[filename:f].png'
