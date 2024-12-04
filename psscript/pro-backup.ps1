@@ -1,6 +1,10 @@
 . (Join-Path $PSScriptRoot Variable.ps1)
 
-mkdir -p $propath\backup
+If(!(test-path -PathType container $propath\backup))
+{
+      New-Item -ItemType Directory -Path $propath\backup
+}
+
 Get-ChildItem -Path $propath\* -File -Include $transferFiles *rev* -Exclude *raw*, *ver* | ForEach-Object {
     $destPath = Join-Path -Path $propath\backup -ChildPath $_.Name
     if (Test-Path $destPath) {

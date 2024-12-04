@@ -11,6 +11,8 @@ $AssShortcutFile = "${PSScriptRoot}\pro-assets.lnk"
 $ArgumentsToAssSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\pro-assets.ps1"
 $StampShortcutFile = "${PSScriptRoot}\pro-watermark.lnk"
 $ArgumentsToStampSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\pro-watermark.ps1"
+$CleanShortcutFile = "${PSScriptRoot}\pro-clean.lnk"
+$ArgumentsToCleanSourceExe = "pwsh -NoLogo $env:USERPROFILE\windotfiles\psscript\pro-clean.ps1"
 
 $shortcut = $WScriptShell.CreateShortcut($BackupShortcutFile)
 $Shortcut.TargetPath = $ShortcutTarget
@@ -34,4 +36,10 @@ $shortcut = $WScriptShell.CreateShortcut($StampShortcutFile)
 $Shortcut.TargetPath = $ShortcutTarget
 $shortcut.WindowStyle = $style
 $Shortcut.Arguments = $ArgumentsToStampSourceExe
+$Shortcut.Save()
+
+$shortcut = $WScriptShell.CreateShortcut($CleanShortcutFile)
+$Shortcut.TargetPath = $ShortcutTarget
+$shortcut.WindowStyle = $style
+$Shortcut.Arguments = $ArgumentsToCleanSourceExe
 $Shortcut.Save()

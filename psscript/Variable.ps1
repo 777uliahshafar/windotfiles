@@ -18,3 +18,6 @@ $assFiles = ".*.jpg|.*.png|.*.jpeg|.*.tif|.*.tiff|.*.bmp|.*.eps|.*.heic|.*.raw|.
 
 # addwatermark script
 $stampcheckFile = "$PSScriptRoot\watermark\trans_stamp3.png"
+
+# pro-clean script
+$cleanFiles ='*.bak','*.dwl','*.dwl2', '*.skb', '*.log'
