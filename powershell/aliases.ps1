@@ -106,6 +106,8 @@ Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
+
+# Magick Alias
 Set-Alias compressjpg compressjpghere
 Set-Alias compressjpeg compressjpeghere
 Set-Alias compresspng compresspnghere
@@ -114,7 +116,6 @@ Set-Alias pdf2img pdf2jpeghere
 # Set-Alias phd phdjournal
 Set-Alias st statistika
 Set-Alias int interviewbpi
-
 Set-Alias el element
 Set-Alias pr proposalstudy
 Set-Alias es essay
