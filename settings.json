@@ -5,12 +5,7 @@
     {
       "command": "toggleFullscreen",
       "id": "User.toggleFullscreen",
-      "keys": "f12"
-    },
-    {
-      "command": "toggleFullscreen",
-      "id": "User.toggleFullscreen",
-      "keys": "ctrl+enter"
+      "keys": "alt+enter"
     },
     {
       "command": {
