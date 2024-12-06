@@ -85,7 +85,7 @@ FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
 AltWindow("ahk_exe chrome.exe" , 49.9999, 49.99999)
 Return
 
-!4::
+!esc::
 Toggle := !Toggle
 If (Toggle)
 {
