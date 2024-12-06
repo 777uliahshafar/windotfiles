@@ -13,7 +13,7 @@ function obsidiansearch
 
 function nvimalias
 {
-    cd '~/.config/powershell'
+    cd '~/windotfiles/powershell'
     & 'nvim' '.\aliases.ps1'
 }
 
