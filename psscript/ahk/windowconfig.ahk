@@ -80,6 +80,12 @@ AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
 Return
 
 !3::
+FixedWindow("ahk_exe WindowsTerminal.exe", 0, 49.9999)
+FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
+AltWindow("ahk_exe chrome.exe" , 49.9999, 49.99999)
+Return
+
+!4::
 Toggle := !Toggle
 If (Toggle)
 {
