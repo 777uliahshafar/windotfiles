@@ -3,13 +3,6 @@
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [
     {
-      "command": {
-        "action": "globalSummon"
-      },
-      "id": "User.globalSummon.51A3D78C",
-      "keys": "alt+esc"
-    },
-    {
       "command": "toggleFullscreen",
       "id": "User.toggleFullscreen",
       "keys": "f12"
