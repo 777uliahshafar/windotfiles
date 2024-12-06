@@ -66,22 +66,23 @@ SwitchWindow(winTitle){
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
-!1::
-FixedWindow("ahk_exe WindowsTerminal.exe", 0, 49.9999)
-FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
-AltWindow("ahk_exe chrome.exe" , 49.9999, 49.99999)
-Return
 
-!2::
+!1::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
 FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
 AltWindow("ahk_exe chrome.exe" , 62.2222, 33.3333)
 Return
 
-!3::
+!2::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
 FixedWindow("ahk_exe sioyek.exe" , 34.4444, 66.66666)
 AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
+Return
+
+!3::
+FixedWindow("ahk_exe WindowsTerminal.exe", 0, 49.9999)
+FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
+AltWindow("ahk_exe chrome.exe" , 49.9999, 49.99999)
 Return
 
 !esc::
