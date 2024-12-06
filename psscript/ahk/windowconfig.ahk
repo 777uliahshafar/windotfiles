@@ -89,13 +89,13 @@ Return
 Toggle := !Toggle
 If (Toggle)
 {
-WinActivate, % chrome := "ahk_exe chrome.EXE"
-WinMaximize, %chrome%
+WinActivate, % sioyek := "ahk_exe sioyek.EXE"
+WinMaximize, %sioyek%
 }
 else
 {
-WinActivate, % wt := "ahk_exe WindowsTerminal.EXE"
-WinMaximize, %wt%
+WinActivate, % chrome := "ahk_exe chrome.EXE"
+WinMaximize, %chrome%
 }
 return ;using return to end the hotkey definition.
 
