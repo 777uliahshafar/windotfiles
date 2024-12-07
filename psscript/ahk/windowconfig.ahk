@@ -66,6 +66,15 @@ SwitchWindow(winTitle){
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
+QSwitchWindow(winTitle){
+	 If WinExist(winTitle) {
+	; MsgBox, %XNew% - %WNew% ; DEBUG
+    ; WinActivate, %winTitle%
+   Send !{Tab}
+    ; WinRestore, %winTitle%
+} Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
+}
+
 
 !1::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
@@ -104,23 +113,28 @@ KeyWait,esc,T0.3 ;wait 0.5 seconds for release key
 If (ErrorLevel) ;more than 0.5 sec have passed
 {
     if WinActive("ahk_exe WindowsTerminal.exe")
-    SwitchWindow("ahk_exe sioyek.exe")
-    else if WinActive("ahk_exe chrome.exe")
-    SwitchWindow("ahk_exe sioyek.exe")
-    else if WinActive("ahk_exe zotero.exe")
-    SwitchWindow("ahk_exe sioyek.exe")
+    SwitchWindow("ahk_exe chrome.exe")
+
     else if WinActive("ahk_exe sioyek.exe")
-    SwitchWindow("ahk_exe Zotero.exe")
+    SwitchWindow("ahk_exe zotero.exe")
+    else if WinActive("ahk_exe chrome.exe")
+    SwitchWindow("ahk_exe WindowsTerminal.exe")
+
+    else if WinActive("ahk_exe zotero.exe")
+    SwitchWindow("ahk_exe WindowsTerminal.exe")
     KeyWait,esc ;prevent sending n after notepad opened
 }
 Else ;less than 2 sec have passed
 {
     if WinActive("ahk_exe WindowsTerminal.exe")
-    SwitchWindow("ahk_exe chrome.exe")
-    else if WinActive("ahk_exe chrome.exe")
-    SwitchWindow("ahk_exe WindowsTerminal.exe")
+    SwitchWindow("ahk_exe sioyek.exe")
+
+
     else if WinActive("ahk_exe sioyek.exe")
     SwitchWindow("ahk_exe WindowsTerminal.exe")
+    else if WinActive("ahk_exe chrome.exe")
+    QSwitchWindow("ahk_exe sioyek.exe")
+
     else if WinActive("ahk_exe zotero.exe")
     SwitchWindow("ahk_exe sioyek.exe")
 }
