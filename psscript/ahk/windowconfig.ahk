@@ -108,34 +108,49 @@ WinMaximize, %chrome%
 }
 return ;using return to end the hotkey definition.
 
+
+!c::
+Toggle := !Toggle
+If (Toggle)
+{
+    SwitchWindow("ahk_exe chrome.exe")
+}else
+{
+   Send !{Tab}
+}
+Return
+
+!s::
+Toggle := !Toggle
+If (Toggle)
+{
+    SwitchWindow("ahk_exe sioyek.exe")
+}else
+{
+   Send !{Tab}
+}
+Return
+
 !esc::
 KeyWait,esc,T0.3 ;wait 0.5 seconds for release key
 If (ErrorLevel) ;more than 0.5 sec have passed
 {
     if WinActive("ahk_exe WindowsTerminal.exe")
-    SwitchWindow("ahk_exe chrome.exe")
-
-    else if WinActive("ahk_exe sioyek.exe")
+    SwitchWindow("ahk_exe zotero.exe")
+    if WinActive("ahk_exe sioyek.exe")
     SwitchWindow("ahk_exe zotero.exe")
     else if WinActive("ahk_exe chrome.exe")
-    SwitchWindow("ahk_exe WindowsTerminal.exe")
-
-    else if WinActive("ahk_exe zotero.exe")
-    SwitchWindow("ahk_exe WindowsTerminal.exe")
+    SwitchWindow("ahk_exe zotero.exe")
     KeyWait,esc ;prevent sending n after notepad opened
 }
 Else ;less than 2 sec have passed
 {
-    if WinActive("ahk_exe WindowsTerminal.exe")
-    SwitchWindow("ahk_exe sioyek.exe")
-
-
-    else if WinActive("ahk_exe sioyek.exe")
+    if WinActive("ahk_exe sioyek.exe")
     SwitchWindow("ahk_exe WindowsTerminal.exe")
     else if WinActive("ahk_exe chrome.exe")
-    QSwitchWindow("ahk_exe sioyek.exe")
-
-    else if WinActive("ahk_exe zotero.exe")
-    SwitchWindow("ahk_exe sioyek.exe")
+    SwitchWindow("ahk_exe WindowsTerminal.exe")
+    else if WinActive("ahk_exe WindowsTerminal.exe")
+        Send !{Tab}
 }
 Return
+
