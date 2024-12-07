@@ -107,8 +107,10 @@ If (ErrorLevel) ;more than 0.5 sec have passed
     SwitchWindow("ahk_exe sioyek.exe")
     else if WinActive("ahk_exe chrome.exe")
     SwitchWindow("ahk_exe sioyek.exe")
-    ; else if WinActive("ahk_exe sioyek.exe")
-    ; SwitchWindow("ahk_exe WindowsTerminal.exe")
+    else if WinActive("ahk_exe zotero.exe")
+    SwitchWindow("ahk_exe sioyek.exe")
+    else if WinActive("ahk_exe sioyek.exe")
+    SwitchWindow("ahk_exe Zotero.exe")
     KeyWait,esc ;prevent sending n after notepad opened
 }
 Else ;less than 2 sec have passed
@@ -119,5 +121,7 @@ Else ;less than 2 sec have passed
     SwitchWindow("ahk_exe WindowsTerminal.exe")
     else if WinActive("ahk_exe sioyek.exe")
     SwitchWindow("ahk_exe WindowsTerminal.exe")
+    else if WinActive("ahk_exe zotero.exe")
+    SwitchWindow("ahk_exe sioyek.exe")
 }
 Return
