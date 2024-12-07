@@ -100,7 +100,7 @@ WinMaximize, %chrome%
 return ;using return to end the hotkey definition.
 
 !esc::
-KeyWait,esc,T0.4 ;wait 0.5 seconds for release key
+KeyWait,esc,T0.3 ;wait 0.5 seconds for release key
 If (ErrorLevel) ;more than 0.5 sec have passed
 {
     if WinActive("ahk_exe WindowsTerminal.exe")
