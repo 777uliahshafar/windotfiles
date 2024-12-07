@@ -99,29 +99,6 @@ WinMaximize, %chrome%
 }
 return ;using return to end the hotkey definition.
 
-; !esc::
-; if WinActive("ahk_exe WindowsTerminal.exe")
-; SwitchWindow("ahk_exe sioyek.exe")
-; else if WinActive("ahk_exe sioyek.exe")
-; SwitchWindow("ahk_exe WindowsTerminal.exe")
-; return
-
-
-; !esc::
-;
-; if WinActive("ahk_exe WindowsTerminal.exe")
-; SwitchWindow("ahk_exe sioyek.exe")
-; else if WinActive("ahk_exe sioyek.exe")
-; SwitchWindow("ahk_exe WindowsTerminal.exe")
-; return
-;
-;
-; if WinActive("ahk_exe WindowsTerminal.exe")
-; SwitchWindow("ahk_exe chrome.exe")
-; else if WinActive("ahk_exe chrome.exe")
-; SwitchWindow("ahk_exe WindowsTerminal.exe")
-
-
 !esc::
 KeyWait,esc,T0.4 ;wait 0.5 seconds for release key
 If (ErrorLevel) ;more than 0.5 sec have passed
@@ -144,30 +121,3 @@ Else ;less than 2 sec have passed
     SwitchWindow("ahk_exe WindowsTerminal.exe")
 }
 Return
-
-
-; !esc::
-; now := A_TickCount
-; while GetKeyState("!esc", "P")
-; 	if (A_TickCount-now > 100)
-; 	{
-; if WinActive("ahk_exe WindowsTerminal.exe")
-;         WinActivate, % chrome := "ahk_exe chrome.EXE"
-; 		KeyWait, !esc
-; 		return
-; 	}
-; Send {!esc}
-; return
-
-; !esc::
-; Keywait, !esc, T3
-; If Errorlevel != 0
-; {
-; if WinActive("ahk_exe WindowsTerminal.exe")
-; SwitchWindow("ahk_exe sioyek.exe")
-; KeyWait, !esc
-; }
-; Else
-; if WinActive("ahk_exe WindowsTerminal.exe")
-; SwitchWindow("ahk_exe chrome.exe")
-; Return
