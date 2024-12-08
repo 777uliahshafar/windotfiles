@@ -149,6 +149,8 @@ Else ;less than 2 sec have passed
     SwitchWindow("ahk_exe WindowsTerminal.exe")
     else if WinActive("ahk_exe chrome.exe")
     SwitchWindow("ahk_exe WindowsTerminal.exe")
+    else if WinActive("ahk_exe zotero.exe")
+        Send !{Tab}
     else if WinActive("ahk_exe WindowsTerminal.exe")
         Send !{Tab}
 }
