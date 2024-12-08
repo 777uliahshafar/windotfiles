@@ -6,6 +6,7 @@
 
 ;-----------------------------------------------------------------
 ; Check whether the target window is activation target
+; Alt- tab function for remapping
 ;-----------------------------------------------------------------
 IsWindow(hWnd){
     WinGet, dwStyle, Style, ahk_id %hWnd%
@@ -21,6 +22,25 @@ IsWindow(hWnd){
         return false
     }
     return true
+}
+
+AltTab(){
+    list := ""
+    WinGet, id, list
+    Loop, %id%
+    {
+        this_ID := id%A_Index%
+        IfWinActive, ahk_id %this_ID%
+            continue
+        WinGetTitle, title, ahk_id %this_ID%
+        If (title = "")
+            continue
+        If (!IsWindow(WinExist("ahk_id" . this_ID)))
+            continue
+        WinActivate, ahk_id %this_ID%
+        WinWaitActive, ahk_id %this_ID%,,2
+            break
+    }
 }
 
 ; ************************
@@ -108,6 +128,21 @@ WinMaximize, %chrome%
 }
 return ;using return to end the hotkey definition.
 
+!enter::
+Toggle := !Toggle
+If (Toggle)
+{
+WinActivate, % wtmax := "ahk_exe WindowsTerminal.EXE"
+WinMaximize, %wtmax%
+}
+else
+{
+WinActivate, % wtmin := "ahk_exe WindowsTerminal.EXE"
+WinRestore, %wtmin%
+}
+return ;using return to end the hotkey definition.
+
+
 
 !c::
 Toggle := !Toggle
@@ -116,7 +151,7 @@ If (Toggle)
     SwitchWindow("ahk_exe chrome.exe")
 }else
 {
-   Send !{Tab}
+    AltTab()
 }
 Return
 
@@ -127,7 +162,7 @@ If (Toggle)
     SwitchWindow("ahk_exe sioyek.exe")
 }else
 {
-   Send !{Tab}
+    AltTab()
 }
 Return
 
@@ -150,9 +185,9 @@ Else ;less than 2 sec have passed
     else if WinActive("ahk_exe chrome.exe")
     SwitchWindow("ahk_exe WindowsTerminal.exe")
     else if WinActive("ahk_exe zotero.exe")
-        Send !{Tab}
+        AltTab()
     else if WinActive("ahk_exe WindowsTerminal.exe")
-        Send !{Tab}
+        AltTab()
 }
 Return
 
