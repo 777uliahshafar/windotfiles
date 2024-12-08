@@ -86,15 +86,11 @@ SwitchWindow(winTitle){
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
-QSwitchWindow(winTitle){
-	 If WinExist(winTitle) {
-	; MsgBox, %XNew% - %WNew% ; DEBUG
-    ; WinActivate, %winTitle%
-   Send !{Tab}
-    ; WinRestore, %winTitle%
-} Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
-}
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; RESIZE WINDOW
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 !1::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
@@ -114,36 +110,11 @@ FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
 AltWindow("ahk_exe chrome.exe" , 49.9999, 49.99999)
 Return
 
-!w::
-Toggle := !Toggle
-If (Toggle)
-{
-WinActivate, % sioyek := "ahk_exe sioyek.EXE"
-WinMaximize, %sioyek%
-}
-else
-{
-WinActivate, % chrome := "ahk_exe chrome.EXE"
-WinMaximize, %chrome%
-}
-return ;using return to end the hotkey definition.
-
-!enter::
-Toggle := !Toggle
-If (Toggle)
-{
-WinActivate, % wtmax := "ahk_exe WindowsTerminal.EXE"
-WinMaximize, %wtmax%
-}
-else
-{
-WinActivate, % wtmin := "ahk_exe WindowsTerminal.EXE"
-WinRestore, %wtmin%
-}
-return ;using return to end the hotkey definition.
-
-
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; SWITCH BETWEEN WINDOW
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !c::
 Toggle := !Toggle
 If (Toggle)
@@ -190,4 +161,17 @@ Else ;less than 2 sec have passed
         AltTab()
 }
 Return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; TOGGLE MAXIMIZE
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+!enter::
+WinGet, windowState, MinMax, A
+    if (windowState = 1) {
+        WinRestore, A
+    } else {
+        WinMaximize, A
+    }
+return
