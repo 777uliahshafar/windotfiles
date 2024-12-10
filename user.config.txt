@@ -77,6 +77,7 @@ unbound ]]
 enter_visual_mark_mode ;
 
 overview_definition L
+goto_mark '
 
 command c
 close_window q
