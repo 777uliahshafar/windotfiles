@@ -78,6 +78,7 @@ enter_visual_mark_mode ;
 
 overview_definition L
 goto_mark '
+new_window <C-n>
 
 command c
 close_window q
