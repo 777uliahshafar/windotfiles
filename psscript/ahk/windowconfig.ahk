@@ -133,7 +133,12 @@ If (Toggle)
     SwitchWindow("ahk_exe sioyek.exe")
 }else
 {
-    AltTab()
+WinGet, proc, ProcessName, A
+WinGet, win, List, ahk_exe %proc%
+Loop, %win%
+ uid := win%A_Index%
+WinActivate, ahk_id %uid%
+
 }
 Return
 
