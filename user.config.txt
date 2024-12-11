@@ -42,10 +42,11 @@ move_visual_mark_down;move_visual_mark_down;move_visual_mark_down <space>
 move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>>
 
 toggle_custom_color <f5>
-fit_to_page_width_smart  <f3>
-toggle_visual_scroll <f2>
-
+fit_to_page_width_smart  <f4>
+toggle_visual_scroll <f3>
+command <f2>
 toggle_mouse_drag_mode <f1>
+
 
 toggle_smooth_scroll_mode <C-i>
 
