@@ -122,7 +122,11 @@ If (Toggle)
     SwitchWindow("ahk_exe chrome.exe")
 }else
 {
-    AltTab()
+    WinGet, proc, ProcessName, A
+    WinGet, win, List, ahk_exe %proc%
+    Loop, %win%
+     uid := win%A_Index%
+    WinActivate, ahk_id %uid%
 }
 Return
 
@@ -133,12 +137,11 @@ If (Toggle)
     SwitchWindow("ahk_exe sioyek.exe")
 }else
 {
-WinGet, proc, ProcessName, A
-WinGet, win, List, ahk_exe %proc%
-Loop, %win%
- uid := win%A_Index%
-WinActivate, ahk_id %uid%
-
+    WinGet, proc, ProcessName, A
+    WinGet, win, List, ahk_exe %proc%
+    Loop, %win%
+     uid := win%A_Index%
+    WinActivate, ahk_id %uid%
 }
 Return
 
