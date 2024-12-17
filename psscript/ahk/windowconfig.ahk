@@ -86,6 +86,18 @@ SwitchWindow(winTitle){
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
+WhichWindow(winTitle){
+	 If WinExist(winTitle) {
+	; MsgBox, %XNew% - %WNew% ; DEBUG
+    WinGet, proc, ProcessName, A
+    WinGet, win, List, ahk_exe %proc%
+    Loop, %win%
+     uid := win%A_Index%
+    WinActivate, ahk_id %uid%
+    ; WinRestore, %winTitle%
+} Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
+}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; RESIZE WINDOW
@@ -116,34 +128,15 @@ Return
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !c::
-Toggle := !Toggle
-If (Toggle)
-{
-    SwitchWindow("ahk_exe chrome.exe")
-}else
-{
-    WinGet, proc, ProcessName, A
-    WinGet, win, List, ahk_exe %proc%
-    Loop, %win%
-     uid := win%A_Index%
-    WinActivate, ahk_id %uid%
-}
+    WhichWindow("ahk_exe chrome.exe")
 Return
 
 !s::
-Toggle := !Toggle
-If (Toggle)
-{
-    SwitchWindow("ahk_exe sioyek.exe")
-}else
-{
-    WinGet, proc, ProcessName, A
-    WinGet, win, List, ahk_exe %proc%
-    Loop, %win%
-     uid := win%A_Index%
-    WinActivate, ahk_id %uid%
-}
+    WhichWindow("ahk_exe sioyek.exe")
 Return
+
+
+
 
 !esc::
 KeyWait,esc,T0.3 ;wait 0.5 seconds for release key
