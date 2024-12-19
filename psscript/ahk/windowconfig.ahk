@@ -86,17 +86,21 @@ SwitchWindow(winTitle){
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
-WhichWindow(winTitle){
+WhichWindow(winTitle,winProg){
 	 If WinExist(winTitle) {
 	; MsgBox, %XNew% - %WNew% ; DEBUG
+    WinActivate, %winTitle%
     WinGet, proc, ProcessName, A
     WinGet, win, List, ahk_exe %proc%
     Loop, %win%
      uid := win%A_Index%
     WinActivate, ahk_id %uid%
     ; WinRestore, %winTitle%
-} Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
+} Else Run,  %winProg%
+
 }
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
@@ -128,15 +132,16 @@ Return
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !c::
-    WhichWindow("ahk_exe chrome.exe")
+    WhichWindow("ahk_exe chrome.exe", "chrome.exe")
 Return
 
 !s::
-    WhichWindow("ahk_exe sioyek.exe")
+    WhichWindow("ahk_exe sioyek.exe", "sioyek.exe")
 Return
 
-
-
+!z::
+    WhichWindow("ahk_exe zotero.exe", "zotero.exe")
+Return
 
 !esc::
 KeyWait,esc,T0.3 ;wait 0.5 seconds for release key
@@ -176,3 +181,17 @@ WinGet, windowState, MinMax, A
         WinMaximize, A
     }
 return
+
+^+z::
+Process, Exist, WindowsTerminal.exe
+If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
+{
+Run, "%UserProfile%\AppData\Local\Microsoft\WindowsApps\wt.exe"
+Run, "sioyek.exe"
+Run, "chrome.exe"
+Run, "zotero.exe"
+}
+Else
+   WinActivate,% "ahk_pid  " ErrorLevel
+Return
+
