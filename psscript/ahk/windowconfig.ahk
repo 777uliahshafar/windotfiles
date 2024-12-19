@@ -187,11 +187,15 @@ Process, Exist, WindowsTerminal.exe
 If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
 {
 Run, "%UserProfile%\AppData\Local\Microsoft\WindowsApps\wt.exe"
+Sleep, 10
 Run, "sioyek.exe"
+Sleep, 10
 Run, "chrome.exe"
+Sleep, 10
 Run, "zotero.exe"
 }
 Else
-   WinActivate,% "ahk_pid  " ErrorLevel
+    MsgBox, % "Please, Close Terminal`n`n"
+    WinActivate,% "ahk_pid  " ErrorLevel
 Return
 
