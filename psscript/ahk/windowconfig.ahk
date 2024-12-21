@@ -143,6 +143,10 @@ Return
     WhichWindow("ahk_exe zotero.exe", "zotero.exe")
 Return
 
+!w::
+    WhichWindow("ahk_exe WindowsTerminal.exe", "WindowsTerminal.exe")
+Return
+
 !esc::
 KeyWait,esc,T0.3 ;wait 0.5 seconds for release key
 If (ErrorLevel) ;more than 0.5 sec have passed
@@ -158,14 +162,17 @@ If (ErrorLevel) ;more than 0.5 sec have passed
 Else ;less than 2 sec have passed
 {
     if WinActive("ahk_exe sioyek.exe")
-    SwitchWindow("ahk_exe WindowsTerminal.exe")
+    ; SwitchWindow("ahk_exe WindowsTerminal.exe")
+        AltTab()
     else if WinActive("ahk_exe chrome.exe")
-    SwitchWindow("ahk_exe WindowsTerminal.exe")
+    ; SwitchWindow("ahk_exe WindowsTerminal.exe")
+        AltTab()
     else if WinActive("ahk_exe zotero.exe")
         AltTab()
     else if WinActive("ahk_exe WindowsTerminal.exe")
         AltTab()
 }
+
 Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
