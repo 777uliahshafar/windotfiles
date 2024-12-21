@@ -131,7 +131,7 @@ Return
 ; SWITCH BETWEEN WINDOW
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!c::
+!a::
     WhichWindow("ahk_exe chrome.exe", "chrome.exe")
 Return
 
@@ -139,7 +139,7 @@ Return
     WhichWindow("ahk_exe sioyek.exe", "sioyek.exe")
 Return
 
-!z::
+!d::
     WhichWindow("ahk_exe zotero.exe", "zotero.exe")
 Return
 
