@@ -29,6 +29,13 @@ function obsidian
     & 'nvim' '.\1714384690-MAIN.md'
 }
 
+
+function createbatfile
+{
+New-Item -ItemType File -Path .\RenameMe.bat &&
+Add-Content -Path ".\RenameMe.bat" -Value "C:\Users\uliah\AppData\Local\Microsoft\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\wt.exe pwsh -executionpolicy bypass %~dp0%~n0.ps1"
+}
+
 function compressjpghere
 {
 magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
@@ -106,6 +113,7 @@ Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
+Set-Alias bat createbatfile
 
 # Set-Alias magal magickaliases
 # Set-Alias proal projectaliases
