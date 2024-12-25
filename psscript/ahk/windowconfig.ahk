@@ -108,19 +108,19 @@ WhichWindow(winTitle,winProg){
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-!1::
+!+=::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
 FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
 AltWindow("ahk_exe chrome.exe" , 62.2222, 33.3333)
 Return
 
-!2::
+!-::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
 FixedWindow("ahk_exe sioyek.exe" , 34.4444, 66.66666)
 AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
 Return
 
-!3::
+!=::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 49.9999)
 FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
 AltWindow("ahk_exe chrome.exe" , 49.9999, 49.99999)
@@ -131,19 +131,19 @@ Return
 ; SWITCH BETWEEN WINDOW
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!a::
+!l::
     WhichWindow("ahk_exe chrome.exe", "chrome.exe")
 Return
 
-!s::
+!k::
     WhichWindow("ahk_exe sioyek.exe", "sioyek.exe")
 Return
 
-!d::
+!h::
     WhichWindow("ahk_exe zotero.exe", "zotero.exe")
 Return
 
-!w::
+!j::
     WhichWindow("ahk_exe WindowsTerminal.exe", "WindowsTerminal.exe")
 Return
 
@@ -189,7 +189,7 @@ WinGet, windowState, MinMax, A
     }
 return
 
-^+z::
+^+j::
 Process, Exist, WindowsTerminal.exe
 If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
 {
