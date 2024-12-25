@@ -1,7 +1,13 @@
 # removecamscanner script
 $rmpath = "path-to-execution-folder"
 
+#Assosiacte pro-rename,pro-assets, pro-backup
 $propath = "~\Downloads\aktualisasi latsar-20241208T125518Z-001/"
+#Assosiacte doc-rename
+$docpath = "D:\lecture\sample"
+
+#doc-rename script
+$docFiles = ".*.pdf|.*.doc|.*.docx|.*.pptx|.*.xlsx"
 
 # pro-rename script
 $rawFiles = ".*.jpg|.*.png|.*.jpeg|.*.tif|.*.tiff|.*.bmp|.*.eps|.*.heic|.*.raw|.*.psb|.*.psdc|.*.webp|.*.pln|.*.pla|.*.blend|.*.tpl|.*.3dm|.*.3ds|.*.ai|.*.ind|.*.indb|.*.inx|.*.idml|.*.pmd|.*.psd|.*.psb|.*.dwg|.*.dgn|.*.dwf|.*.dxf|.*.skp|.*.rvt|.*.rfa|.*.rft|.*.rte|.*.doc|.*.docx|.*.xlsx|.*.pptx|.*.txt"

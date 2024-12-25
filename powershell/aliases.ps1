@@ -29,6 +29,12 @@ function obsidian
     & 'nvim' '.\1714384690-MAIN.md'
 }
 
+function variable
+{
+    cd '~/windotfiles/psscript'
+    & 'nvim' '.\Variable.ps1'
+}
+
 
 function createbatfile
 {
@@ -114,6 +120,7 @@ Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
 Set-Alias bat createbatfile
+Set-Alias va variable
 
 # Set-Alias magal magickaliases
 # Set-Alias proal projectaliases
