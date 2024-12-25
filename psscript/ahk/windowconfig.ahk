@@ -1,7 +1,9 @@
 ﻿; ************************
 ; Most common programs
 ; ************************
-
+RemoveToolTip:
+ToolTip
+return
 
 
 ;-----------------------------------------------------------------
@@ -133,18 +135,26 @@ Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !l::
     WhichWindow("ahk_exe chrome.exe", "chrome.exe")
+ToolTip, Chrome  , 695, 95
+SetTimer, RemoveToolTip, -1500
 Return
 
 !k::
     WhichWindow("ahk_exe sioyek.exe", "sioyek.exe")
+ToolTip, Sioyek  , 695, 95
+SetTimer, RemoveToolTip, -1500
 Return
 
 !h::
     WhichWindow("ahk_exe zotero.exe", "zotero.exe")
+ToolTip, Zotero  , 695, 95
+SetTimer, RemoveToolTip, -1500
 Return
 
 !j::
     WhichWindow("ahk_exe WindowsTerminal.exe", "WindowsTerminal.exe")
+ToolTip, Windows Terminal  , 695, 95
+SetTimer, RemoveToolTip, -1500
 Return
 
 !esc::
