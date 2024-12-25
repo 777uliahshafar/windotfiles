@@ -106,6 +106,7 @@ Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
+
 # Set-Alias magal magickaliases
 # Set-Alias proal projectaliases
 
