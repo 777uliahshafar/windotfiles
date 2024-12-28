@@ -1,5 +1,5 @@
 # removecamscanner script
-$rmpath = "path-to-execution-folder"
+$rmpath = "D:\camscn"
 
 #Assosiacte pro-rename,pro-assets, pro-backup
 $propath = "~\Downloads\aktualisasi latsar-20241208T125518Z-001/"

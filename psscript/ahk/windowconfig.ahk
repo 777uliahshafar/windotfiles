@@ -99,7 +99,7 @@ WhichWindow(winTitle,winProg){
      uid := win%A_Index%
     WinActivate, ahk_id %uid%
     ; WinRestore, %winTitle%
-} Else Run,  %winProg%
+} Else Run, %winProg%
 
 }
 
@@ -135,27 +135,27 @@ Return
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-!l::
+!n::
     WhichWindow("ahk_exe chrome.exe", "chrome.exe")
-    ToolTip, Zotero(H) Terminal(J) Sioyek(K) Chrome(L), 695, 95
+    ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
 Return
 
 !k::
     WhichWindow("ahk_exe sioyek.exe", "sioyek.exe")
-    ToolTip, Zotero(H) Terminal(J) Sioyek(K) Chrome(L), 695, 95
+    ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
 Return
 
-!h::
+!p::
     WhichWindow("ahk_exe zotero.exe", "zotero.exe")
-    ToolTip, Zotero(H) Terminal(J) Sioyek(K) Chrome(L), 695, 95
+    ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
 Return
 
 !j::
     WhichWindow("ahk_exe WindowsTerminal.exe", "WindowsTerminal.exe")
-    ToolTip, Zotero(H) Terminal(J) Sioyek(K) Chrome(L), 695, 95
+    ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
 Return
 
