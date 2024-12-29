@@ -24,6 +24,9 @@ page_separator_width 2
 smooth_scroll_speed 8
 smooth_scroll drag 3500
 
+
+
+
 highlight_color_a 		0.94510 0.98039 0.54902
 highlight_color_q		0.31373 0.98039 0.48235
 highlight_color_z		0.54510 0.91373 0.99216
@@ -33,6 +36,10 @@ highlight_color_x		1.00000 0.33333 0.33333
 highlight_color_e		0.94510 0.98039 0.54902
 highlight_color_d    0.31373 0.98039 0.48235
 highlight_color_c    0.54510 0.91373 0.99216
+
+
+new_command _translate_selected_text python -m sioyek.translate "%{sioyek_path}" "%{selected_text}"
+new_command _translate_current_line_text python -m sioyek.translate "%{sioyek_path}" "%{line_text}"
 ---
 keys_user.config
 move_left           l
@@ -40,14 +47,13 @@ move_right          h
 goto_bottom_of_page;goto_left   Z
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 move_visual_mark_down;move_visual_mark_down;move_visual_mark_down <space>
-move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>>
+move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>> 
 
 toggle_custom_color <f5>
 fit_to_page_width_smart  <f4>
 toggle_visual_scroll <f3>
 command <f2>
 toggle_mouse_drag_mode <f1>
-
 
 toggle_smooth_scroll_mode <C-i>
 
@@ -56,7 +62,7 @@ open_document_embedded_from_current_path O
 open_document <C-S-o>
 
 
-embed_annotations <C-d>
+embed_annotations E
 
 add_highlight A
 add_highlight_with_current_type a
@@ -67,6 +73,8 @@ goto_next_highlight gna
 goto_prev_highlight gNa
 
 zoom_in_cursor <C-=>
+zoom_in J
+zoom_out K
 unbound =
 
 
@@ -76,11 +84,10 @@ unbound <f8>
 unbound <f6>
 unbound ]]
 
-enter_visual_mark_mode ;
+enter_visual_mark_mode ''
 
 overview_definition L
 goto_mark '
 new_window <C-n>
 
-command c
 close_window q
