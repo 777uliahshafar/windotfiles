@@ -4,7 +4,7 @@ $rmpath = "D:\camscn\"
 #Assosiacte pro-rename,pro-assets, pro-backup
 $propath = "~\Downloads\aktualisasi latsar-20241208T125518Z-001/"
 #Assosiacte doc-rename
-$docpath = "D:\lecture\sample"
+$docpath = "D:\lecture\pegawai\sasaran kinerja pegawai\"
 
 #doc-rename script
 $docFiles = ".*.pdf|.*.doc|.*.docx|.*.pptx|.*.xlsx"

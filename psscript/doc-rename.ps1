@@ -1,6 +1,6 @@
-$docFiles = ".*.pdf|.*.jpg|.*.png|.*.jpeg"
-$docpath = "D:\lecture\bkd-2024-1"
-$files = Get-ChildItem -Path $docpath -Exclude *bkd*.pdf, *bkd*.jpg, *bkd*.jpeg, *bkd*.png
+. (Join-Path $PSScriptRoot Variable.ps1)
+
+$files = Get-ChildItem -Path $docpath -Exclude *bkd*.pdf, *bkd*.jpg, *bkd*.jpeg, *bkd*.png, *.ps1, *.bat
 
 foreach ($file in $files) {
     $name = $file.Name
