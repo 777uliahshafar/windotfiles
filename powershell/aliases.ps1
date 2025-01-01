@@ -35,13 +35,6 @@ function variable
     & 'nvim' '.\Variable.ps1'
 }
 
-
-function createbatfile
-{
-New-Item -ItemType File -Path .\RenameMe.bat &&
-Add-Content -Path ".\RenameMe.bat" -Value "C:\Users\uliah\AppData\Local\Microsoft\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\wt.exe pwsh -executionpolicy bypass %~dp0%~n0.ps1"
-}
-
 function compressjpghere
 {
 magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
@@ -60,6 +53,27 @@ magick *.png -sampling-factor 4:2:0 -strip -quality 80 -colorspace sRGB -set fil
 function pdf2jpeghere
 {
 magick *.pdf -density 150 -quality 100 -flatten -sharpen 0x1.0 -set filename:f "%t-converted" '%[filename:f].jpg'
+}
+
+
+function compresspdf
+{
+    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\compresspdf.bat -Include *.bat  -File | Copy-Item -Destination .\
+}
+
+function docrename
+{
+    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\makeshortcutdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutdocrename.ps1
+}
+
+function project
+{
+    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\makeshortcutproject.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutproject.ps1
+}
+
+function camscanner
+{
+    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\makeshortcutremovecamscanner.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutremovecamscanner.ps1
 }
 
 # Other function
@@ -119,7 +133,6 @@ Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
-Set-Alias bat createbatfile
 Set-Alias va variable
 
 # Set-Alias magal magickaliases
@@ -130,6 +143,10 @@ Set-Alias compressjpg compressjpghere
 Set-Alias compressjpeg compressjpeghere
 Set-Alias compresspng compresspnghere
 Set-Alias pdf2img pdf2jpeghere
+Set-Alias getcompresspdf compresspdf
+Set-Alias getdocrename docrename
+Set-Alias getproject project
+Set-Alias getremovecamscanner camscanner
 
 # Set-Alias phd phdjournal
 Set-Alias st statistika
