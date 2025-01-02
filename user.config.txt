@@ -42,8 +42,10 @@ new_command _translate_selected_text python -m sioyek.translate "%{sioyek_path}"
 new_command _translate_current_line_text python -m sioyek.translate "%{sioyek_path}" "%{line_text}"
 ---
 keys_user.config
-move_left           l
-move_right          h
+move_left l
+goto_left_smart H
+move_right h
+goto_right_smart L
 goto_bottom_of_page;goto_left   Z
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down; <space>
@@ -86,7 +88,7 @@ unbound ]]
 
 enter_visual_mark_mode ''
 
-overview_definition L
+overview_definition 
 goto_mark '
 new_window <C-n>
 
