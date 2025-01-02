@@ -49,7 +49,7 @@ goto_right_smart L
 goto_bottom_of_page;goto_left   Z
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down; <space>
-move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>>
+move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>> 
 
 toggle_custom_color <f5>
 fit_to_page_width_smart  <f4>
@@ -66,13 +66,16 @@ open_document <C-S-o>
 
 embed_annotations E
 
-add_highlight A
-add_highlight_with_current_type a
-goto_highlight ga
-goto_highlight_g gA
+add_highlight <C-S-a>
+add_highlight_with_current_type <C-a>
+goto_highlight a
+goto_highlight_g A
 delete_highlight da
-goto_next_highlight gna
-goto_prev_highlight gNa
+goto_next_highlight }
+goto_prev_highlight {
+add_bookmark <C-b>
+goto_bookmark b
+goto_bookmark_g B
 
 zoom_in_cursor <C-=>
 zoom_in J
@@ -84,11 +87,11 @@ unbound <f10>
 unbound <f9>
 unbound <f8>
 unbound <f6>
-unbound ]]
+
 
 enter_visual_mark_mode ''
 
-overview_definition 
+
 goto_mark '
 new_window <C-n>
 
