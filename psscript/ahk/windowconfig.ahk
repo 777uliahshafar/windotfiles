@@ -201,7 +201,7 @@ WinGet, windowState, MinMax, A
     }
 return
 
-^+j::
+^+enter::
 Process, Exist, WindowsTerminal.exe
 If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
 {
