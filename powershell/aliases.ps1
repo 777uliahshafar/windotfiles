@@ -125,7 +125,7 @@ Set-Alias al alias
 Set-Alias v nvim
 Set-Alias lt lstex
 Set-Alias o obsidian
-Set-Alias ll getchildtex
+Set-Alias la getchildtex
 Set-Alias g git
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'

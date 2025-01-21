@@ -135,7 +135,7 @@ Return
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-!n::
+!l::
     WhichWindow("ahk_exe chrome.exe", "chrome.exe")
     ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
@@ -147,7 +147,7 @@ Return
 SetTimer, RemoveToolTip, -1500
 Return
 
-!p::
+!h::
     WhichWindow("ahk_exe zotero.exe", "zotero.exe")
     ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
