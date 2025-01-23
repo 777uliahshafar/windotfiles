@@ -93,12 +93,6 @@ WhichWindow(winTitle,winProg){
 	 If WinExist(winTitle) {
 	; MsgBox, %XNew% - %WNew% ; DEBUG
     WinActivate, %winTitle%
-    WinGet, proc, ProcessName, A
-    WinGet, win, List, ahk_exe %proc%
-    Loop, %win%
-     uid := win%A_Index%
-    WinActivate, ahk_id %uid%
-    ; WinRestore, %winTitle%
 } Else Run, %winProg%
 
 }
@@ -159,46 +153,13 @@ Return
 SetTimer, RemoveToolTip, -1500
 Return
 
-!esc::
-KeyWait,esc,T0.3 ;wait 0.5 seconds for release key
-If (ErrorLevel) ;more than 0.5 sec have passed
-{
-    if WinActive("ahk_exe WindowsTerminal.exe")
-    SwitchWindow("ahk_exe zotero.exe")
-    if WinActive("ahk_exe sioyek.exe")
-    SwitchWindow("ahk_exe zotero.exe")
-    else if WinActive("ahk_exe chrome.exe")
-    SwitchWindow("ahk_exe zotero.exe")
-    KeyWait,esc ;prevent sending n after notepad opened
-}
-Else ;less than 2 sec have passed
-{
-    if WinActive("ahk_exe sioyek.exe")
-    ; SwitchWindow("ahk_exe WindowsTerminal.exe")
-        AltTab()
-    else if WinActive("ahk_exe chrome.exe")
-    ; SwitchWindow("ahk_exe WindowsTerminal.exe")
-        AltTab()
-    else if WinActive("ahk_exe zotero.exe")
-        AltTab()
-    else if WinActive("ahk_exe WindowsTerminal.exe")
-        AltTab()
-}
-
-Return
-
-
-!enter::
-AltTab()
-    Return
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; TOGGLE MAXIMIZE
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-!space::
+!enter::
 WinGet, windowState, MinMax, A
     if (windowState = 1) {
         WinRestore, A
@@ -224,3 +185,30 @@ Else
     WinActivate,% "ahk_pid  " ErrorLevel
 Return
 
+*~Tab::double_tap_tab()
+
+double_tap_tab() {
+    Static last := 0             ; Permanent variable to track last press
+
+    If (A_TickCount - last < 500) ; Diff current tick from last tick. Has it been 500ms?
+		{
+        AltTab()           ; If yes, run stuff
+        last := 0                 ; Then set last to 0. This prevents a triple tap from firing
+		}
+	Else
+		{
+		last := A_TickCount     ; If it hasn't been 500ms, set last press to current tick
+		}
+	return
+}
+
+!esc::
+    WinGetTitle, title, A
+    WinActivate, %title%
+    WinGet, proc, ProcessName, A
+    WinGet, win, List, ahk_exe %proc%
+    Loop, %win%
+     uid := win%A_Index%
+    WinActivate, ahk_id %uid%
+
+    Return
