@@ -186,6 +186,11 @@ Else ;less than 2 sec have passed
 }
 
 Return
+
+
+!;::
+AltTab()
+    Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; TOGGLE MAXIMIZE
@@ -201,7 +206,7 @@ WinGet, windowState, MinMax, A
     }
 return
 
-^+o::
+^+enter::
 Process, Exist, WindowsTerminal.exe
 If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
 {
