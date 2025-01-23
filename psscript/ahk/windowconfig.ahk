@@ -200,7 +200,7 @@ double_tap_tab() {
 		last := A_TickCount     ; If it hasn't been 500ms, set last press to current tick
 		}
     WinGetTitle, title, A
-    ToolTip, %title%, 695, 95
+    ToolTip, %title%, 295, 495
 SetTimer, RemoveToolTip, -1500
 	return
 }
@@ -235,7 +235,7 @@ double_tap_enter() {
 		last := A_TickCount     ; If it hasn't been 500ms, set last press to current tick
 		}
     WinGetTitle, title, A
-    ToolTip, %title%, 695, 95
+    ToolTip, %title%, 295, 495
 SetTimer, RemoveToolTip, -1500
 	return
 }
