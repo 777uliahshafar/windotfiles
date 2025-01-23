@@ -188,20 +188,17 @@ Else ;less than 2 sec have passed
 Return
 
 
-!;::
+!enter::
 AltTab()
     Return
 
-!space::
-AltTab()
-    Return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; TOGGLE MAXIMIZE
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-!enter::
+!space::
 WinGet, windowState, MinMax, A
     if (windowState = 1) {
         WinRestore, A
