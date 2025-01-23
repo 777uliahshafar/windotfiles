@@ -190,7 +190,7 @@ Return
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
 
-    If (A_TickCount - last < 300) ; Diff current tick from last tick. Has it been 500ms?
+    If (A_TickCount - last < 200) ; Diff current tick from last tick. Has it been 500ms?
 		{
         AltTab()           ; If yes, run stuff
     WinGetTitle, title, A
@@ -221,7 +221,7 @@ SetTimer, RemoveToolTip, -1500
 double_tap_enter() {
     Static last := 0             ; Permanent variable to track last press
 
-    If (A_TickCount - last < 300) ; Diff current tick from last tick. Has it been 500ms?
+    If (A_TickCount - last < 200) ; Diff current tick from last tick. Has it been 500ms?
 		{
     WinGet, proc, ProcessName, A
     WinGet, win, List, ahk_exe %proc%
