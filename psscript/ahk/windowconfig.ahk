@@ -193,15 +193,15 @@ double_tap_tab() {
     If (A_TickCount - last < 300) ; Diff current tick from last tick. Has it been 500ms?
 		{
         AltTab()           ; If yes, run stuff
+    WinGetTitle, title, A
+    ToolTip, %title%, 295, 495
+SetTimer, RemoveToolTip, -1500
         last := 0                 ; Then set last to 0. This prevents a triple tap from firing
 		}
 	Else
 		{
 		last := A_TickCount     ; If it hasn't been 500ms, set last press to current tick
 		}
-    WinGetTitle, title, A
-    ToolTip, %title%, 295, 495
-SetTimer, RemoveToolTip, -1500
 	return
 }
 
@@ -228,14 +228,14 @@ double_tap_enter() {
     Loop, %win%
      uid := win%A_Index%
     WinActivate, ahk_id %uid%
+    WinGetTitle, title, A
+    ToolTip, %title%, 295, 495
+SetTimer, RemoveToolTip, -1500
         last := 0                 ; Then set last to 0. This prevents a triple tap from firing
 		}
 	Else
 		{
 		last := A_TickCount     ; If it hasn't been 500ms, set last press to current tick
 		}
-    WinGetTitle, title, A
-    ToolTip, %title%, 295, 495
-SetTimer, RemoveToolTip, -1500
 	return
 }
