@@ -91,7 +91,7 @@ function obseng
 
 function element
 {
-    cd 'D:\element'
+    cd 'D:\lecture\hibah2025\elemen\'
     & 'nvim' '.\element.tex'
 }
 
