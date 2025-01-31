@@ -139,10 +139,10 @@ Return
 KeyWait,k,T0.3 ;wait 0.5 seconds for release key
 If (ErrorLevel) ;more than 0.5 sec have passed
 {
-WinMaximize, A
+WinMaximize, "ahk_exe sioyek.exe"
 send #{Left}
 send !{ESC}
-WinMaximize, A
+WinMaximize, "ahk_exe sioyek.exe"
 send #{Right}
 KeyWait,k ;prevent sending n after notepad opened
 }
