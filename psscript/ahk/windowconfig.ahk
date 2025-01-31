@@ -136,9 +136,22 @@ SetTimer, RemoveToolTip, -1500
 Return
 
 !k::
+KeyWait,k,T0.3 ;wait 0.5 seconds for release key
+If (ErrorLevel) ;more than 0.5 sec have passed
+{
+WinMaximize, A
+send #{Left}
+send !{ESC}
+WinMaximize, A
+send #{Right}
+KeyWait,k ;prevent sending n after notepad opened
+}
+Else
+{
     WhichWindow("ahk_exe sioyek.exe", "sioyek.exe")
     ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
+}
 Return
 
 !h::
@@ -239,3 +252,5 @@ SetTimer, RemoveToolTip, -1500
 		}
 	return
 }
+
+
