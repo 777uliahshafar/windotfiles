@@ -156,12 +156,15 @@ Return
 
 !h::
     WhichWindow("ahk_exe zotero.exe", "zotero.exe")
-    ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
+    ToolTip, quit sioyek before rename zotfile, 695, 95
 SetTimer, RemoveToolTip, -1500
 Return
 
 !j::
     WhichWindow("ahk_exe WindowsTerminal.exe", "WindowsTerminal.exe")
+    FixedWindow("ahk_exe WindowsTerminal.exe", 0, 49.9999)
+    FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
+
     ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
 Return
@@ -203,7 +206,7 @@ Return
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
 
-    If (A_TickCount - last < 200) ; Diff current tick from last tick. Has it been 500ms?
+    If (A_TickCount - last < 300) ; Diff current tick from last tick. Has it been 500ms?
 		{
         AltTab()           ; If yes, run stuff
     WinGetTitle, title, A

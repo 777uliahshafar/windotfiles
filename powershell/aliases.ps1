@@ -115,7 +115,7 @@ function aasessay
 function karakter
 {
     cd 'D:\karakterAA\'
-    & 'e' '.\karakter.tex'
+    & 'nvim' '.\karakter.tex'
 }
 
 
