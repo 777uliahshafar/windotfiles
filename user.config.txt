@@ -78,10 +78,10 @@ add_bookmark <C-b>
 goto_bookmark b
 goto_bookmark_g B
 
-zoom_in_cursor <C-=>
+zoom_in_cursor 
+fit_to_page_width_smart =
 zoom_in J
 zoom_out K
-unbound =
 
 
 unbound <f10>
