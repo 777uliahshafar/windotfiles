@@ -201,6 +201,11 @@ Else
     WinActivate,% "ahk_pid  " ErrorLevel
 Return
 
+!n::AltTab()
+    WinGetTitle, title, A
+    ToolTip, %title%, 295, 495
+    SetTimer, RemoveToolTip, -1500
+Return
 *~Tab::double_tap_tab()
 
 double_tap_tab() {
