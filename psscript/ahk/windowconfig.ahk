@@ -201,7 +201,8 @@ Else
     WinActivate,% "ahk_pid  " ErrorLevel
 Return
 
-!n::AltTab()
+!n::
+    AltTab()
     WinGetTitle, title, A
     ToolTip, %title%, 295, 495
     SetTimer, RemoveToolTip, -1500
