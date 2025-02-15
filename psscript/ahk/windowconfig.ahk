@@ -161,12 +161,20 @@ SetTimer, RemoveToolTip, -1500
 Return
 
 !j::
+KeyWait,j,T0.3 ;wait 0.5 seconds for release key
+If (ErrorLevel) ;more than 0.5 sec have passed
+{
     WhichWindow("ahk_exe WindowsTerminal.exe", "WindowsTerminal.exe")
     FixedWindow("ahk_exe WindowsTerminal.exe", 0, 49.9999)
     FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
-
+KeyWait,j ;prevent sending n after notepad opened
+}
+Else
+{
+    WhichWindow("ahk_exe WindowsTerminal.exe", "WindowsTerminal.exe")
     ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
+}
 Return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -175,7 +183,16 @@ Return
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-!m::
+!space::
+WinGet, windowState, MinMax, A
+    if (windowState = 1) {
+        WinRestore, A
+    } else {
+        WinMaximize, A
+    }
+return
+
+!enter::
 WinGet, windowState, MinMax, A
     if (windowState = 1) {
         WinRestore, A
@@ -201,12 +218,13 @@ Else
     WinActivate,% "ahk_pid  " ErrorLevel
 Return
 
-!n::
+!;::
     AltTab()
     WinGetTitle, title, A
     ToolTip, %title%, 295, 495
     SetTimer, RemoveToolTip, -1500
 Return
+
 *~Tab::double_tap_tab()
 
 double_tap_tab() {
