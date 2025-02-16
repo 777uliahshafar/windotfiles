@@ -320,10 +320,10 @@ WinActivate, ahk_class Chrome_WidgetWin_1
                     IfWinNotActive, ahk_exe chrome.exe
                 {
                     Send, {Alt up}
-                    break
+                    Break
                     Return
                 }
-                break
+                Break
                 Return
         }
 }
