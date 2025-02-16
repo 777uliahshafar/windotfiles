@@ -89,7 +89,7 @@ SwitchWindow(winTitle){
 } Else MsgBox 48, Error, % "Window was not found.`n`n" winTitle
 }
 
-WhichWindow(winTitle,winProg){
+WhichWindow(winTitle, winProg){
 	 If WinExist(winTitle) {
 	; MsgBox, %XNew% - %WNew% ; DEBUG
     WinActivate, %winTitle%
@@ -171,7 +171,7 @@ KeyWait,j ;prevent sending n after notepad opened
 }
 Else
 {
-    WhichWindow("ahk_exe WindowsTerminal.exe", "WindowsTerminal.exe")
+    WhichWindow("ahk_exe WindowsTerminal.exe", "wt.exe")
     ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
 SetTimer, RemoveToolTip, -1500
 }
