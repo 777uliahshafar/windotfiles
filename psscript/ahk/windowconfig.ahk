@@ -280,4 +280,20 @@ SetTimer, RemoveToolTip, -1500
 	return
 }
 
+!n::
+KeyWait,n,T0.3 ;wait 0.5 seconds for release key
+If (ErrorLevel) ;more than 0.5 sec have passed
+{
+    uid := WinActive("A")
+    SoundBeep, 1500, 100 ; Mark the active window
+KeyWait,n ;prevent sending n after notepad opened
+}
+Else
+{
+    WinActivate, ahk_id %uid% ;Activate the marked window
+    ; WinActivate, ahk_id %uid%
+    ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
+    SetTimer, RemoveToolTip, -1500
+}
+Return
 
