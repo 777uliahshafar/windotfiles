@@ -280,20 +280,52 @@ SetTimer, RemoveToolTip, -1500
 	return
 }
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; Way to Activate chrome instance
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; !n::
+; KeyWait,n,T0.3 ;wait 0.5 seconds for release key
+; If (ErrorLevel) ;more than 0.5 sec have passed
+; {
+;     uid := WinActive("A")
+;     SoundBeep, 1500, 100 ; Mark the active window
+; KeyWait,n ;prevent sending n after notepad opened
+; }
+; Else
+; {
+;     WinActivate, ahk_id %uid% ;Activate the marked window
+;     ; WinActivate, ahk_id %uid%
+;     ToolTip, hold !n to mark the window, 695, 95
+;     SetTimer, RemoveToolTip, -1500
+; }
+; Return
+
 !n::
-KeyWait,n,T0.3 ;wait 0.5 seconds for release key
-If (ErrorLevel) ;more than 0.5 sec have passed
+If Not WinExist("ahk_exe chrome.exe")
 {
-    uid := WinActive("A")
-    SoundBeep, 1500, 100 ; Mark the active window
-KeyWait,n ;prevent sending n after notepad opened
+    Return
 }
-Else
-{
-    WinActivate, ahk_id %uid% ;Activate the marked window
-    ; WinActivate, ahk_id %uid%
-    ToolTip, hold !n to mark the window, 695, 95
-    SetTimer, RemoveToolTip, -1500
+WinActivate, ahk_class Chrome_WidgetWin_1
+    Loop{
+        Send, ^{Tab}
+        Sleep, 50
+            WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
+            If CurrentWindowTitle contains Jenni
+            {
+                Send, {tab}
+                Sleep 300
+                    IfWinNotActive, ahk_exe chrome.exe
+                {
+                    Send, {Alt up}
+                    break
+                    Return
+                }
+                break
+                Return
+        }
 }
-Return
+
 
