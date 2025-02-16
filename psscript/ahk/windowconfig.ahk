@@ -292,7 +292,7 @@ Else
 {
     WinActivate, ahk_id %uid% ;Activate the marked window
     ; WinActivate, ahk_id %uid%
-    ToolTip, Zotero(P) Terminal(J) Sioyek(K) Chrome(N), 695, 95
+    ToolTip, hold !n to mark the window, 695, 95
     SetTimer, RemoveToolTip, -1500
 }
 Return
