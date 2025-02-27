@@ -2,12 +2,6 @@
 
 $files = Get-ChildItem -Path $comdocpath
 
-
-foreach ($file in $files) {
-    Where-Object Name -match '-compressed' |
-    Rename-Item -NewName { $_.Name.Replace($Matches[0], '') }
-}
-
 foreach ($file in $files) {
     $name = $file.Name
     $fullname = $file.FullName
