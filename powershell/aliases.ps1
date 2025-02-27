@@ -124,7 +124,7 @@ function karakter
 Set-Alias al alias
 Set-Alias v nvim
 Set-Alias lt lstex
-Set-Alias o obsidian
+Set-Alias ob obsidian
 Set-Alias la getchildtex
 Set-Alias g git
 Set-Alias grep findstr
