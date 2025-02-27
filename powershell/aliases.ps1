@@ -55,10 +55,9 @@ function pdf2jpeghere
 magick *.pdf -density 150 -quality 100 -flatten -sharpen 0x1.0 -set filename:f "%t-converted" '%[filename:f].jpg'
 }
 
-
-function compresspdf
+function comdocrename
 {
-    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\compresspdf.bat -Include *.bat  -File | Copy-Item -Destination .\
+    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\makeshortcutcomdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutcomdocrename.ps1
 }
 
 function docrename
@@ -143,7 +142,7 @@ Set-Alias compressjpg compressjpghere
 Set-Alias compressjpeg compressjpeghere
 Set-Alias compresspng compresspnghere
 Set-Alias pdf2img pdf2jpeghere
-Set-Alias getcompresspdf compresspdf
+Set-Alias getcomdocrename comdocrename
 Set-Alias getdocrename docrename
 Set-Alias getproject project
 Set-Alias getremovecamscanner camscanner
