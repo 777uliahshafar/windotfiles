@@ -157,7 +157,7 @@ function karakter
 # aw windows aliases
 Set-Alias v nvim
 Set-Alias lt lstex
-Set-Alias ob obsidian
+Set-Alias n obsidian
 Set-Alias la getchildtex
 Set-Alias g git
 Set-Alias grep findstr
