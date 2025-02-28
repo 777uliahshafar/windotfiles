@@ -202,6 +202,12 @@ Set-Alias getremovecamscanner camscanner
 
 
 
+
+
+
+
+
+
 # Set-Alias phd phdjournal
 Set-Alias st statistika
 Set-Alias int interviewbpi

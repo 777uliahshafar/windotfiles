@@ -72,17 +72,17 @@ function aliases
 
 function magickaliases
 {
-    Get-Content $PSScriptRoot\aliases.ps1 | Select-Object -Index (180..110)
+    Get-Content $PSScriptRoot\aliases.ps1 | Select-Object -Index (180..210)
 }
 
 function projectaliases
 {
-    Get-Content $PSScriptRoot\aliases.ps1 | Select-Object -Index (200..230)
+    Get-Content $PSScriptRoot\aliases.ps1 | Select-Object -Index (210..240)
 }
 
 function windowsshortcut
 {
-    Get-Content $PSScriptRoot\aliases.ps1 | Select-Object -Index (230..260)
+    Get-Content $PSScriptRoot\aliases.ps1 | Select-Object -Index (240..270)
 }
 
 Set-Alias aa aliases
