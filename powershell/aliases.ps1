@@ -151,9 +151,10 @@ function karakter
 
 
 # Alias
-# ala aliasis
-# alm magick aliases
-# alp project aliases
+# aa aliasis
+# am magick aliases
+# ap project aliases
+# aw windows aliases
 Set-Alias v nvim
 Set-Alias lt lstex
 Set-Alias ob obsidian
