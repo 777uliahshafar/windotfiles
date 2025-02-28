@@ -10,7 +10,7 @@ visual_mark_color    0.15686 0.16471 0.21176 0.8
 #status_bar_text_color   0.847 0.871 0.914 0.851
 status_bar_text_color 0.97255 0.97255 0.94902
 #status_bar_color 0.11764705882352941 0.11764705882352941 0.1803921568627451
-status_bar_color #5c6370
+status_bar_color #1d2021
 page_separator_color    #1d2021
 page_separator_width 10
 link_highlight_color    0.38431 0.44706 0.64314
