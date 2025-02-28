@@ -117,10 +117,91 @@ function karakter
     & 'nvim' '.\karakter.tex'
 }
 
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Alias
-Set-Alias al alias
+# aa aliasis
+# ab magick aliases
+# ac project aliases
 Set-Alias v nvim
 Set-Alias lt lstex
 Set-Alias ob obsidian
@@ -134,8 +215,89 @@ Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
 Set-Alias va variable
 
-# Set-Alias magal magickaliases
-# Set-Alias proal projectaliases
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Magick Alias
 Set-Alias compressjpg compressjpghere
@@ -146,6 +308,101 @@ Set-Alias getcomdocrename comdocrename
 Set-Alias getdocrename docrename
 Set-Alias getproject project
 Set-Alias getremovecamscanner camscanner
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Set-Alias phd phdjournal
 Set-Alias st statistika
