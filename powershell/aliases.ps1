@@ -150,58 +150,10 @@ function karakter
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Alias
-# aa aliasis
-# ab magick aliases
-# ac project aliases
+# ala aliasis
+# alm magick aliases
+# alp project aliases
 Set-Alias v nvim
 Set-Alias lt lstex
 Set-Alias ob obsidian
@@ -214,78 +166,6 @@ Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
 Set-Alias va variable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -321,89 +201,6 @@ Set-Alias getremovecamscanner camscanner
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Set-Alias phd phdjournal
 Set-Alias st statistika
 Set-Alias int interviewbpi
@@ -414,3 +211,115 @@ Set-Alias as aasessay
 Set-Alias ka karakter
 Set-Alias vp obsprop
 Set-Alias ve obseng
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Windows Shortcut
+# Alt + H = open zotero
+# Alt + J = open terminal
+# Alt + K = open sioyek
+# Alt + L = open Chrome
+# Alt + N = open jenni chrome tab
+# Alt + space/enter = maximaze
+# Double tab = switch between application
+# Double enter = switch between instance
+# Windows Key + enter = open entire application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
