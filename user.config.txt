@@ -1,16 +1,18 @@
 pref_user.config
 startup_commands    toggle_custom_color;toggle_visual_scroll
-#custom_background_color    0.122 0.122 0.157
-custom_background_color 	0.15686 0.16471 0.21176
-#custom_text_color     0.99255 0.98255 0.94902
-custom_text_color		0.97255 0.97255 0.94902
-custom_color_contrast 0.3
+custom_background_color    0.122 0.122 0.157
+#custom_background_color 	0.15686 0.16471 0.21176
+custom_text_color     0.99255 0.98255 0.94902
+#custom_text_color		0.97255 0.97255 0.94902
+custom_color_contrast 0.5
+text_highlight_color 		0.94510 0.98039 0.54902
 visual_mark_color    0.15686 0.16471 0.21176 0.8
 #status_bar_text_color   0.847 0.871 0.914 0.851
 status_bar_text_color 0.97255 0.97255 0.94902
 #status_bar_color 0.11764705882352941 0.11764705882352941 0.1803921568627451
-status_bar_color 0.15686 0.16471 0.21176
-page_separator_color    0.847 0.871 0.914 0.851
+status_bar_color #1d2021
+page_separator_color    #1d2021
+page_separator_width 10
 link_highlight_color    0.38431 0.44706 0.64314
 synctex_highlight_color    0.31373 0.98039 0.48235
 ruler_padding 25.0
@@ -32,7 +34,7 @@ smooth_scroll drag 3500
 
 
 
-highlight_color_a 		0.94510 0.98039 0.54902
+highlight_color_a 		1.00000 0.72157 0.42353
 highlight_color_q		0.31373 0.98039 0.48235
 highlight_color_z		0.54510 0.91373 0.99216
 highlight_color_w		1.00000 0.47451 0.77647
@@ -54,7 +56,7 @@ goto_right_smart L
 goto_bottom_of_page;goto_left   Z
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
 move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down; <space>
-move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>> 
+move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>>
 
 toggle_custom_color <f5>
 fit_to_page_width_smart  <f4>
@@ -82,7 +84,7 @@ add_bookmark <C-b>
 goto_bookmark b
 goto_bookmark_g B
 
-zoom_in_cursor 
+zoom_in_cursor
 fit_to_page_width_smart =
 zoom_in J
 zoom_out K
