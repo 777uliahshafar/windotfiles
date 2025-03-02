@@ -1,0 +1,154 @@
+<!-- Title -->
+<h1 style="color:#193c47; background-color:#eef9fd; padding:8px;">
+  ${(() => {
+    const date = topItem.getField("date").split('T')[0];
+    const title = topItem.getField("title");
+    const titleTranslation = topItem.getField("titleTranslation");
+    if (date && titleTranslation) {
+      return `(${date}) ${title} (${titleTranslation})`;
+    } else if (date) {
+      return `(${date}) ${title}`;
+    } else {
+      return `${title}`;
+    }
+  })()}
+</h1>
+
+<!-- Meta Data -->
+<table>
+  <!-- Author -->
+  <tr>
+    <td style="color:#193c47; background-color:#dbeedd; padding:8px;">
+      <b>Author:</b> ${topItem.getCreators().slice(0, 10).map((v) => v.firstName + " " + v.lastName).join("; ") + (topItem.getCreators().length > 10 ? "; et al." : ";")}
+    </td>
+  </tr>
+
+  <!-- Journal -->
+  <tr>
+    <td style="color:#193c47; background-color:#f3faf4; padding:8px;">
+      <b style="color:#193c47;">Journal:
+      <b style="color:#FF0000">
+        ${topItem.getField('publicationTitle')},
+      </b>
+      ${(()=>{
+        const volume = topItem.getField('volume');
+        const issue = topItem.getField('issue');
+        const pages = topItem.getField('pages');
+        const year = topItem.getField('date').split('-')[0];
+        let line = "";
+        if (volume) {
+          line += volume;
+          if (issue) {
+            line += '(' + issue + ')';
+            line += pages ? ": " + pages + "," : ","
+          } else {
+            line += pages ? ": " + pages + "," : ","
+          }
+        } else if (issue) {
+          line += '(' + issue + ')';
+          line += pages ? ": " + pages : ","
+        } else {
+          line += pages ? pages + "," : ""
+        }
+        line += year ? " " + year + "." : "";
+        return line;
+      })()}
+      </b>
+    </td>
+  </tr>
+
+ <!-- Tags -->
+  <tr>
+  <td style="color:#193c47; background-color:#dbeedd; padding:8px;">
+    <!-- Filter and display tags starting with # -->
+    <b>Tags:</b> ${topItem.getTags().map(tagObj => tagObj.tag.startsWith('') ? tagObj.tag + ' ,':'').join(' ') || ''}
+  </td>
+  </tr>
+
+  <!-- Local Link -->
+  <tr>
+    <td style="color:#193c47; background-color:#f3faf4; padding:8px;">
+      ${(() => {
+        const attachments = Zotero.Items.get(topItem.getAttachments());
+        const pdf = attachments.filter((i) => i.isPDFAttachment());
+        if (pdf && pdf.length > 0) {
+          return `<b>Local Link: </b><a href="zotero://open-pdf/0_${pdf[0].key}">${pdf[0].getFilename()}</a>`;
+        } else if (attachments && attachments.length > 0) {
+          return `<b>Local Link: </b><a href="zotero://open-pdf/0_${attachments[0].key}">${attachments[0].getFilename()}</a>`;
+        } else {
+          return `<b>Local Link: </b>`;
+        }
+      })()}
+    </td>
+  </tr>
+
+  <!-- DOI or URL -->
+  <tr>
+    <td style="color:#193c47; background-color:#dbeedd; padding:8px;">
+      ${(() => {
+        const doi = topItem.getField("DOI");
+        if (doi) {
+          return `<b>DOI: </b><a href="https://doi.org/${topItem.getField('DOI')}">${topItem.getField('DOI')}</a>`;
+        } else {
+          return `<b>URL: </b><a href="${topItem.getField('url')}">${topItem.getField('url')}</a>`;
+        }
+      })()}
+    </td>
+  </tr>
+
+  <!-- Abstract -->
+  <tr>
+    <td style="color:#193c47; background-color:#f3faf4; padding:8px;">
+      ${(() => {
+        const abstractTranslation = topItem.getField('abstractTranslation');
+        if (abstractTranslation) {
+          return `<b>Abstract Translation: </b><i>${abstractTranslation}</i>`;
+        } else {
+          return `<b>Abstract: </b><i>${topItem.getField('abstractNote')}</i>`;
+        }
+      })()}
+    </td>
+  </tr>
+
+</table>
+
+<!-- Main Content -->
+<span>
+  <h2 style="color:#e0ffff; background-color:#66cdaa;">📜 Research Core</h2>
+  <hr />
+</span>
+<blockquote>Tips: What was done, what problem was solved, innovations and shortcomings?</blockquote>
+<p></p>
+<h3>⚙️ Content</h3>
+<p></p>
+<h3>💡 Innovations</h3>
+<p></p>
+<h3>🧩 Shortcomings</h3>
+<p></p>
+
+<span>
+  <h2 style="color:#20b2aa; background-color:#afeeee;">🔁 Research Content</h2>
+  <hr />
+</span>
+<p></p>
+<h3>💧 Data</h3>
+<p></p>
+<h3>👩🏻‍💻 Method</h3>
+<p></p>
+<h3>🔬 Experiment</h3>
+<p></p>
+<h3>📜 Conclusion</h3>
+<p></p>
+
+<span>
+  <h2 style="color:#004d99; background-color:#87cefa;">🤔 Personal Summary</h2>
+  <hr />
+</span>
+<blockquote>Tips: What aspects did you question, how do you think it can be improved?</blockquote>
+<p></p>
+<h3>🙋‍♀️ Key Records</h3>
+<p></p>
+<h3>📌 To be resolved</h3>
+<p></p>
+<h3>💭 Thought Inspiration</h3>
+<p></p>
