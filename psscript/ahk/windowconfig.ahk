@@ -368,8 +368,7 @@ Return
 
 !c::
 WinGetActiveTitle, Title
-Clipboard := RegExReplace(Title, "(?<=\))(\s?\w)+$")
-
+Clipboard := StrSplit( Title, ".").1
 Return
 
 #IfWinActive ahk_exe zotero.exe
