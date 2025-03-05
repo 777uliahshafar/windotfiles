@@ -361,3 +361,15 @@ WinActivate, ahk_class Chrome_WidgetWin_1
 		}
 	}
 Return
+
+; F2::
+; WinGetTitle, title, A
+; MsgBox, "%title%"
+
+!c::
+WinGetActiveTitle, Title
+Clipboard := RegExReplace(Title, "(?<=\))(\s?\w)+$")
+
+Return
+
+
