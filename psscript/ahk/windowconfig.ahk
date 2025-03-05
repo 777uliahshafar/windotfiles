@@ -372,4 +372,10 @@ Clipboard := RegExReplace(Title, "(?<=\))(\s?\w)+$")
 
 Return
 
+#IfWinActive ahk_exe zotero.exe
+!s:: Send, ^f
+!d:: Send, ^d
+
+#IfWinActive
+
 
