@@ -303,33 +303,6 @@ SetTimer, RemoveToolTip, -1500
 ; }
 ; Return
 
-!n::
-If Not WinExist("ahk_exe chrome.exe")
-{
-    Return
-}
-WinActivate, ahk_class Chrome_WidgetWin_1
-    Loop{
-        Send, ^{Tab}
-        Sleep, 50
-            WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
-            If CurrentWindowTitle contains Jenni
-            {
-                Send, {tab}
-                Sleep 300
-                    IfWinNotActive, ahk_exe chrome.exe
-                {
-                    Send, {Alt up}
-                    Break
-                    Return
-                }
-                Break
-                Return
-        }
-}
-
-; Press Ctrl+Shift+Space to set any currently active window to be always on top.
-; Press Ctrl+Shift+Space again set the window to no longer be always on top.
 
 !t::
 	WinGetTitle, activeWindow, A
@@ -377,4 +350,31 @@ Return
 
 #IfWinActive
 
+; always put on top on below documents
+!n::
+If Not WinExist("ahk_exe chrome.exe")
+{
+    Return
+}
+WinActivate, ahk_class Chrome_WidgetWin_1
+    Loop{
+        Send, ^{Tab}
+        Sleep, 50
+            WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
+            If CurrentWindowTitle contains Jenni
+            {
+                Send, {tab}
+                Sleep 300
+                    IfWinNotActive, ahk_exe chrome.exe
+                {
+                    Send, {Alt up}
+                    Break
+                    Return
+                }
+                Break
+                Return
+        }
+}
 
+; Press Ctrl+Shift+Space to set any currently active window to be always on top.
+; Press Ctrl+Shift+Space again set the window to no longer be always on top.
