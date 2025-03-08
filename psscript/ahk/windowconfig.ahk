@@ -345,8 +345,26 @@ Clipboard := StrSplit( Title, ".").1
 Return
 
 #IfWinActive ahk_exe zotero.exe
-!s:: Send, ^f
+!f:: Send, ^f
 !d:: Send, ^d
+!w::
+KeyWait,w,T0.3 ;wait 0.5 seconds for release key
+If (ErrorLevel) ;more than 0.5 sec have passed
+{
+    Send, +[
+    KeyWait,w ;prevent sending n after notepad opened
+}
+Else
+{
+	SetKeyDelay, 200, 50 ;SetKeyDelay , Delay, PressDuration
+	Send, +[
+	Send, +]
+}
+Return
+
+
+
+
 
 #IfWinActive
 
