@@ -117,6 +117,12 @@ function karakter
     & 'nvim' '.\karakter.tex'
 }
 
+function hibahint
+{
+    cd 'D:\hibahint2025\'
+    & 'nvim' '.\hibahint.tex'
+}
+
 #
 #
 #
@@ -218,6 +224,7 @@ Set-Alias as aasessay
 Set-Alias ka karakter
 Set-Alias vp obsprop
 Set-Alias ve obseng
+Set-Alias hi hibahint
 
 
 

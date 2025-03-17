@@ -7,7 +7,7 @@ $propath = "~\Downloads\aktualisasi latsar-20241208T125518Z-001/"
 $docpath = "D:\lecture\pegawai\sasaran kinerja pegawai\"
 
 #Assosiacte compress-rename
-$comdocpath = "~\Downloads\new"
+$comdocpath = "~\Downloads"
 
 #doc-rename script
 $docFiles = ".*.pdf|.*.doc|.*.docx|.*.pptx|.*.xlsx"

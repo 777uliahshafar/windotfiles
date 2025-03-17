@@ -345,8 +345,29 @@ Clipboard := StrSplit( Title, ".").1
 Return
 
 #IfWinActive ahk_exe zotero.exe
+F9::
+zotmsg =
+(
+Alt+f searchbox
+Alt+d addtags
+Alt+w sidebartoggle
+Alt+w sidebartoggle
+)
+SplashTextOn, 300, 100, Message #1, %zotmsg%,
+Sleep, 5000
+SplashTextOff
+Return
+#IfWinActive
+
+#IfWinActive ahk_exe zotero.exe
 !f:: Send, ^f
+#IfWinActive
+
+#IfWinActive ahk_exe zotero.exe
 !d:: Send, ^d
+#IfWinActive
+
+#IfWinActive ahk_exe zotero.exe
 !w::
 KeyWait,w,T0.3 ;wait 0.5 seconds for release key
 If (ErrorLevel) ;more than 0.5 sec have passed
@@ -361,15 +382,30 @@ Else
 	Send, +]
 }
 Return
-
-
-
-
-
 #IfWinActive
 
+#IfWinActive ahk_exe chrome.exe
+!a:: Send, ^!a
+#IfWinActive
+
+#IfWinActive ahk_exe chrome.exe
+F9::
+chromsg =
+(
+Alt+d grouptab
+Alt+a sharegdrive
+Alt+w closegroup
+Alt+1-4 togglegroup
+)
+SplashTextOn, 300, 100, Message #1, %chromsg%,
+Sleep, 5000
+SplashTextOff
+Return
+#IfWinActive
+
+
 ; always put on top on below documents
-!n::
+!+j::
 If Not WinExist("ahk_exe chrome.exe")
 {
     Return
@@ -393,6 +429,28 @@ WinActivate, ahk_class Chrome_WidgetWin_1
                 Return
         }
 }
+Return
 
 ; Press Ctrl+Shift+Space to set any currently active window to be always on top.
 ; Press Ctrl+Shift+Space again set the window to no longer be always on top.
+
+F10::
+msg =
+(
+Alt+j terminal
+Alt+k sioyek
+Alt+h zotero
+Alt+l chrome
+AltShift+j jenni
+Alt+= equalwindow
+AltShift+= onequarterwindow
+Alt+- onequarterwindow
+Alt+Space fullscreen
+Double tab switchwindow
+Double Enter switchinstance
+)
+SplashTextOn, 300, 400, Message #1, %msg%,
+Sleep, 5000
+SplashTextOff
+Return
+
