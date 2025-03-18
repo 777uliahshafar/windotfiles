@@ -40,6 +40,11 @@ function compressjpghere
 magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
 }
 
+function montagejpghere
+{
+magick montage montage*.jpg -tile 2x -geometry 640x480+10+10 montage-result.jpg
+}
+
 function compressjpeghere
 {
 magick *.jpeg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
@@ -189,6 +194,7 @@ Set-Alias va variable
 # Magick Alias
 Set-Alias compressjpg compressjpghere
 Set-Alias compressjpeg compressjpeghere
+Set-Alias montagejpg montagejpghere
 Set-Alias compresspng compresspnghere
 Set-Alias pdf2img pdf2jpeghere
 Set-Alias getcomdocrename comdocrename
