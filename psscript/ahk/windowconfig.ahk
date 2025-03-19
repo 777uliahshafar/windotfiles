@@ -345,7 +345,7 @@ Clipboard := StrSplit( Title, ".").1
 Return
 
 #IfWinActive ahk_exe zotero.exe
-F9::
+F1::
 zotmsg =
 (
 Alt+f searchbox
@@ -389,7 +389,7 @@ Return
 #IfWinActive
 
 #IfWinActive ahk_exe chrome.exe
-F9::
+F1::
 chromsg =
 (
 Alt+d grouptab

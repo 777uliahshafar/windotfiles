@@ -42,7 +42,7 @@ magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspa
 
 function montagejpghere
 {
-magick montage montage*.jpg -tile 2x -geometry 640x480+10+10 montage-result.jpg
+echo "magick montage filname*.jpg -tile 2x -geometry 640x480+10+10 filename-result.jpg"
 }
 
 function compressjpeghere
