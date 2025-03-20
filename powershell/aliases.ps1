@@ -116,10 +116,10 @@ function aasessay
     & 'nvim' '.\aasessay.tex'
 }
 
-function karakter
+function usulanbpi
 {
-    cd 'D:\karakterAA\'
-    & 'nvim' '.\karakter.tex'
+    cd 'D:\usulandrplace'
+    & 'nvim' '.\usulandrbpi.tex'
 }
 
 function hibahint
@@ -231,6 +231,7 @@ Set-Alias ka karakter
 Set-Alias vp obsprop
 Set-Alias ve obseng
 Set-Alias hi hibahint
+Set-Alias ub usulanbpi
 
 
 
