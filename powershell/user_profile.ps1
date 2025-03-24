@@ -67,7 +67,7 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory
 
 function aliases
 {
-    Get-Content $PSScriptRoot\aliases.ps1 | Select-Object -Index (180..210)
+    Get-Content $PSScriptRoot\aliases.ps1 | Select-Object -Index (165..190)
 }
 
 function magickaliases
