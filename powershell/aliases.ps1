@@ -122,6 +122,12 @@ function usulanbpi
     & 'nvim' '.\usulandrbpi.tex'
 }
 
+function usulandosbin
+{
+    cd 'D:\usulandrplace'
+    & 'nvim' '.\usulandosbin.tex'
+}
+
 function hibahint
 {
     cd 'D:\hibahint2025\'
@@ -232,6 +238,7 @@ Set-Alias vp obsprop
 Set-Alias ve obseng
 Set-Alias hi hibahint
 Set-Alias ub usulanbpi
+Set-Alias ud usulandosbin
 
 
 
