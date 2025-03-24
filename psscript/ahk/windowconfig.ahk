@@ -225,6 +225,7 @@ Return
     SetTimer, RemoveToolTip, -1500
 Return
 
+#IfWinNotActive ahk_exe WindowsTerminal.exe
 *~Tab::double_tap_tab()
 
 double_tap_tab() {
@@ -244,6 +245,8 @@ SetTimer, RemoveToolTip, -1500
 		}
 	return
 }
+
+#IfWinNotActive
 
 !esc::
     WinGetTitle, title, A
