@@ -13,7 +13,7 @@
 1. git `winget install -e --id Git.Git`
    - Set up git config --global (if necessary)
    - Connect github with ssh.
-1. neovim `scoop install neovim`.
+1. neovim/nvim `scoop install neovim`.
 
 # Clone Config
 
