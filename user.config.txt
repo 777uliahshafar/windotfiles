@@ -35,13 +35,13 @@ smooth_scroll drag 3500
 
 
 
-highlight_color_a 		1.00000 0.72157 0.42353
+highlight_color_a 		0.94510 0.98039 0.54902
 highlight_color_q		0.31373 0.98039 0.48235
 highlight_color_z		0.54510 0.91373 0.99216
 highlight_color_w		1.00000 0.47451 0.77647
 highlight_color_s		0.74118 0.57647 0.97647
 highlight_color_x		1.00000 0.33333 0.33333
-highlight_color_e		0.94510 0.98039 0.54902
+highlight_color_e		1.00000 0.72157 0.42353
 highlight_color_d    0.31373 0.98039 0.48235
 highlight_color_c    0.54510 0.91373 0.99216
 
