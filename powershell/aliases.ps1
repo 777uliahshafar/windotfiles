@@ -101,8 +101,8 @@ function element
 
 function proposalstudy
 {
-    cd 'D:\phdprop\'
-    & 'nvim' '.\subfiles\aasprop.tex'
+    cd 'D:\usulandoktor\'
+    & 'nvim' '.\subfiles\spvprop.tex'
 }
 
 function essay
@@ -132,6 +132,12 @@ function hibahint
 {
     cd 'D:\hibahint2025\'
     & 'nvim' '.\hibahint.tex'
+}
+
+function morfologi
+{
+    cd 'D:\morfologi\'
+    & 'nvim' '.\morfologi.tex'
 }
 
 #
@@ -239,6 +245,7 @@ Set-Alias ve obseng
 Set-Alias hi hibahint
 Set-Alias ub usulanbpi
 Set-Alias ud usulandosbin
+Set-Alias mo morfologi
 
 
 
