@@ -248,7 +248,6 @@ SetTimer, RemoveToolTip, -1500
 
 #IfWinNotActive
 
-
 !esc::
     WinGetTitle, title, A
     WinActivate, %title%
