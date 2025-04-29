@@ -231,8 +231,8 @@ Return
 ; This enables the script to distinguish a short hold from a long hold.
 ~LWin Up::
 If (A_PriorKey = "LWin"        ; If no keys were pressed after LWin,
- && A_TickCount - start < 400) ;  and key-up occurred shortly after key-down,
-   double_tap_tab()                ;  then send ALT-SPACE
+ && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
+        AltTab()           ; If yes, run stuff
 start := 0                     ; Reset the time marker
 Return
 
