@@ -225,8 +225,22 @@ Return
     SetTimer, RemoveToolTip, -1500
 Return
 
-#IfWinNotActive ahk_exe WindowsTerminal.exe
-*~Tab::double_tap_tab()
+; This script blocks the Start menu alone but leaves it enabled with other keys.
+; Briefly tapping LWin sends ALT-SPACE.
+; The script uses a "time marker" to indicate when LWin was pressed.
+; This enables the script to distinguish a short hold from a long hold.
+~LWin Up::
+If (A_PriorKey = "LWin"        ; If no keys were pressed after LWin,
+ && A_TickCount - start < 400) ;  and key-up occurred shortly after key-down,
+   double_tap_tab()                ;  then send ALT-SPACE
+start := 0                     ; Reset the time marker
+Return
+
+~LWin::
+If !start                      ; If time marker is not set,
+ start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
@@ -245,8 +259,6 @@ SetTimer, RemoveToolTip, -1500
 		}
 	return
 }
-
-#IfWinNotActive
 
 !esc::
     WinGetTitle, title, A
