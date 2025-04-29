@@ -248,6 +248,29 @@ SetTimer, RemoveToolTip, -1500
 
 #IfWinNotActive
 
+#IfWinNotActive ahk_exe sioyek.exe
+*~Tab::double_tap_tab()
+
+double_tap_tab() {
+    Static last := 0             ; Permanent variable to track last press
+
+    If (A_TickCount - last < 500) ; Diff current tick from last tick. Has it been 500ms?
+		{
+        AltTab()           ; If yes, run stuff
+    WinGetTitle, title, A
+    ToolTip, %title%, 295, 495
+SetTimer, RemoveToolTip, -1500
+        last := 0                 ; Then set last to 0. This prevents a triple tap from firing
+		}
+	Else
+		{
+		last := A_TickCount     ; If it hasn't been 500ms, set last press to current tick
+		}
+	return
+}
+
+#IfWinNotActive
+
 !esc::
     WinGetTitle, title, A
     WinActivate, %title%
