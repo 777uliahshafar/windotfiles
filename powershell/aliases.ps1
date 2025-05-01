@@ -105,6 +105,12 @@ function proposalstudy
     & 'nvim' '.\subfiles\spvprop.tex'
 }
 
+function bkdnature
+{
+    cd 'D:\usulandoktor\'
+    & 'nvim' '.\subfiles\bkdnature.tex'
+}
+
 function essay
 {
     cd 'D:\essay\subfiles'
@@ -237,6 +243,7 @@ Set-Alias st statistika
 Set-Alias int interviewbpi
 Set-Alias el element
 Set-Alias pr proposalstudy
+Set-Alias bk bkdnature
 Set-Alias es essay
 Set-Alias as aasessay
 Set-Alias ka karakter
