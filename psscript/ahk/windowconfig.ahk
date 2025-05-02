@@ -225,6 +225,7 @@ Return
     SetTimer, RemoveToolTip, -1500
 Return
 
+; Replace home and Windows key function
 ; This script blocks the Start menu alone but leaves it enabled with other keys.
 ; Briefly tapping LWin sends ALT-SPACE.
 ; The script uses a "time marker" to indicate when LWin was pressed.
@@ -241,6 +242,20 @@ If !start                      ; If time marker is not set,
  start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
 Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+
+~Home up::
+If (A_PriorKey = "Home"        ; If no keys were pressed after LWin,
+ && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
+        AltTab()           ; If yes, run stuff
+start := 0                     ; Reset the time marker
+Return
+
+Home::
+If !start                      ; If time marker is not set,
+ start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
