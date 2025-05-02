@@ -91,6 +91,10 @@ abstract,file,language
 - `texcount -sum -total .\filename.tex` to show wordcount.
 - put `%TC:group comment 0 0` before document environment.
 
+# AHK
+
+Put ahk script to open on startup `C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
+
 # Windows config
 
 1. sunrise theme windows.
@@ -109,19 +113,9 @@ abstract,file,language
 8. VGA driver from intel solve the adjusting brightness
 9. XYplorer.
 
-## Xyplorer config
-
-- Active full row select : Tools > Customize List > Full Row Select.
-- Important toolbar : Thumbnail view, Show hidden items, Show tree, floating preview.
-- Config
-- Configuration | Other | Shell Integration | Default File Manager | [x] XYplorer in shell context menu.
-- Configuration | Other | Shell Integration | Default File Manager | [x] XYplorer is default file manager.
-- Configuration | Other | Shell Integration | Show the 64bit context menu
-
 # Required windows application
 
 - Sioyek windows zip release for compilation viewer (locate it on program file for easy tracking)
-- xyplorer
 - Microsfot edge for default pdf viewer
 - Printer driver
 - Spotify
