@@ -1,10 +1,10 @@
 # removecamscanner script
-$rmpath = "D:\okosok\"
+$rmpath = "D:\skp\"
 
 #Assosiacte pro-rename,pro-assets, pro-backup
 $propath = "~\Downloads\aktualisasi latsar-20241208T125518Z-001/"
 #Assosiacte doc-rename
-$docpath = "D:\lecture\pegawai\sasaran kinerja pegawai\"
+$docpath = "D:\lecture\publikasi2025\"
 
 #Assosiacte compress-rename
 $comdocpath = "~\Downloads"
