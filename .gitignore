@@ -1,2 +1,2 @@
 *.bak
-!scoop/config.json
+scoop/
