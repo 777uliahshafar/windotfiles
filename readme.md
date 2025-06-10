@@ -37,7 +37,7 @@
    - [link](https://gist.github.com/markwragg/6301bfcd56ce86c3de2bd7e2f09a8839)
 1. z `install-Module -Name z -Force`
 1. PSFzf `scoop install fzf  && Install-Module -Name PSFzf -Scope CurrentUser -Force`. Another way of install `winget install fzf`.
-1. ChatGPT.nvim, adjust the API key in powershell folder. Add the path to environment variable path.
+1. ChatGPT.nvim, adjust the API key in powershell folder. cd to nvim → run `$env:OPENAI_API_KEY="my-openai-api-key"`
 1. Pandoc, either installing from msi installer or winget. `winget install --source winget --exact --id JohnMacFarlane.Pandoc`
 1. Pandoc latex template, convert md to pdf with template. Move the template eisvogel.latex in `C:\Users\USERNAME\AppData\Roaming\pandoc\templates\`, create one if there is no path/folder. Source `https://github.com/Wandmalfarbe/pandoc-latex-template`
 
