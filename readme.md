@@ -30,14 +30,14 @@
 
 # Powershell Installation
 
-1. oh-my-posh `scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json`
+1. oh-my-posh use winget for installation
 1. PSReadLine `Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck`
 1. posh-git `Install-Module posh-git -Scope CurrentUser`
 1. terminal-icons `Install-Module -Name Terminal-Icons -Repository PSGallery`
    - [link](https://gist.github.com/markwragg/6301bfcd56ce86c3de2bd7e2f09a8839)
 1. z `install-Module -Name z -Force`
 1. PSFzf `scoop install fzf  && Install-Module -Name PSFzf -Scope CurrentUser -Force`. Another way of install `winget install fzf`.
-1. ChatGPT.nvim, adjust the API key in powershell folder. It has alread loaded in powershell config.
+1. ChatGPT.nvim, adjust the API key in powershell folder. Add the path to environment variable path.
 1. Pandoc, either installing from msi installer or winget. `winget install --source winget --exact --id JohnMacFarlane.Pandoc`
 1. Pandoc latex template, convert md to pdf with template. Move the template eisvogel.latex in `C:\Users\USERNAME\AppData\Roaming\pandoc\templates\`, create one if there is no path/folder. Source `https://github.com/Wandmalfarbe/pandoc-latex-template`
 
@@ -53,10 +53,11 @@
 
 1. Strawberry Perl [link](https://strawberryperl.com/) latex on nvim.
 2. Miktek, latex distribution [link](https://miktex.org/download). Package installation on the fly is much better. Check update on miktex console after installation, latex on nvim.
-3. SumatraPDF, enable all the options on options menu, latex on nvim.
-4. Add SumatraPDF parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for local installation `C:\Users\ul\AppData\Local\SumatraPDF\` or this for global installation `C:\Program Files\SumatraPDF`. or
-5. Download and Install sioyek (either clone or installer). Add Sioyek parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for file location such as `C:\Program Files\Sioyek` or anywhere Sioyek is located.
-6. Zotero, Add-ons: BetterBibtex (synchronous bibliography), zotfile, BetterNotes
+3. Install nodejs (include npm) for treesitter-cli, then `npm install -g tree-sitter-cli`.
+4. SumatraPDF, enable all the options on options menu, latex on nvim.
+5. Add SumatraPDF parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for local installation `C:\Users\ul\AppData\Local\SumatraPDF\` or this for global installation `C:\Program Files\SumatraPDF`. or
+6. Download and Install sioyek (either clone or installer). Add Sioyek parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for file location such as `C:\Program Files\Sioyek` or anywhere Sioyek is located.
+7. Zotero, Add-ons: BetterBibtex (synchronous bibliography), zotfile, BetterNotes
 
 - Change item format to `Better Bibtex` in Edit → Preferences → Exports → Item Format.
 - Change citation key in Edit → Preferences → BetterBibtex → Citation Keys → Citation key format:
