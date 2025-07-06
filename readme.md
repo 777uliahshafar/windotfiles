@@ -17,8 +17,8 @@
 
 # Clone Config
 
-1. Clone this in the home directory `cd`
-1. `git clone git@github.com:777uliahshafar/windotfiles.git .config`
+1. Clone this in the home directory `cd`. See [existing folder](https://stackoverflow.com/questions/5377960/git-whats-the-best-practice-to-git-clone-into-an-existing-folder)
+1. `git clone git@github.com:777uliahshafar/windotfiles.git .config`. See [connect with ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
 # Windows Terminal config
 
