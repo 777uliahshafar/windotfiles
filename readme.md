@@ -54,10 +54,8 @@
 1. Strawberry Perl [link](https://strawberryperl.com/) latex on nvim.
 2. Miktek, latex distribution [link](https://miktex.org/download). Package installation on the fly is much better. Check update on miktex console after installation, latex on nvim.
 3. Install nodejs (include npm) for treesitter-cli, then `npm install -g tree-sitter-cli`.
-4. SumatraPDF, enable all the options on options menu, latex on nvim.
-5. Add SumatraPDF parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for local installation `C:\Users\ul\AppData\Local\SumatraPDF\` or this for global installation `C:\Program Files\SumatraPDF`. or
 6. Download and Install sioyek (either clone or installer). Add Sioyek parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for file location such as `C:\Program Files\Sioyek` or anywhere Sioyek is located.
-7. Zotero, Add-ons: BetterBibtex (synchronous bibliography), zotfile, BetterNotes
+7. Zotero, Add-ons: BetterBibtex (synchronous bibliography), Zotmoov, BetterNotes, Ethereal Style for Zotero.
 
 - Change item format to `Better Bibtex` in Edit → Preferences → Exports → Item Format.
 - Change citation key in Edit → Preferences → BetterBibtex → Citation Keys → Citation key format:
@@ -72,7 +70,6 @@
 abstract,file,language
 ```
 
-6. Zotero dark theme: go to `C:\Users\User_name\AppData\Roaming\Zotero\Zotero\Profiles\user_profile.default\` → Create folder `chrome` → paste `userChrome.css`
 7. Dark theme in the Note Editor :
 
 - Go to Preferences -> Advanced -> Config Editor
