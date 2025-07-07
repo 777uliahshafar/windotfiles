@@ -13,7 +13,7 @@ function obsidiansearch
 
 function nvimalias
 {
-    cd '~/windotfiles/powershell'
+    cd '~/.config/windotfiles/powershell'
     & 'nvim' '.\aliases.ps1'
 }
 
@@ -31,7 +31,7 @@ function obsidian
 
 function variable
 {
-    cd '~/windotfiles/psscript'
+    cd '~/.config/windotfiles/psscript'
     & 'nvim' '.\Variable.ps1'
 }
 
@@ -62,22 +62,22 @@ magick *.pdf -density 150 -quality 100 -flatten -sharpen 0x1.0 -set filename:f "
 
 function comdocrename
 {
-    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\makeshortcutcomdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutcomdocrename.ps1
+    Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutcomdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutcomdocrename.ps1
 }
 
 function docrename
 {
-    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\makeshortcutdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutdocrename.ps1
+    Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutdocrename.ps1
 }
 
 function project
 {
-    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\makeshortcutproject.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutproject.ps1
+    Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutproject.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutproject.ps1
 }
 
 function camscanner
 {
-    Get-ChildItem -Path $env:USERPROFILE\windotfiles\psscript\makeshortcutremovecamscanner.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutremovecamscanner.ps1
+    Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutremovecamscanner.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutremovecamscanner.ps1
 }
 
 # Other function
