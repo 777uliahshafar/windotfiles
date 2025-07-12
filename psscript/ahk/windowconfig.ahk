@@ -484,6 +484,7 @@ Sleep, 5000
 SplashTextOff
 Return
 
+#IfWinActive ahk_exe WindowsTerminal.exe
 *CapsLock::
     Send {Blind}{Ctrl Down}
     cDown := A_TickCount
@@ -496,3 +497,4 @@ Return
     Else
         Send {Blind}{Ctrl Up}
 Return
+#IfWinActive
