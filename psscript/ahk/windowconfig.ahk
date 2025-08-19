@@ -243,6 +243,45 @@ If !start                      ; If time marker is not set,
 Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;;; Vertical Bar Key ----;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+
+
+~PgUp up::
+toggle := !toggle
+if (toggle)
+    Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
+else
+    Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
+return
+
+PgUp::
+If !start                      ; If time marker is not set,
+ start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+
+~PgDn up::
+If (A_PriorKey = "PgDn"        ; If no keys were pressed after LWin,
+ && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
+        WinGet, proc, ProcessName, A
+    WinGet, win, List, ahk_exe %proc%
+    Loop, %win%
+     uid := win%A_Index%
+    WinActivate, ahk_id %uid%
+    WinGetTitle, title, A
+start := 0                     ; Reset the time marker
+Return
+
+PgDn::
+If !start                      ; If time marker is not set,
+ start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+
 ~End up::
 If (A_PriorKey = "End"        ; If no keys were pressed after LWin,
  && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
@@ -255,7 +294,7 @@ If !start                      ; If time marker is not set,
  start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
 Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
-
+														
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
@@ -333,38 +372,6 @@ SetTimer, RemoveToolTip, -1500
 ; }
 ; Return
 
-
-!t::
-	WinGetTitle, activeWindow, A
-	if IsWindowAlwaysOnTop(activeWindow) {
-		notificationMessage := "The window """ . activeWindow . """ is now always on top."
-		notificationIcon := 16 + 1 ; No notification sound (16) + Info icon (1)
-	}
-	else {
-		notificationMessage := "The window """ . activeWindow . """ is no longer always on top."
-		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
-	}
-	Winset, Alwaysontop, , A
-	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon%
-	Sleep 3000 ; Let it display for 3 seconds.
-	HideTrayTip()
-
-	IsWindowAlwaysOnTop(windowTitle) {
-		WinGet, windowStyle, ExStyle, %windowTitle%
-		isWindowAlwaysOnTop := if (windowStyle & 0x8) ? false : true ; 0x8 is WS_EX_TOPMOST.
-		return isWindowAlwaysOnTop
-	}
-
-	HideTrayTip() {
-		TrayTip  ; Attempt to hide it the normal way.
-		if SubStr(A_OSVersion,1,3) = "10." {
-			Menu Tray, NoIcon
-			Sleep 200  ; It may be necessary to adjust this sleep.
-			Menu Tray, Icon
-		}
-	}
-Return
-
 ; F2::
 ; WinGetTitle, title, A
 ; MsgBox, "%title%"
@@ -434,35 +441,6 @@ Return
 #IfWinActive
 
 
-; always put on top on below documents
-!+j::
-If Not WinExist("ahk_exe chrome.exe")
-{
-    Return
-}
-WinActivate, ahk_class Chrome_WidgetWin_1
-    Loop{
-        Send, ^{Tab}
-        Sleep, 50
-            WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
-            If CurrentWindowTitle contains Jenni
-            {
-                Send, {tab}
-                Sleep 300
-                    IfWinNotActive, ahk_exe chrome.exe
-                {
-                    Send, {Alt up}
-                    Break
-                    Return
-                }
-                Break
-                Return
-        }
-}
-Return
-
-; Press Ctrl+Shift+Space to set any currently active window to be always on top.
-; Press Ctrl+Shift+Space again set the window to no longer be always on top.
 
 F10::
 msg =
@@ -498,3 +476,51 @@ Return
         Send {Blind}{Ctrl Up}
 Return
 #IfWinActive
+
+; ************************
+; Excel
+; ************************
+
+#IfWinActive ahk_exe EXCEL.EXE
+F3::^!v
+
+F4:: ^[
+#IfWinActive
+
+; ************************
+; Always on top
+; ************************
+; Press Ctrl+Shift+Space to set any currently active window to be always on top.
+; Press Ctrl+Shift+Space again set the window to no longer be always on top.
+; Source: https://www.howtogeek.com/196958/the-3-best-ways-to-make-a-window-always-on-top-on-windows
+
+~Home::
+	WinGetTitle, activeWindow, A
+	if IsWindowAlwaysOnTop(activeWindow) {
+		notificationMessage := "The window """ . activeWindow . """ is now always on top."
+		notificationIcon := 16 + 1 ; No notification sound (16) + Info icon (1)
+	}
+	else {
+		notificationMessage := "The window """ . activeWindow . """ is no longer always on top."
+		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
+	}
+	Winset, Alwaysontop, , A
+	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon% 
+	Sleep 3000 ; Let it display for 3 seconds.
+	HideTrayTip()
+
+	IsWindowAlwaysOnTop(windowTitle) {
+		WinGet, windowStyle, ExStyle, %windowTitle%
+		isWindowAlwaysOnTop := if (windowStyle & 0x8) ? false : true ; 0x8 is WS_EX_TOPMOST.
+		return isWindowAlwaysOnTop
+	}
+
+	HideTrayTip() {
+		TrayTip  ; Attempt to hide it the normal way.
+		if SubStr(A_OSVersion,1,3) = "10." {
+			Menu Tray, NoIcon
+			Sleep 200  ; It may be necessary to adjust this sleep.
+			Menu Tray, Icon
+		}
+	}
+Return
