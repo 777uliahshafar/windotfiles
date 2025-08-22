@@ -35,6 +35,12 @@ function variable
     & 'nvim' '.\Variable.ps1'
 }
 
+function keynote
+{
+    git clone git@github.com:777uliahshafar/keynote_templ.git
+echo "'mv keynote_templ newname' to rename folder"
+}
+
 function compressjpghere
 {
 magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
@@ -196,6 +202,7 @@ Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
 Set-Alias va variable
+Set-Alias getkeynote keynote
 
 
 
