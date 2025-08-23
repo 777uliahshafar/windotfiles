@@ -35,6 +35,12 @@ function variable
     & 'nvim' '.\Variable.ps1'
 }
 
+function artikel
+{
+    git clone git@github.com:777uliahshafar/simart-templ.git
+echo "'mv simart_templ newname' to rename folder"
+}
+
 function keynote
 {
     git clone git@github.com:777uliahshafar/keynote-templ.git
@@ -203,6 +209,7 @@ Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
 Set-Alias va variable
 Set-Alias getkeynote keynote
+Set-Alias getsimart artikel
 
 
 
