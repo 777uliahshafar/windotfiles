@@ -37,7 +37,7 @@ function variable
 
 function keynote
 {
-    git clone git@github.com:777uliahshafar/keynote_templ.git
+    git clone git@github.com:777uliahshafar/keynote-templ.git
 echo "'mv keynote_templ newname' to rename folder"
 }
 
