@@ -2,10 +2,10 @@
   "$help": "https://aka.ms/terminal-documentation",
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [
-	{
-            "command" : null,
-	    "keys" : ["alt+enter"]
-	},
+    {
+      "command": null,
+      "keys": ["alt+enter"]
+    },
     {
       "command": {
         "action": "moveFocus",
@@ -79,6 +79,38 @@
       },
       "id": "User.moveFocus.F747588A",
       "keys": "ctrl+shift+j"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "down"
+      },
+      "id": "User.moveFocus.F747588A",
+      "keys": "ctrl+shift+alt+j"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "up"
+      },
+      "id": "User.moveFocus.F747588A",
+      "keys": "ctrl+shift+alt+k"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "left"
+      },
+      "id": "User.moveFocus.F747588A",
+      "keys": "ctrl+shift+alt+h"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "right"
+      },
+      "id": "User.moveFocus.F747588A",
+      "keys": "ctrl+shift+alt+l"
     }
   ],
   "copyFormatting": "none",
