@@ -80,38 +80,6 @@
       "id": "User.moveFocus.F747588A",
       "keys": "ctrl+shift+j"
     },
-    {
-      "command": {
-        "action": "resizePane",
-        "direction": "down"
-      },
-      "id": "User.moveFocus.F747588A",
-      "keys": "ctrl+shift+alt+j"
-    },
-    {
-      "command": {
-        "action": "resizePane",
-        "direction": "up"
-      },
-      "id": "User.moveFocus.F747588A",
-      "keys": "ctrl+shift+alt+k"
-    },
-    {
-      "command": {
-        "action": "resizePane",
-        "direction": "left"
-      },
-      "id": "User.moveFocus.F747588A",
-      "keys": "ctrl+shift+alt+h"
-    },
-    {
-      "command": {
-        "action": "resizePane",
-        "direction": "right"
-      },
-      "id": "User.moveFocus.F747588A",
-      "keys": "ctrl+shift+alt+l"
-    }
   ],
   "copyFormatting": "none",
   "copyOnSelect": false,
