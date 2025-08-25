@@ -3,49 +3,41 @@
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [
     {
-      "command": null,
-      "keys": ["alt+enter"]
+      "command": {
+        "action": "commandPalette"
+      },
+      "id": "User.commandPalette.D3F0B923"
     },
     {
       "command": {
         "action": "moveFocus",
         "direction": "up"
       },
-      "id": "User.moveFocus.6CD791B",
-      "keys": "ctrl+shift+k"
+      "id": "User.moveFocus.6CD791B"
     },
     {
       "command": "toggleAlwaysOnTop",
-      "id": "User.toggleAlwaysOnTop",
-      "keys": "alt+t"
+      "id": "User.toggleAlwaysOnTop"
     },
     {
       "command": {
         "action": "splitPane",
         "split": "down"
       },
-      "id": "User.splitPane.D5151347",
-      "keys": "ctrl+shift+minus"
+      "id": "User.splitPane.D5151347"
     },
     {
       "command": {
         "action": "moveFocus",
         "direction": "right"
       },
-      "id": "User.moveFocus.87C324ED",
-      "keys": "ctrl+shift+l"
+      "id": "User.moveFocus.87C324ED"
     },
     {
       "command": {
         "action": "splitPane"
-      }
-    },
-    {
-      "command": {
-        "action": "commandPalette"
       },
-      "id": "User.commandPalette.D3F0B923",
-      "keys": "ctrl+shift+p"
+      "id": "User.splitPane.91AB55B1"
     },
     {
       "command": {
@@ -53,33 +45,29 @@
         "split": "auto",
         "splitMode": "duplicate"
       },
-      "id": "User.splitPane.A6751878",
-      "keys": "ctrl+shift+plus"
+      "id": "User.splitPane.A6751878"
     },
     {
       "command": {
         "action": "moveFocus",
         "direction": "left"
       },
-      "id": "User.moveFocus.2A0DA8E0",
-      "keys": "ctrl+shift+h"
+      "id": "User.moveFocus.2A0DA8E0"
     },
     {
       "command": {
         "action": "copy",
         "singleLine": false
       },
-      "id": "User.copy.644BA8F2",
-      "keys": "ctrl+c"
+      "id": "User.copy.644BA8F2"
     },
     {
       "command": {
         "action": "moveFocus",
         "direction": "down"
       },
-      "id": "User.moveFocus.F747588A",
-      "keys": "ctrl+shift+j"
-    },
+      "id": "User.moveFocus.F747588A"
+    }
   ],
   "copyFormatting": "none",
   "copyOnSelect": false,
@@ -87,6 +75,48 @@
   "firstWindowPreference": "persistedWindowLayout",
   "initialCols": 72,
   "initialRows": 31,
+  "keybindings": [
+    {
+      "id": null,
+      "keys": "alt+enter"
+    },
+    {
+      "id": "User.copy.644BA8F2",
+      "keys": "ctrl+c"
+    },
+    {
+      "id": "User.moveFocus.6CD791B",
+      "keys": "ctrl+shift+k"
+    },
+    {
+      "id": "User.commandPalette.D3F0B923",
+      "keys": "ctrl+shift+p"
+    },
+    {
+      "id": "User.toggleAlwaysOnTop",
+      "keys": "alt+t"
+    },
+    {
+      "id": "User.moveFocus.87C324ED",
+      "keys": "ctrl+shift+l"
+    },
+    {
+      "id": "User.splitPane.D5151347",
+      "keys": "ctrl+shift+minus"
+    },
+    {
+      "id": "User.splitPane.A6751878",
+      "keys": "ctrl+shift+plus"
+    },
+    {
+      "id": "User.moveFocus.2A0DA8E0",
+      "keys": "ctrl+shift+h"
+    },
+    {
+      "id": "User.moveFocus.F747588A",
+      "keys": "ctrl+shift+j"
+    }
+  ],
   "newTabMenu": [
     {
       "type": "remainingProfiles"
