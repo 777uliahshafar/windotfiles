@@ -1,9 +1,9 @@
 prefs
 --------
 startup_commands    toggle_custom_color;toggle_visual_scroll
-custom_background_color  #1e1e2e
+custom_background_color  #263238
 #0.15686 0.16471 0.21176
-custom_text_color   #cdd6f4
+custom_text_color #eeffff
 #0.94255 0.94255 0.92902
 #0.97255 0.97255 0.94902
 custom_color_mode_empty_background_color #1d2021
