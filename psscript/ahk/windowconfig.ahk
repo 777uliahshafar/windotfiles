@@ -225,23 +225,7 @@ Return
     SetTimer, RemoveToolTip, -1500
 Return
 
-; Replace home and Windows key function
-; This script blocks the Start menu alone but leaves it enabled with other keys.
-; Briefly tapping LWin sends ALT-SPACE.
-; The script uses a "time marker" to indicate when LWin was pressed.
-; This enables the script to distinguish a short hold from a long hold.
-~LWin Up::
-If (A_PriorKey = "LWin"        ; If no keys were pressed after LWin,
- && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
-        AltTab()           ; If yes, run stuff
-start := 0                     ; Reset the time marker
-Return
 
-~LWin::
-If !start                      ; If time marker is not set,
- start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
-Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
-Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
@@ -294,7 +278,7 @@ If !start                      ; If time marker is not set,
  start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
 Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
-														
+
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
@@ -325,12 +309,12 @@ SetTimer, RemoveToolTip, -1500
 
     Return
 
-*~enter::double_tap_enter()
+;*~enter::double_tap_enter()
 
 double_tap_enter() {
     Static last := 0             ; Permanent variable to track last press
 
-    If (A_TickCount - last < 200) ; Diff current tick from last tick. Has it been 500ms?
+    If (A_TickCount - last < 400) ; Diff current tick from last tick. Has it been 500ms?
 		{
     WinGet, proc, ProcessName, A
     WinGet, win, List, ahk_exe %proc%
@@ -462,6 +446,21 @@ Sleep, 5000
 SplashTextOff
 Return
 
+#IfWinActive ahk_exe sioyek.exe
+*CapsLock::
+    Send {Blind}{Ctrl Down}
+    cDown := A_TickCount
+Return
+
+*CapsLock up::
+    ; Modify the threshold time (in milliseconds) as necessary
+    If ((A_TickCount-cDown) < 150)
+        Send {Blind}{Ctrl Up}{Esc}
+    Else
+        Send {Blind}{Ctrl Up}
+Return
+#IfWinActive
+
 #IfWinActive ahk_exe WindowsTerminal.exe
 *CapsLock::
     Send {Blind}{Ctrl Down}
@@ -477,14 +476,138 @@ Return
 Return
 #IfWinActive
 
+!`::
+toggle := !toggle
+if (toggle)
+    Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
+else
+    Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
+return
+
+;~#tab up::
+;toggle := !toggle
+;if (toggle)
+;    Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
+;else
+;    Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
+;return
+
+;#tab::
+;If !start                      ; If time marker is not set,
+; start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+;Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+;Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+
 ; ************************
 ; Excel
 ; ************************
 
 #IfWinActive ahk_exe EXCEL.EXE
-F3::^!v
 
-F4:: ^[
+F1::
+chromsg =
+(
+F1 Help
+F3 go to linked reference
+F5 go to
+F4 go to backlink
+F7 select visible cell only
+F8 Macros
+F9 Row height input
+F10 Row height standard
+F11 Paste formatting
+F12 autosum
+Win+v paste link
+Win+a paste only value
+Win+w hide ribbon (maximize)
+Alt+= autosum (visible cell)
+Alt+f Freeze unfreeze pane toggle
+Win+r add full row above
+)
+SplashTextOn, 300, 370, Message #1, %chromsg%,
+Sleep, 5000
+SplashTextOff
+Return
+
+F4::Send, {F5 down}{F5 up}{enter} ;goto reference
+F3::^[
+#v:: Send, {Alt down}{Alt up}hvsl
+F12:: Send, {Alt down}{Alt up}hzeu
+F11:: Send, {Alt down}{Alt up}hvst {enter} ;paste formating
+#w:: ^F1
+F9:: Send, {Alt down}{Alt up}hoh
+
+F10::Send, {Alt down}{Alt up}hoa
+
+F7::Send, {Alt down}{Alt up}hfd{s}
+
+F8:: !F8
+
+#r::               ; Alt + R
+    Send, ^+=      ; Tekan Ctrl+Shift+=
+    Sleep, 200     ; Tunggu 200 ms (atur sesuai kebutuhan)
+    Send, r{Enter} ; Ketik r lalu Enter
+return
+
+
+!f::
+toggle := !toggle
+if (toggle)
+    Send, !wff
+else
+    Send, !wfu
+return
+
+double_f11() {
+    Static last := 0             ; Permanent variable to track last press
+
+    If (A_TickCount - last < 175) ; Diff current tick from last tick. Has it been 500ms?
+		{
+        Send, ^c           ; If yes, run stuff
+    WinGetTitle, title, A
+    ToolTip, %title%, 295, 495
+SetTimer, RemoveToolTip, -1500
+        last := 0                 ; Then set last to 0. This prevents a triple tap from firing
+		}
+	Else
+		{
+		last := A_TickCount     ; If it hasn't been 500ms, set last press to current tick
+		}
+	return
+}
+
+*~f11::double_f11()
+
+
+#IfWinActive
+
+
+
+!SC00D::
+<^>!SC00D::
+if	WinActive("ahk_exe EXCEL.EXE")
+{
+	xl :=	ComObjActive("Excel.Application"), c :=	xl.Selection
+	 , c.Formula :=	"=SUBTOTAL(109," xl.Range(c.Offset(-1,0),c.Offset(-1,0).End(-4162)).Address(0,0) ")"
+}
+else	Send, ≠
+return
+
+;;;;;;;;;;;;;;;;;;;;;;;;; END EXCEL ;;;;;;;;;;;;;;;;;;;;;;;;;;
+#IfWinActive ahk_exe word.exe
+
+F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
+
+#IfWinActive
+
+; ************************
+; Spotify
+; ************************
+
+#IfWinActive ahk_exe spotify.EXE
+!.::SoundSet,+5
+
+!,::SoundSet,-5
 #IfWinActive
 
 ; ************************
@@ -505,7 +628,7 @@ F4:: ^[
 		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
 	}
 	Winset, Alwaysontop, , A
-	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon% 
+	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon%
 	Sleep 3000 ; Let it display for 3 seconds.
 	HideTrayTip()
 
