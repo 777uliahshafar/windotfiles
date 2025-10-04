@@ -1,4 +1,4 @@
-﻿; ************************
+; ************************
 ; Most common programs
 ; ************************
 
@@ -7,10 +7,10 @@ RemoveToolTip:
 ToolTip
 return
 
-;-----------------------------------------------------------------
+;=========================================
 ; Check whether the target window is activation target
 ; Alt- tab function for remapping
-;-----------------------------------------------------------------
+;=========================================
 IsWindow(hWnd){
     WinGet, dwStyle, Style, ahk_id %hWnd%
     if ((dwStyle&0x08000000) || !(dwStyle&0x10000000)) {
@@ -46,9 +46,9 @@ AltTab(){
     }
 }
 
-; ************************
+; =========================================
 ; Window Arrangement (Windows Terminal, Chrome, Sioyek)
-; ************************
+; =========================================
 
 FixedWindow(winTitle,XP, WP) {
 
@@ -97,13 +97,9 @@ WhichWindow(winTitle, winProg){
 
 }
 
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
+;=========================================
 ; RESIZE WINDOW
-;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;=========================================
 
 !+=::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
@@ -123,11 +119,9 @@ FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
 AltWindow("ahk_exe chrome.exe" , 49.9999, 49.99999)
 Return
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
+;=========================================
 ; SWITCH BETWEEN WINDOW
-;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;=========================================
 
 !l::
     WhichWindow("ahk_exe chrome.exe", "chrome.exe")
@@ -177,11 +171,9 @@ SetTimer, RemoveToolTip, -1500
 }
 Return
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
+;=========================================
 ; TOGGLE MAXIMIZE
-;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;=========================================
 
 !space::
 WinGet, windowState, MinMax, A
@@ -227,19 +219,19 @@ Return
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-;;; Vertical Bar Key ----;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
+;=========================================
+;Vertical Bar Key 
+;=========================================
 
 
 ~PgUp up::
 toggle := !toggle
 if (toggle)
-    Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
+    ;Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
+	AltTab() 
 else
-    Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
+    ;Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
+AltTab() 
 return
 
 PgUp::
@@ -269,7 +261,8 @@ Return                         ; See https://www.autohotkey.com/docs/v1/lib/_Men
 ~End up::
 If (A_PriorKey = "End"        ; If no keys were pressed after LWin,
  && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
-        AltTab()           ; If yes, run stuff
+        ;AltTab()           ; If yes, run stuff
+        WinActivate, ahk_exe zoom.exe
 start := 0                     ; Reset the time marker
 Return
 
@@ -278,7 +271,7 @@ If !start                      ; If time marker is not set,
  start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
 Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
-
+														
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
@@ -333,11 +326,9 @@ SetTimer, RemoveToolTip, -1500
 	return
 }
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
+;=========================================
 ; Way to Activate chrome instance
-;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;=========================================
 
 ; !n::
 ; KeyWait,n,T0.3 ;wait 0.5 seconds for release key
@@ -424,9 +415,10 @@ SplashTextOff
 Return
 #IfWinActive
 
-
-
-F10::
+;=========================================
+; help
+;=========================================
+F1::
 msg =
 (
 Alt+j terminal
@@ -498,58 +490,47 @@ return
 ;Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 ;Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
 
-; ************************
-; Excel
-; ************************
-
+; =========================================
+; Microsoft Excel
+; =========================================
 #IfWinActive ahk_exe EXCEL.EXE
 
+; help excel
+;=========================================
 F1::
 chromsg =
 (
 F1 Help
 F3 go to linked reference
-F5 go to
 F4 go to backlink
-F7 select visible cell only
-F8 Macros
-F9 Row height input
-F10 Row height standard
-F11 Paste formatting
-F12 autosum
+F5 go to 
+F6 select visible cell only
+F8 Row height input
+F9 Row height standard
+F10 Paste formatting
+F11-F12 Assigned Macros
+Macros map ctrl+shift+(q-t)
 Win+v paste link
 Win+a paste only value
-Win+w hide ribbon (maximize)
+Win+w hide ribbon (maximize) 
 Alt+= autosum (visible cell)
 Alt+f Freeze unfreeze pane toggle
 Win+r add full row above
 )
-SplashTextOn, 300, 370, Message #1, %chromsg%,
+SplashTextOn, 300, 410, Message #1, %chromsg%,
 Sleep, 5000
 SplashTextOff
 Return
+; Excel key 
+;=========================================
 
-F4::Send, {F5 down}{F5 up}{enter} ;goto reference
-F3::^[
 #v:: Send, {Alt down}{Alt up}hvsl
-F12:: Send, {Alt down}{Alt up}hzeu
-F11:: Send, {Alt down}{Alt up}hvst {enter} ;paste formating
 #w:: ^F1
-F9:: Send, {Alt down}{Alt up}hoh
-
-F10::Send, {Alt down}{Alt up}hoa
-
-F7::Send, {Alt down}{Alt up}hfd{s}
-
-F8:: !F8
-
 #r::               ; Alt + R
     Send, ^+=      ; Tekan Ctrl+Shift+=
     Sleep, 200     ; Tunggu 200 ms (atur sesuai kebutuhan)
     Send, r{Enter} ; Ketik r lalu Enter
 return
-
-
 !f::
 toggle := !toggle
 if (toggle)
@@ -558,32 +539,34 @@ else
     Send, !wfu
 return
 
-double_f11() {
-    Static last := 0             ; Permanent variable to track last press
-
-    If (A_TickCount - last < 175) ; Diff current tick from last tick. Has it been 500ms?
-		{
-        Send, ^c           ; If yes, run stuff
-    WinGetTitle, title, A
-    ToolTip, %title%, 295, 495
-SetTimer, RemoveToolTip, -1500
-        last := 0                 ; Then set last to 0. This prevents a triple tap from firing
-		}
-	Else
-		{
-		last := A_TickCount     ; If it hasn't been 500ms, set last press to current tick
-		}
-	return
+F3::^[ 
+F4::Send, {F5 down}{F5 up}{enter} ;goto reference
+F6::Send, {Alt down}{Alt up}hfd{s}
+F8:: Send, {Alt down}{Alt up}hoh
+F9::Send, {Alt down}{Alt up}hoa
+F10:: Send, {Alt down}{Alt up}hvst {enter} ;paste formating
+F11::
+Stop := false
+Loop, 4
+{
+    if (Stop)
+        break
+    Send, ^+r
+    Sleep, 300
+    Send, {Enter}
+    Sleep, 300
 }
+return
+F12::^+e
 
-*~f11::double_f11()
-
-
+Esc::
+Stop := true
+return
 #IfWinActive
 
-
-
-!SC00D::
+; Alt + = autosum only visible cell
+;=========================================
+!SC00D:: 
 <^>!SC00D::
 if	WinActive("ahk_exe EXCEL.EXE")
 {
@@ -593,26 +576,28 @@ if	WinActive("ahk_exe EXCEL.EXE")
 else	Send, ≠
 return
 
-;;;;;;;;;;;;;;;;;;;;;;;;; END EXCEL ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;=========================================
+; Microsoft Word
+;=========================================
 #IfWinActive ahk_exe word.exe
 
 F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 
 #IfWinActive
 
-; ************************
+; =========================================
 ; Spotify
-; ************************
+; =========================================
 
 #IfWinActive ahk_exe spotify.EXE
-!.::SoundSet,+5
+!.::SoundSet,+5 
 
-!,::SoundSet,-5
+!,::SoundSet,-5 
 #IfWinActive
 
-; ************************
+; =========================================
 ; Always on top
-; ************************
+; =========================================
 ; Press Ctrl+Shift+Space to set any currently active window to be always on top.
 ; Press Ctrl+Shift+Space again set the window to no longer be always on top.
 ; Source: https://www.howtogeek.com/196958/the-3-best-ways-to-make-a-window-always-on-top-on-windows
@@ -628,7 +613,7 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
 	}
 	Winset, Alwaysontop, , A
-	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon%
+	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon% 
 	Sleep 3000 ; Let it display for 3 seconds.
 	HideTrayTip()
 
@@ -647,3 +632,40 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 		}
 	}
 Return
+
+;=========================================
+; Autodesk AUtocad
+;=========================================
+
+#IfWinActive ahk_exe acad.exe
+F1::
+chromsg =
+(
+F1 Help
+F2 layer toggle
+ctrl + d ribbon toggle
+
+)
+SplashTextOn, 300, 370, Message #1, %chromsg%,
+Sleep, 5000
+SplashTextOff
+Return
+
+
+F2::
+toggle := !toggle
+if (toggle)
+    Send,  LAYER{Enter}
+else
+    Send, LAYERCLOSE{Enter}
+return
+
+~^d::
+toggle := !toggle
+if (toggle)
+    Send,  RIBBON{Enter}
+else
+    Send, RIBBONCLOSE{Enter}
+return
+#IfWinActive
+
