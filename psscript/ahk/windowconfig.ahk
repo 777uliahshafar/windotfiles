@@ -501,8 +501,8 @@ F1::
 chromsg =
 (
 F1 Help
-F3 go to linked reference
-F4 go to backlink
+F3 go to linked reference/ copy only formula(hold)
+F4 go to backlink/ copy only value (hold)
 F5 go to 
 F6 select visible cell only
 F8 Row height input
@@ -523,7 +523,6 @@ SplashTextOff
 Return
 ; Excel key 
 ;=========================================
-
 #v:: Send, {Alt down}{Alt up}hvsl
 #w:: ^F1
 #r::               ; Alt + R
@@ -539,8 +538,30 @@ else
     Send, !wfu
 return
 
-F3::^[ 
-F4::Send, {F5 down}{F5 up}{enter} ;goto reference
+F3::
+    KeyWait, F3, T0.3   ; Tunggu hingga 0.3 detik untuk pelepasan tombol
+    if (ErrorLevel)      ; Jika tombol ditekan lebih dari 0.3 detik
+    {
+        Send, {Alt down}{Alt up}hvsf{Enter}
+        KeyWait, F3      ; Tunggu hingga tombol F3 dilepas sepenuhnya
+    }
+    else
+    {
+        Send, ^[         ; Jika ditekan singkat, kirim Ctrl + [
+    }
+return
+F4::
+    KeyWait, F4, T0.3   ; Tunggu hingga 0.3 detik untuk pelepasan tombol
+    if (ErrorLevel)      ; Jika tombol ditekan lebih dari 0.3 detik
+    {
+        Send, {Alt down}{Alt up}hvv
+        KeyWait, F4      ; Tunggu hingga tombol F3 dilepas sepenuhnya
+    }
+    else
+    {
+        Send, {F5 down}{F5 up}{enter} ;goto reference
+    }
+return
 F6::Send, {Alt down}{Alt up}hfd{s}
 F8:: Send, {Alt down}{Alt up}hoh
 F9::Send, {Alt down}{Alt up}hoa
@@ -557,9 +578,9 @@ Loop, 4
     Sleep, 300
 }
 return
-F12::^+e
+F12::^+w
 
-Esc::
+`::
 Stop := true
 return
 #IfWinActive
