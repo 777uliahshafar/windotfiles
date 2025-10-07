@@ -220,7 +220,7 @@ Return
 
 
 ;=========================================
-;Vertical Bar Key 
+;Vertical Bar Key
 ;=========================================
 
 
@@ -228,10 +228,10 @@ Return
 toggle := !toggle
 if (toggle)
     ;Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
-	AltTab() 
+	AltTab()
 else
     ;Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
-AltTab() 
+AltTab()
 return
 
 PgUp::
@@ -271,7 +271,7 @@ If !start                      ; If time marker is not set,
  start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
 Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
-														
+
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
@@ -501,29 +501,30 @@ F1::
 chromsg =
 (
 F1 Help
-F3 paste only formula
+F3 paste only formula / format (hold)
 F4 paste only value
-F5 go to 
+F5 go to
 F6 select visible cell only
 F8 Row height input
 F9 Row height standard
 F10 Paste formatting
 F11-F12 Assigned Macros
 Macros map ctrl+shift+(q-t)
-ctrl+shift+a go to linked reference
-ctrl+shift+z go to backlink
+` / stop recurring macro (hold)
+ctrl+space go to linked reference
+Lctrl go to backlink (doublepress)
+` / ctrl+shift+x switchcolour temp
 Win+v paste link
-Win+a paste only value
-Win+w hide ribbon (maximize) 
+Win+w hide ribbon (maximize)
 Alt+= autosum (visible cell)
 Alt+f Freeze unfreeze pane toggle
 Win+r add full row above
 )
-SplashTextOn, 300, 450, Message #1, %chromsg%,
+SplashTextOn, 350, 450, Message #1, %chromsg%,
 Sleep, 5000
 SplashTextOff
 Return
-; Excel key 
+; Excel key
 ;=========================================
 #v:: Send, {Alt down}{Alt up}hvsl
 #w:: ^F1
@@ -540,8 +541,19 @@ else
     Send, !wfu
 return
 
-F3::Send, {Alt down}{Alt up}hvsf{Enter}
-F4::Send, {Alt down}{Alt up}hvv
+F3::
+KeyWait,F3,T0.3 ;wait 0.5 seconds for release key
+If (ErrorLevel) ;more than 0.5 sec have passed
+{
+    	Send, {Alt down}{Alt up}hvst{Enter}
+	KeyWait,F3 ;prevent sending n after notepad opened
+}
+Else
+{
+	Send, {Alt down}{Alt up}hvsf{Enter}
+}
+Return
+;F4::Send, {Alt down}{Alt up}hvv
 F6::Send, {Alt down}{Alt up}hfd{s}
 F8:: Send, {Alt down}{Alt up}hoh
 F9::Send, {Alt down}{Alt up}hoa
@@ -552,23 +564,38 @@ Loop, 4
 {
     if (Stop)
         break
-    Send, ^+r
+    Send, ^+e
     Sleep, 300
     Send, {Enter}
     Sleep, 300
 }
 return
 F12::^+w
-^+a::^[ ;goto linked ref
-^+z::Send, {F5 down}{F5 up}{enter} ;goto reference
-`::
-Stop := true
+^space::^[ ;goto linked ref
+$LCtrl::
+KeyWait, RCtrl, T.3
+If ErrorLevel {
+ SoundBeep, 1500
+ Send {LCtrl down}
+ KeyWait, LCtrl
+ SoundBeep, 1000
+ Send {LCtrl up}
+} Else Send % A_PriorHotkey = A_ThisHotkey && A_TimeSincePriorHotkey < 400 ? "{F5 down}{F5 up}{enter}" : ""
+Return
+`::  ; This means the backtick key as a hotkey
+KeyWait, ``, T0.3  ; wait 0.3 seconds for release
+if (ErrorLevel) {  ; key held longer than 0.3s
+    Stop := true
+    KeyWait, ``  ; wait for release before allowing next trigger
+} else {
+    Send, ^+x
+}
 return
 #IfWinActive
 
 ; Alt + = autosum only visible cell
 ;=========================================
-!SC00D:: 
+!SC00D::
 <^>!SC00D::
 if	WinActive("ahk_exe EXCEL.EXE")
 {
@@ -592,9 +619,9 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 ; =========================================
 
 #IfWinActive ahk_exe spotify.EXE
-!.::SoundSet,+5 
+!.::SoundSet,+5
 
-!,::SoundSet,-5 
+!,::SoundSet,-5
 #IfWinActive
 
 ; =========================================
@@ -615,7 +642,7 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
 	}
 	Winset, Alwaysontop, , A
-	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon% 
+	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon%
 	Sleep 3000 ; Let it display for 3 seconds.
 	HideTrayTip()
 
@@ -670,4 +697,3 @@ else
     Send, RIBBONCLOSE{Enter}
 return
 #IfWinActive
-
