@@ -501,8 +501,8 @@ F1::
 chromsg =
 (
 F1 Help
-F3 go to linked reference/ copy only formula(hold)
-F4 go to backlink/ copy only value (hold)
+F3 paste only formula
+F4 paste only value
 F5 go to 
 F6 select visible cell only
 F8 Row height input
@@ -510,6 +510,8 @@ F9 Row height standard
 F10 Paste formatting
 F11-F12 Assigned Macros
 Macros map ctrl+shift+(q-t)
+ctrl+shift+a go to linked reference
+ctrl+shift+z go to backlink
 Win+v paste link
 Win+a paste only value
 Win+w hide ribbon (maximize) 
@@ -517,7 +519,7 @@ Alt+= autosum (visible cell)
 Alt+f Freeze unfreeze pane toggle
 Win+r add full row above
 )
-SplashTextOn, 300, 410, Message #1, %chromsg%,
+SplashTextOn, 300, 450, Message #1, %chromsg%,
 Sleep, 5000
 SplashTextOff
 Return
@@ -538,30 +540,8 @@ else
     Send, !wfu
 return
 
-F3::
-    KeyWait, F3, T0.3   ; Tunggu hingga 0.3 detik untuk pelepasan tombol
-    if (ErrorLevel)      ; Jika tombol ditekan lebih dari 0.3 detik
-    {
-        Send, {Alt down}{Alt up}hvsf{Enter}
-        KeyWait, F3      ; Tunggu hingga tombol F3 dilepas sepenuhnya
-    }
-    else
-    {
-        Send, ^[         ; Jika ditekan singkat, kirim Ctrl + [
-    }
-return
-F4::
-    KeyWait, F4, T0.3   ; Tunggu hingga 0.3 detik untuk pelepasan tombol
-    if (ErrorLevel)      ; Jika tombol ditekan lebih dari 0.3 detik
-    {
-        Send, {Alt down}{Alt up}hvv
-        KeyWait, F4      ; Tunggu hingga tombol F3 dilepas sepenuhnya
-    }
-    else
-    {
-        Send, {F5 down}{F5 up}{enter} ;goto reference
-    }
-return
+F3::Send, {Alt down}{Alt up}hvsf{Enter}
+F4::Send, {Alt down}{Alt up}hvv
 F6::Send, {Alt down}{Alt up}hfd{s}
 F8:: Send, {Alt down}{Alt up}hoh
 F9::Send, {Alt down}{Alt up}hoa
@@ -579,7 +559,8 @@ Loop, 4
 }
 return
 F12::^+w
-
+^+a::^[ ;goto linked ref
+^+z::Send, {F5 down}{F5 up}{enter} ;goto reference
 `::
 Stop := true
 return
