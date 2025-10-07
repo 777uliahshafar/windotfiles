@@ -520,7 +520,7 @@ Alt+= autosum (visible cell)
 Alt+f Freeze unfreeze pane toggle
 Win+r add full row above
 )
-SplashTextOn, 350, 450, Message #1, %chromsg%,
+SplashTextOn, 380, 490, Message #1, %chromsg%,
 Sleep, 5000
 SplashTextOff
 Return
@@ -553,7 +553,7 @@ Else
 	Send, {Alt down}{Alt up}hvsf{Enter}
 }
 Return
-;F4::Send, {Alt down}{Alt up}hvv
+F4::Send, {Alt down}{Alt up}hvv
 F6::Send, {Alt down}{Alt up}hfd{s}
 F8:: Send, {Alt down}{Alt up}hoh
 F9::Send, {Alt down}{Alt up}hoa
