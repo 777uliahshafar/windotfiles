@@ -509,6 +509,7 @@ F8 Row height input
 F9 Row height standard
 F10 Paste formatting
 F11-F12 Assigned Macros
+Alt+F8 macros
 ; Macros map ctrl+shift+(q-t)
 ; `` / stop recurring macro (hold)
 ctrl+space go to linked reference
