@@ -494,36 +494,44 @@ return
 ; Microsoft Excel
 ; =========================================
 #IfWinActive ahk_exe EXCEL.EXE
-
 ; help excel
 ;=========================================
 F1::
-chromsg =
-(
-F1 Help
-F3 paste only formula / format (hold)
-F4 paste only value
-F5 go to
-F6 select visible cell only
-F8 Row height input
-F9 Row height standard
-F10 Paste formatting
-F11-F12 Assigned Macros
-Alt+F8 macros
-; Macros map ctrl+shift+(q-t)
-; `` / stop recurring macro (hold)
-ctrl+space go to linked reference
-Lctrl go to backlink (doublepress)
-`` / ctrl+shift+x switchcolour temp
-Win+v paste link
-Win+w hide ribbon (maximize)
-Alt+= autosum (visible cell)
-Alt+f Freeze unfreeze pane toggle
-Win+r add full row above
-)
-SplashTextOn, 380, 490, Message #1, %chromsg%,
-Sleep, 5000
-SplashTextOff
+KeyWait,F1,T0.3 ;wait 0.5 seconds for release key
+If (ErrorLevel) ;more than 0.5 sec have passed
+{
+	chromsg =
+	(
+	F1 paste format / Help (hold
+	F3 paste only formula
+	F4 paste only value
+	F5 go to
+	F6 select visible cell only
+	F8 Row height input
+	F9 Row height standard
+	F10 Paste formatting
+	F11-F12 Assigned Macros
+	Alt+F8 macros
+	; Macros map ctrl+shift+(q-t)
+	; `` / stop recurring macro (hold)
+	ctrl+space go to linked reference
+	Lctrl go to backlink (doublepress)
+	`` / ctrl+shift+x switchcolour temp
+	Win+v paste link
+	Win+w hide ribbon (maximize)
+	Alt+= autosum (visible cell)
+	Alt+f Freeze unfreeze pane toggle
+	Win+r add full row above
+	)
+	SplashTextOn, 380, 490, Message #1, %chromsg%,
+	Sleep, 5000
+	SplashTextOff
+	KeyWait,F1 ;prevent sending n after notepad opened
+}
+Else
+{
+	Send, {Alt down}{Alt up}hvst{Enter}
+}
 Return
 ; Excel key
 ;=========================================
@@ -542,18 +550,7 @@ else
     Send, !wfu
 return
 
-F3::
-KeyWait,F3,T0.3 ;wait 0.5 seconds for release key
-If (ErrorLevel) ;more than 0.5 sec have passed
-{
-    	Send, {Alt down}{Alt up}hvst{Enter}
-	KeyWait,F3 ;prevent sending n after notepad opened
-}
-Else
-{
-	Send, {Alt down}{Alt up}hvsf{Enter}
-}
-Return
+F3::Send, {Alt down}{Alt up}hvsf{Enter}
 F4::Send, {Alt down}{Alt up}hvv
 F6::Send, {Alt down}{Alt up}hfd{s}
 F8:: Send, {Alt down}{Alt up}hoh
