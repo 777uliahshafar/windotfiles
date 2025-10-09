@@ -671,7 +671,18 @@ chromsg =
 F1 Help
 F2 layer toggle
 ctrl + d ribbon toggle
-
+1 copy
+2 move
+3 rotate
+4 mirror
+5 dimlinear
+6 xline
+7 dimcontinue
+8 copybase
+e matchprop
+z laymcurer
+r textedit
+q quickproperties
 )
 SplashTextOn, 300, 370, Message #1, %chromsg%,
 Sleep, 5000
