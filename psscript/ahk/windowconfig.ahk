@@ -409,9 +409,9 @@ Alt+a sharegdrive
 Alt+w closegroup
 Alt+1-4 togglegroup
 )
-SplashTextOn, 300, 100, Message #1, %chromsg%,
+ToolTip, %chromsg%
 Sleep, 5000
-SplashTextOff
+ToolTip
 Return
 #IfWinActive
 
@@ -523,9 +523,9 @@ If (ErrorLevel) ;more than 0.5 sec have passed
 	Alt+f Freeze unfreeze pane toggle
 	Win+r add full row above
 	)
-	SplashTextOn, 380, 490, Message #1, %chromsg%,
+	ToolTip, %chromsg%
 	Sleep, 5000
-	SplashTextOff
+	ToolTip
 	KeyWait,F1 ;prevent sending n after notepad opened
 }
 Else
@@ -568,7 +568,7 @@ Loop, 4
     Sleep, 300
 }
 return
-F12::^+w
+F12::^+t
 ^space::^[ ;goto linked ref
 $LCtrl::
 KeyWait, RCtrl, T.3
@@ -666,29 +666,38 @@ Return
 
 #IfWinActive ahk_exe acad.exe
 F1::
-chromsg =
-(
-F1 Help
-F2 layer toggle
-ctrl + d ribbon toggle
-1 copy
-2 move
-3 rotate
-4 mirror
-5 dimlinear
-6 xline
-7 dimcontinue
-8 copybase
-e matchprop
-z laymcurer
-r textedit
-q quickproperties
-)
-SplashTextOn, 300, 370, Message #1, %chromsg%,
-Sleep, 5000
-SplashTextOff
+KeyWait,F1,T0.3 ;wait 0.5 seconds for release key
+If (ErrorLevel) ;more than 0.5 sec have passed
+{
+	chromsg =
+	(
+	F1 Help
+	F2 layer toggle
+	F3 hide ribbon
+	ctrl + d ribbon toggle
+	1 copy
+	2 move
+	3 rotate
+	4 mirror
+	5 dimlinear
+	6 xline
+	7 dimcontinue
+	8 copybase
+	e matchprop
+	z laymcurer
+	r textedit
+	q quickproperties
+	)
+	ToolTip, %chromsg%
+	Sleep, 5000
+	ToolTip
+	KeyWait,F1 ;prevent sending n after notepad opened
+}
+Else
+{
+	ribbon()
+}
 Return
-
 
 F2::
 toggle := !toggle
@@ -698,11 +707,26 @@ else
     Send, LAYERCLOSE{Enter}
 return
 
-~^d::
+F3::
 toggle := !toggle
-if (toggle)
-    Send,  RIBBON{Enter}
-else
-    Send, RIBBONCLOSE{Enter}
+if (toggle) {
+    Send, insert{Enter}
+    Send, SHEETSET{Enter}
+} else {
+    Send, BLOCKPALLETESCLOSE{Enter}
+    Send, SHEETSETHIDE{Enter}
+}
 return
+
+ribbon(){
+  global toggle
+  toggle := !toggle
+  if (toggle)
+      Send, RIBBON{Enter}
+  else
+      Send, RIBBONCLOSE{Enter}
+  return
+}
+
+
 #IfWinActive
