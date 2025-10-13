@@ -397,7 +397,7 @@ Return
 #IfWinActive
 
 #IfWinActive ahk_exe chrome.exe
-!a:: Send, ^!a
+F2:: Send, ^!a
 #IfWinActive
 
 #IfWinActive ahk_exe chrome.exe
