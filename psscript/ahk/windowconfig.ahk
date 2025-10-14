@@ -405,7 +405,7 @@ F1::
 chromsg =
 (
 Alt+d grouptab
-Alt+a sharegdrive
+F2 sharegdrive
 Alt+w closegroup
 Alt+1-4 togglegroup
 )
@@ -496,42 +496,55 @@ return
 #IfWinActive ahk_exe EXCEL.EXE
 ; help excel
 ;=========================================
+#SingleInstance Force
+
 F1::
-KeyWait,F1,T0.3 ;wait 0.5 seconds for release key
-If (ErrorLevel) ;more than 0.5 sec have passed
-{
-	chromsg =
-	(
-	F1 paste format / Help (hold
-	F3 paste only formula
-	F4 paste only value
-	F5 go to
-	F6 select visible cell only
-	F8 Row height input
-	F9 Row height standard
-	F10 Paste formatting
-	F11-F12 Assigned Macros
-	Alt+F8 macros
-	; Macros map ctrl+shift+(q-t)
-	; `` / stop recurring macro (hold)
-	ctrl+space go to linked reference
-	Lctrl go to backlink (doublepress)
-	`` / ctrl+shift+x switchcolour temp
-	Win+v paste link
-	Win+w hide ribbon (maximize)
-	Alt+= autosum (visible cell)
-	Alt+f Freeze unfreeze pane toggle
-	Win+r add full row above
-	)
-	ToolTip, %chromsg%
-	Sleep, 5000
-	ToolTip
-	KeyWait,F1 ;prevent sending n after notepad opened
-}
-Else
-{
-	Send, {Alt down}{Alt up}hvst{Enter}
-}
+    ; Detect double press (within 300ms)
+    if (A_PriorHotkey = "F1" && A_TimeSincePriorHotkey < 300) {
+        ; === Double press ===
+        SetTimer, F1_SingleAction, Off  ; cancel single action
+        Gosub, F1_DoubleAction
+        Return
+    }
+
+    ; otherwise start timer to wait for possible second press
+    SetTimer, F1_SingleAction, -300
+Return
+
+
+; --- Single press action ---
+F1_SingleAction:
+    Send, {Alt down}{Alt up}hvst{Enter}
+Return
+
+
+; --- Double press action ---
+F1_DoubleAction:
+    chromsg =
+    (LTrim
+    F1 paste format / Help double
+    F3 paste only formula / go to link
+    F4 paste only value / go back
+    F5 go to
+    F6 select visible cell only
+    F8 Row height input
+    F9 Row height standard
+    F10 Paste formatting
+    F11-F12 Assigned Macros
+    Alt+F8 macros
+    ; Macros map ctrl+shift+(q-t)
+    ; `` / stop recurring macro (hold)
+    `` / ctrl+shift+x switchcolour temp
+    Win+v paste link
+    Win+w hide ribbon (maximize)
+    Alt+= autosum (visible cell)
+    Alt+f Freeze/unfreeze pane toggle
+    Win+r add full row above
+    )
+
+    ToolTip, %chromsg%
+    Sleep, 6000
+    ToolTip
 Return
 ; Excel key
 ;=========================================
@@ -549,9 +562,57 @@ if (toggle)
 else
     Send, !wfu
 return
+;==
+F3::
+    ; Detect double press (within 300ms)
+    if (A_PriorHotkey = "F3" && A_TimeSincePriorHotkey < 300) {
+        ; === Double press ===
+        SetTimer, F3_SingleAction, Off  ; cancel single action
+        Gosub, F3_DoubleAction
+        Return
+    }
 
-F3::Send, {Alt down}{Alt up}hvsf{Enter}
-F4::Send, {Alt down}{Alt up}hvv
+    ; otherwise start timer to wait for possible second press
+    SetTimer, F3_SingleAction, -300
+Return
+
+
+; --- Single press action ---
+F3_SingleAction:
+    Send, {Alt down}{Alt up}hvsf{Enter}
+Return
+
+
+; --- Double press action ---
+F3_DoubleAction:
+    Send, ^[
+Return
+;==
+F4::
+    ; Detect double press (within 300ms)
+    if (A_PriorHotkey = "F4" && A_TimeSincePriorHotkey < 300) {
+        ; === Double press ===
+        SetTimer, F4_SingleAction, Off  ; cancel single action
+        Gosub, F4_DoubleAction
+        Return
+    }
+
+    ; otherwise start timer to wait for possible second press
+    SetTimer, F4_SingleAction, -300
+Return
+
+
+; --- Single press action ---
+F4_SingleAction:
+    Send, {Alt down}{Alt up}hvv
+Return
+
+
+; --- Double press action ---
+F4_DoubleAction:
+    Send, {F5 down}{F5 up}{enter}
+Return
+;===
 F6::Send, {Alt down}{Alt up}hfd{s}
 F8:: Send, {Alt down}{Alt up}hoh
 F9::Send, {Alt down}{Alt up}hoa
@@ -672,9 +733,10 @@ If (ErrorLevel) ;more than 0.5 sec have passed
 	chromsg =
 	(
 	F1 Help
-	F2 layer toggle
-	F3 hide ribbon
-	ctrl + d ribbon toggle
+	F2 layer/properties toggle
+	F3 hide block
+	F4 hide sheetset
+	f5 ribbonclose
 	1 copy
 	2 move
 	3 rotate
@@ -695,38 +757,81 @@ If (ErrorLevel) ;more than 0.5 sec have passed
 }
 Else
 {
-	ribbon()
+	Send, ^0
 }
 Return
-
-F2::
-toggle := !toggle
-if (toggle)
-    Send,  LAYER{Enter}
-else
-    Send, LAYERCLOSE{Enter}
-return
 
 F3::
 toggle := !toggle
 if (toggle) {
     Send, insert{Enter}
-    Send, SHEETSET{Enter}
 } else {
     Send, BLOCKPALLETESCLOSE{Enter}
+}
+return
+
+F4::
+toggle := !toggle
+if (toggle) {
+    Send, SHEETSET{Enter}
+} else {
     Send, SHEETSETHIDE{Enter}
 }
 return
 
-ribbon(){
-  global toggle
-  toggle := !toggle
-  if (toggle)
+F5::
+toggle := !toggle
+if (toggle) {
       Send, RIBBON{Enter}
-  else
+} else {
       Send, RIBBONCLOSE{Enter}
-  return
 }
+return
 
+#NoEnv
+#SingleInstance Force
+SetBatchLines, -1
+
+; --- user-state ---
+toggle := false
+clickCount := 0
+
+; --- main hotkey ---
+$F2::
+    ; 1) if F2 is held longer than 0.3s -> run hold behavior
+    KeyWait, F2, T0.3
+    if (ErrorLevel) {
+        ; Held behavior: press/hold F2, wait for LCtrl, then release
+        SoundBeep, 1500
+        Send, {F2 down}
+        KeyWait, LCtrl               ; wait until left Ctrl is pressed
+        SoundBeep, 1000
+        Send, {F2 up}
+        Return
+    }
+
+    ; 2) otherwise it's a quick tap — count taps for single/double detection
+    clickCount += 1
+
+    if (clickCount = 1) {
+        ; start a one-shot timer to handle a single tap after a short window
+        SetTimer, HandleF2Tap, -350   ; adjust 350ms if you want faster/slower double-press window
+    } else if (clickCount = 2) {
+        ; double tap detected -> cancel single-tap timer and run double action
+        SetTimer, HandleF2Tap, Off
+        clickCount := 0
+        Send, ^1
+    }
+Return
+
+; --- timer callback for single tap ---
+HandleF2Tap:
+    clickCount := 0
+    toggle := !toggle
+    if (toggle)
+        Send, LAYER{Enter}
+    else
+        Send, LAYERCLOSE{Enter}
+Return
 
 #IfWinActive
