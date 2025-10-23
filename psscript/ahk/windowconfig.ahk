@@ -494,125 +494,10 @@ return
 ; Microsoft Excel
 ; =========================================
 #IfWinActive ahk_exe EXCEL.EXE
-; help excel
-;=========================================
-#SingleInstance Force
+F1:: Send, {Alt down}{Alt up}hvst{Enter}
+F3:: Send, {Alt down}{Alt up}hvsf{Enter}
+F4:: Send, {Alt down}{Alt up}hvv
 
-F1::
-    ; Detect double press (within 300ms)
-    if (A_PriorHotkey = "F1" && A_TimeSincePriorHotkey < 300) {
-        ; === Double press ===
-        SetTimer, F1_SingleAction, Off  ; cancel single action
-        Gosub, F1_DoubleAction
-        Return
-    }
-
-    ; otherwise start timer to wait for possible second press
-    SetTimer, F1_SingleAction, -300
-Return
-
-
-; --- Single press action ---
-F1_SingleAction:
-    Send, {Alt down}{Alt up}hvst{Enter}
-Return
-
-
-; --- Double press action ---
-F1_DoubleAction:
-    chromsg =
-    (LTrim
-    F1 paste format / Help double
-    F3 paste only formula / go to link
-    F4 paste only value / go back
-    F5 go to
-    F6 select visible cell only
-    F8 Row height input
-    F9 Row height standard
-    F10 Paste formatting
-    F11-F12 Assigned Macros
-    Alt+F8 macros
-    ; Macros map ctrl+shift+(q-t)
-    ; `` / stop recurring macro (hold)
-    `` / ctrl+shift+x switchcolour temp
-    Win+v paste link
-    Win+w hide ribbon (maximize)
-    Alt+= autosum (visible cell)
-    Alt+f Freeze/unfreeze pane toggle
-    Win+r add full row above
-    )
-
-    ToolTip, %chromsg%
-    Sleep, 6000
-    ToolTip
-Return
-; Excel key
-;=========================================
-#v:: Send, {Alt down}{Alt up}hvsl
-#w:: ^F1
-#r::               ; Alt + R
-    Send, ^+=      ; Tekan Ctrl+Shift+=
-    Sleep, 200     ; Tunggu 200 ms (atur sesuai kebutuhan)
-    Send, r{Enter} ; Ketik r lalu Enter
-return
-!f::
-toggle := !toggle
-if (toggle)
-    Send, !wff
-else
-    Send, !wfu
-return
-;==
-F3::
-    ; Detect double press (within 300ms)
-    if (A_PriorHotkey = "F3" && A_TimeSincePriorHotkey < 300) {
-        ; === Double press ===
-        SetTimer, F3_SingleAction, Off  ; cancel single action
-        Gosub, F3_DoubleAction
-        Return
-    }
-
-    ; otherwise start timer to wait for possible second press
-    SetTimer, F3_SingleAction, -300
-Return
-
-
-; --- Single press action ---
-F3_SingleAction:
-    Send, {Alt down}{Alt up}hvsf{Enter}
-Return
-
-
-; --- Double press action ---
-F3_DoubleAction:
-    Send, ^[
-Return
-;==
-F4::
-    ; Detect double press (within 300ms)
-    if (A_PriorHotkey = "F4" && A_TimeSincePriorHotkey < 300) {
-        ; === Double press ===
-        SetTimer, F4_SingleAction, Off  ; cancel single action
-        Gosub, F4_DoubleAction
-        Return
-    }
-
-    ; otherwise start timer to wait for possible second press
-    SetTimer, F4_SingleAction, -300
-Return
-
-
-; --- Single press action ---
-F4_SingleAction:
-    Send, {Alt down}{Alt up}hvv
-Return
-
-
-; --- Double press action ---
-F4_DoubleAction:
-    Send, {F5 down}{F5 up}{enter}
-Return
-;===
 F6::Send, {Alt down}{Alt up}hfd{s}
 F8:: Send, {Alt down}{Alt up}hoh
 F9::Send, {Alt down}{Alt up}hoa
@@ -630,26 +515,117 @@ Loop, 4
 }
 return
 F12::^+t
-^space::^[ ;goto linked ref
-$LCtrl::
-KeyWait, RCtrl, T.3
+
+#v:: Send, {Alt down}{Alt up}hvsl
+#w:: ^F1
+#r::               ; Alt + R
+    Send, ^+=      ; Tekan Ctrl+Shift+=
+    Sleep, 200     ; Tunggu 200 ms (atur sesuai kebutuhan)
+    Send, r{Enter} ; Ketik r lalu Enter
+return
+!f::
+toggle := !toggle
+if (toggle)
+    Send, !wff
+else
+    Send, !wfu
+return
+
+^Shift:: Send, {F5 down}{F5 up}{enter} ;goto linked ref
+
+$Shift::
+KeyWait, Shift, T.3
 If ErrorLevel {
  SoundBeep, 1500
- Send {LCtrl down}
- KeyWait, LCtrl
+ Send {Shift down}
+ KeyWait, Shift
  SoundBeep, 1000
- Send {LCtrl up}
-} Else Send % A_PriorHotkey = A_ThisHotkey && A_TimeSincePriorHotkey < 400 ? "{F5 down}{F5 up}{enter}" : ""
+ Send {Shift up}
+} Else Send % A_PriorHotkey = A_ThisHotkey && A_TimeSincePriorHotkey < 400 ? "^[" : ""
 Return
+
+$LCtrl::
+KeyWait, LCtrl, T0.3  ; wait up to 0.3s for release
+if (ErrorLevel) {
+    ; held down
+    SoundBeep, 1500
+    Send, {LCtrl down}
+    KeyWait, LCtrl
+    SoundBeep, 1000
+    Send, {LCtrl up}
+} else {
+    ; single or double tap logic
+    if (A_PriorHotkey = A_ThisHotkey && A_TimeSincePriorHotkey < 400) {
+        chromsg =
+    (LTrim
+    ctrl help (double)
+    F1 paste format
+    F3 paste only formula
+    F4 paste only value
+    Win+v paste link
+    F5 go to
+    F6 select visible cell only
+    F8 Row height input
+    F9 Row height standard
+    F10 Paste formatting
+    F11-F12 Assigned Macros
+    Shift go to ref (double)
+    Ctrl + Space go last view
+    Alt+(F11>i>m) create macros module
+    Alt+F8 macros
+    ; Macros map ctrl+shift+(q-t)
+    ; `` / stop recurring macro (hold)
+    `` / ctrl+shift+x switchcolour temp
+    Win+w hide ribbon (maximize)
+    Alt+= autosum (visible cell)
+    Alt+f Freeze/unfreeze pane toggle
+    Win+r add full row above
+    Shift+scroll horzontal scroll
+    )
+
+    ToolTip, %chromsg%
+    Sleep, 6000
+    ToolTip
+    } else {
+        Send, {Esc}  ; single press action (you can change this)
+    }
+}
+return
+
+
+
 `::  ; This means the backtick key as a hotkey
 KeyWait, ``, T0.3  ; wait 0.3 seconds for release
 if (ErrorLevel) {  ; key held longer than 0.3s
     Stop := true
     KeyWait, ``  ; wait for release before allowing next trigger
 } else {
-    Send, ^+x
+    Send, ^+X
 }
 return
+
+; ==============================================================
+; Shift + Mouse Wheel = Horizontal scroll in Excel
+; Works in AHK v1.1.37.02 and newer Excel versions
+; ==============================================================
+
+#NoEnv
+SendMode Input
+SetTitleMatchMode, 2
+
+; Shift + WheelDown → scroll left
++WheelDown::
+    ControlGetFocus, ctrl, A
+    PostMessage, 0x20E, -120 << 16, 0, %ctrl%, A  ; WM_MOUSEHWHEEL, negative = left
+return
+
+; Shift + WheelUp → scroll right
++WheelUp::
+    ControlGetFocus, ctrl, A
+    PostMessage, 0x20E, 120 << 16, 0, %ctrl%, A  ; WM_MOUSEHWHEEL, positive = right
+return
+
+
 #IfWinActive
 
 ; Alt + = autosum only visible cell
@@ -727,111 +703,83 @@ Return
 
 #IfWinActive ahk_exe acad.exe
 F1::
-KeyWait,F1,T0.3 ;wait 0.5 seconds for release key
-If (ErrorLevel) ;more than 0.5 sec have passed
-{
-	chromsg =
-	(
-	F1 Help
-	F2 layer/properties toggle
-	F3 hide block
-	F4 hide sheetset
-	f5 ribbonclose
-	1 copy
-	2 move
-	3 rotate
-	4 mirror
-	5 dimlinear
-	6 xline
-	7 dimcontinue
-	8 copybase
-	e matchprop
-	z laymcurer
-	r textedit
-	q quickproperties
-	)
-	ToolTip, %chromsg%
-	Sleep, 5000
-	ToolTip
-	KeyWait,F1 ;prevent sending n after notepad opened
-}
-Else
-{
-	Send, ^0
-}
-Return
+toggle := !toggle
+    if (toggle)
+        SendInput, RIBBON{Enter}
+    else
+        SendInput, RIBBONCLOSE{Enter}
+return
+
+F2::
+toggle := !toggle
+    if (toggle)
+        SendInput, LAYER{Enter}
+    else
+        SendInput, LAYERCLOSE{Enter}
+return
 
 F3::
 toggle := !toggle
 if (toggle) {
-    Send, insert{Enter}
+    SendInput, insert{Enter}
 } else {
-    Send, BLOCKPALLETESCLOSE{Enter}
+    SendInput, BLOCKSPALETTECLOSE{Enter}
 }
 return
 
 F4::
 toggle := !toggle
 if (toggle) {
-    Send, SHEETSET{Enter}
+    SendInput , SHEETSET{Enter}
 } else {
-    Send, SHEETSETHIDE{Enter}
+    SendInput , SHEETSETHIDE{Enter}
 }
 return
+F5::^1
 
-F5::
-toggle := !toggle
-if (toggle) {
-      Send, RIBBON{Enter}
+F12::Send, ^0
+
+$LCtrl::
+KeyWait, LCtrl, T0.3  ; wait up to 0.3s for release
+if (ErrorLevel) {
+    ; held down
+    SoundBeep, 1500
+    Send, {LCtrl down}
+    KeyWait, LCtrl
+    SoundBeep, 1000
+    Send, {LCtrl up}
 } else {
-      Send, RIBBONCLOSE{Enter}
+    ; single or double tap logic
+    if (A_PriorHotkey = A_ThisHotkey && A_TimeSincePriorHotkey < 400) {
+        chromsg =
+        (
+	ctrl help
+        F1 ribbon
+        F2 toggle layer
+        F3 toggle block
+        F4 toggle sheetset
+        F5 properties
+        F12 fullscreen
+        1 copy
+        2 move
+        3 rotate
+        4 mirror
+        5 dimlinear
+        6 xline
+        7 dimcontinue
+        8 copybase
+        e matchprop
+        z laymcurer
+        r textedit
+        q quickproperties
+        )
+        ToolTip, %chromsg%
+        Sleep, 5000
+        ToolTip
+    } else {
+        Send, {Esc}  ; single press action (you can change this)
+    }
 }
 return
-
-#NoEnv
-#SingleInstance Force
-SetBatchLines, -1
-
-; --- user-state ---
-toggle := false
-clickCount := 0
-
-; --- main hotkey ---
-$F2::
-    ; 1) if F2 is held longer than 0.3s -> run hold behavior
-    KeyWait, F2, T0.3
-    if (ErrorLevel) {
-        ; Held behavior: press/hold F2, wait for LCtrl, then release
-        SoundBeep, 1500
-        Send, {F2 down}
-        KeyWait, LCtrl               ; wait until left Ctrl is pressed
-        SoundBeep, 1000
-        Send, {F2 up}
-        Return
-    }
-
-    ; 2) otherwise it's a quick tap — count taps for single/double detection
-    clickCount += 1
-
-    if (clickCount = 1) {
-        ; start a one-shot timer to handle a single tap after a short window
-        SetTimer, HandleF2Tap, -350   ; adjust 350ms if you want faster/slower double-press window
-    } else if (clickCount = 2) {
-        ; double tap detected -> cancel single-tap timer and run double action
-        SetTimer, HandleF2Tap, Off
-        clickCount := 0
-        Send, ^1
-    }
-Return
-
-; --- timer callback for single tap ---
-HandleF2Tap:
-    clickCount := 0
-    toggle := !toggle
-    if (toggle)
-        Send, LAYER{Enter}
-    else
-        Send, LAYERCLOSE{Enter}
-Return
 
 #IfWinActive
