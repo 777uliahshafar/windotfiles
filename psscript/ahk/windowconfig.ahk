@@ -1,4 +1,4 @@
-; ************************
+﻿; ************************
 ; Most common programs
 ; ************************
 
@@ -172,6 +172,33 @@ SetTimer, RemoveToolTip, -1500
 Return
 
 ;=========================================
+; MOVE WINDOW TO NEXT DESKTOP CTRL+SHIFT+ALT+ARROW
+;=========================================
+
+
+^#+Left::
+n := VD.getCurrentDesktopNum()
+if n = 1
+{
+    Return
+}
+n -= 1
+VD.MoveWindowToDesktopNum("A",n), VD.goToDesktopNum(n)
+Return
+
+^#+Right::
+n := VD.getCurrentDesktopNum()
+if n = % VD.getCount()
+{
+    Return
+}
+n += 1
+VD.MoveWindowToDesktopNum("A",n), VD.goToDesktopNum(n)
+Return
+
+
+
+;=========================================
 ; TOGGLE MAXIMIZE
 ;=========================================
 
@@ -185,13 +212,22 @@ WinGet, windowState, MinMax, A
 return
 
 !enter::
+WinGetClass, class, A
+if (class = "XLMAIN" || class = "OpusApp") {
+    ; Let Alt+Enter behave normally in Excel or Word
+    Send !{Enter}
+    return
+}
+
+; For other applications, toggle maximize / restore
 WinGet, windowState, MinMax, A
-    if (windowState = 1) {
-        WinRestore, A
-    } else {
-        WinMaximize, A
-    }
+if (windowState = 1) {
+    WinRestore, A
+} else {
+    WinMaximize, A
+}
 return
+
 
 #enter::
 Process, Exist, WindowsTerminal.exe
@@ -494,14 +530,14 @@ return
 ; Microsoft Excel
 ; =========================================
 #IfWinActive ahk_exe EXCEL.EXE
-F1:: Send, {Alt down}{Alt up}hvst{Enter}
-F3:: Send, {Alt down}{Alt up}hvsf{Enter}
-F4:: Send, {Alt down}{Alt up}hvv
-
-F6::Send, {Alt down}{Alt up}hfd{s}
-F8:: Send, {Alt down}{Alt up}hoh
-F9::Send, {Alt down}{Alt up}hoa
-F10:: Send, {Alt down}{Alt up}hvst {enter} ;paste formating
+F1:: SendInput, {Alt down}{Alt up}hvst{Enter}
+F3:: SendInput, {Alt down}{Alt up}hvsf{Enter}
+F4:: SendInput, {Alt down}{Alt up}hvv
+;F4:: SendInput, {Alt down}{Alt up}hv ;across softwre
+F10:: SendInput, {Alt down}{Alt up}hfd{s}
+F8:: SendInput, {Alt down}{Alt up}hoh
+F9:: SendInput, {Alt down}{Alt up}hoa
+F6:: SendInput, ^m ;configure in macros options
 F11::
 Stop := false
 Loop, 4
@@ -516,7 +552,7 @@ Loop, 4
 return
 F12::^+t
 
-#v:: Send, {Alt down}{Alt up}hvsl
+#v:: SendInput, {Alt down}{Alt up}hvsl
 #w:: ^F1
 #r::               ; Alt + R
     Send, ^+=      ; Tekan Ctrl+Shift+=
@@ -531,7 +567,7 @@ else
     Send, !wfu
 return
 
-^Shift:: Send, {F5 down}{F5 up}{enter} ;goto linked ref
+^Space:: Send, {F5 down}{F5 up}{enter} ;goto linked ref
 
 $Shift::
 KeyWait, Shift, T.3
@@ -561,16 +597,16 @@ if (ErrorLevel) {
     ctrl help (double)
     F1 paste format
     F3 paste only formula
-    F4 paste only value
+    F4 paste only value/match formatting
     Win+v paste link
     F5 go to
-    F6 select visible cell only
+    F6 Colorize cell
     F8 Row height input
     F9 Row height standard
-    F10 Paste formatting
+    F10 select visible cell only
     F11-F12 Assigned Macros
     Shift go to ref (double)
-    Ctrl + Space go last view
+    Ctrl+shift go last view
     Alt+(F11>i>m) create macros module
     Alt+F8 macros
     ; Macros map ctrl+shift+(q-t)
@@ -580,7 +616,6 @@ if (ErrorLevel) {
     Alt+= autosum (visible cell)
     Alt+f Freeze/unfreeze pane toggle
     Win+r add full row above
-    Shift+scroll horzontal scroll
     )
 
     ToolTip, %chromsg%
@@ -592,38 +627,17 @@ if (ErrorLevel) {
 }
 return
 
+; Robust single / double / hold for the backtick key (`).
+; AutoHotkey v1.1
+
+#SingleInstance Force
+SetBatchLines -1
+global TapCount := 0
+
+$`::SendInput, ^c
 
 
-`::  ; This means the backtick key as a hotkey
-KeyWait, ``, T0.3  ; wait 0.3 seconds for release
-if (ErrorLevel) {  ; key held longer than 0.3s
-    Stop := true
-    KeyWait, ``  ; wait for release before allowing next trigger
-} else {
-    Send, ^+X
-}
-return
 
-; ==============================================================
-; Shift + Mouse Wheel = Horizontal scroll in Excel
-; Works in AHK v1.1.37.02 and newer Excel versions
-; ==============================================================
-
-#NoEnv
-SendMode Input
-SetTitleMatchMode, 2
-
-; Shift + WheelDown → scroll left
-+WheelDown::
-    ControlGetFocus, ctrl, A
-    PostMessage, 0x20E, -120 << 16, 0, %ctrl%, A  ; WM_MOUSEHWHEEL, negative = left
-return
-
-; Shift + WheelUp → scroll right
-+WheelUp::
-    ControlGetFocus, ctrl, A
-    PostMessage, 0x20E, 120 << 16, 0, %ctrl%, A  ; WM_MOUSEHWHEEL, positive = right
-return
 
 
 #IfWinActive
@@ -702,6 +716,7 @@ Return
 ;=========================================
 
 #IfWinActive ahk_exe acad.exe
+;ahk class of palette window can be checked in window spy ahk by over cursor in the window
 F1::
 toggle := !toggle
     if (toggle)
@@ -710,31 +725,52 @@ toggle := !toggle
         SendInput, RIBBONCLOSE{Enter}
 return
 
+SetTitleMatchMode, 2  ; allows partial title matches
+
 F2::
-toggle := !toggle
-    if (toggle)
-        SendInput, LAYER{Enter}
-    else
+    ; Check if the Layer Properties Manager palette is open
+    if WinExist("Layer")
+    {
         SendInput, LAYERCLOSE{Enter}
+        toggle := false
+    }
+    else
+    {
+        SendInput, LAYER{Enter}
+        toggle := true
+    }
 return
 
 F3::
-toggle := !toggle
-if (toggle) {
-    SendInput, insert{Enter}
-} else {
-    SendInput, BLOCKSPALETTECLOSE{Enter}
-}
+    ; Try to find the Blocks palette window by title (partial match)
+    If WinExist("Blocks")
+    {
+        SendInput, BLOCKSPALETTECLOSE{Enter}
+        toggle := false
+    }
+    else
+    {
+        SendInput, INSERT{Enter}
+        toggle := true
+    }
 return
 
+SetTitleMatchMode, 2  ; allows partial title matches (e.g., "Sheet Set" anywhere in the title)
+
 F4::
-toggle := !toggle
-if (toggle) {
-    SendInput , SHEETSET{Enter}
-} else {
-    SendInput , SHEETSETHIDE{Enter}
-}
+    ; Check if the Sheet Set Manager palette is open
+    if WinExist("Sheet Set Manager")
+    {
+        SendInput, SHEETSETHIDE{Enter}  ; hides or closes the palette
+        toggle := false
+    }
+    else
+    {
+        SendInput, SHEETSET{Enter}       ; opens the palette
+        toggle := true
+    }
 return
+
 F5::^1
 
 F12::Send, ^0
@@ -781,5 +817,7 @@ if (ErrorLevel) {
     }
 }
 return
+
+
 
 #IfWinActive
