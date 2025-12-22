@@ -157,45 +157,9 @@ function morfologi
     cd 'D:\morfologi\'
     & 'nvim' '.\morfologi.tex'
 }
-
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# line 160 was set to show aliases
 # Alias
-# aa aliasis
-# am magick aliases
-# ap project aliases
-# aw windows aliases
+# Show aliases sa
 Set-Alias v nvim
 Set-Alias lt lstex
 Set-Alias o obsidian
@@ -211,18 +175,6 @@ Set-Alias va variable
 Set-Alias getkeynote keynote
 Set-Alias getsimart artikel
 
-
-
-
-
-
-
-
-
-
-
-
-
 # Magick Alias
 Set-Alias compressjpg compressjpghere
 Set-Alias compressjpeg compressjpeghere
@@ -233,24 +185,6 @@ Set-Alias getcomdocrename comdocrename
 Set-Alias getdocrename docrename
 Set-Alias getproject project
 Set-Alias getremovecamscanner camscanner
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Set-Alias phd phdjournal
 Set-Alias st statistika
@@ -267,115 +201,4 @@ Set-Alias hi hibahint
 Set-Alias ub usulanbpi
 Set-Alias ud usulandosbin
 Set-Alias mo morfologi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Windows Shortcut
-# Alt + H = open zotero
-# Alt + J = open terminal
-# Alt + K = open sioyek
-# Alt + L = open Chrome
-# Alt + N = open jenni chrome tab
-# Alt + space/enter = maximaze
-# Double tab = switch between application
-# Double enter = switch between instance
-# Windows Key + enter = open entire application
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
