@@ -52,6 +52,11 @@ function compressjpghere
 magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
 }
 
+function compressjpgx2here
+{
+magick *.jpg -resize "1280x1280>" -sampling-factor 4:2:0 -strip -quality 50 -define jpeg:dct-method=float -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
+}
+
 function montagejpghere
 {
 echo "magick montage filname*.jpg -tile 2x -geometry 640x480+10+10 filename-result.jpg"
@@ -64,7 +69,12 @@ magick *.jpeg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorsp
 
 function compresspnghere
 {
-magick *.png -sampling-factor 4:2:0 -strip -quality 80 -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].png'
+magick *.png -strip -quality 95 -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].png'
+}
+
+function compresspngx2here
+{
+magick *.png -resize "1280x1280>" -strip -quality 95 -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].png'
 }
 
 function pdf2jpeghere
@@ -72,19 +82,39 @@ function pdf2jpeghere
 magick *.pdf -density 150 -quality 100 -flatten -sharpen 0x1.0 -set filename:f "%t-converted" '%[filename:f].jpg'
 }
 
+function jpg2pnghere
+{
+magick *.jpg -density 150 -quality 100 -flatten -sharpen 0x1.0 -set filename:f "%t-converted" "%[filename:f].png"
+}
+
 function omitrename
 {
 Get-ChildItem -File | Where-Object {
     $_.Name -match '[_-]compressed'
 } | ForEach-Object {
+    # 1. Remove the 'compressed' tag
+    $cleanName = $_.Name -replace '[_-]compressed', ''
+    $targetPath = Join-Path $_.DirectoryName $cleanName
 
-    $newName = $_.Name -replace '[_-]compressed', ' sm'
-    $target  = Join-Path $_.DirectoryName $newName
+    # 2. Check if the original file already exists
+    if (Test-Path $targetPath) {
+        # Split name and extension (e.g., "photo" and ".jpg")
+        $baseName = [System.IO.Path]::GetFileNameWithoutExtension($cleanName)
+        $extension = [System.IO.Path]::GetExtension($cleanName)
 
-    if (-not (Test-Path $target)) {
-        Rename-Item $_ $target
+        # Construct the new name with suffix: "photo-sm.jpg"
+        $newName = "$baseName sm$extension"
+        $targetPath = Join-Path $_.DirectoryName $newName
+    }
+
+    # 3. Perform the rename (only if the -sm version doesn't also exist)
+    if (-not (Test-Path $targetPath)) {
+        Rename-Item -Path $_.FullName -NewName $targetPath
+    } else {
+        Write-Warning "Skipped: $($_.Name) because $targetPath already exists."
     }
 }
+
 }
 
 function renamebkdfolder
@@ -253,10 +283,13 @@ Set-Alias filesrename renamestandardfile
 
 # Magick Alias
 Set-Alias compressjpg compressjpghere
+Set-Alias compressjpgx2 compressjpgx2here
 Set-Alias compressjpeg compressjpeghere
 Set-Alias montagejpg montagejpghere
 Set-Alias compresspng compresspnghere
+Set-Alias compresspngx2 compresspngx2here
 Set-Alias pdf2img pdf2jpeghere
+Set-Alias jpg2png jpg2pnghere
 Set-Alias getproject project
 Set-Alias getremovecamscanner camscanner
 
