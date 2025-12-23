@@ -72,32 +72,78 @@ function pdf2jpeghere
 magick *.pdf -density 150 -quality 100 -flatten -sharpen 0x1.0 -set filename:f "%t-converted" '%[filename:f].jpg'
 }
 
-function comdocrename
-{
-    Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutcomdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutcomdocrename.ps1
-}
-
-function docrename
-{
-    Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutdocrename.ps1
-}
-
-
 function omitrename
 {
 Get-ChildItem -File | Where-Object {
-    $_.Extension -in '.jpg', '.jpeg', '.pdf'
+    $_.Name -match '[_-]compressed'
 } | ForEach-Object {
 
-    $baseName = $_.Name.Replace("_compressed", "")
-    $nameOnly = [IO.Path]::GetFileNameWithoutExtension($baseName)
-    $ext      = [IO.Path]::GetExtension($baseName)
-
-    $newName = "$nameOnly sm$ext"
+    $newName = $_.Name -replace '[_-]compressed', ' sm'
     $target  = Join-Path $_.DirectoryName $newName
 
-    if (-not (Test-Path $target) -and $_.Name -notmatch '\ssm\.') {
+    if (-not (Test-Path $target)) {
         Rename-Item $_ $target
+    }
+}
+}
+
+function renamebkdfolder
+{
+Get-ChildItem -File | ForEach-Object {
+
+    $parent = $_.Directory.Name.ToLower()
+    $ext    = $_.Extension.ToLower()
+
+    $name = $_.BaseName.ToLower()
+
+    # dash & underscore → space
+    $name = $name -replace '[-_]', ' '
+
+    # remove everything except letters, numbers, spaces
+    $name = $name -replace '[^a-z0-9 ]', ''
+
+    # normalize spaces
+    $name = ($name -replace '\s+', ' ').Trim()
+
+    # only append parent folder if not already present at the end
+    if ($name -notmatch "\b$([Regex]::Escape($parent))$") {
+        $name = "$name $parent"
+    }
+
+    $newName = "$name$ext"
+    $target  = Join-Path $_.DirectoryName $newName
+
+    if ($newName -ne $_.Name -and -not (Test-Path $target)) {
+        Rename-Item $_ $target
+    }
+}
+}
+
+function renamestandardfile
+{
+Get-ChildItem -File | ForEach-Object {
+
+    $ext  = $_.Extension.ToLower()
+    $name = $_.BaseName.ToLower()
+
+    # dash & underscore → space
+    $name = $name -replace '[-_]', ' '
+
+    # keep only letters, numbers, spaces
+    $name = $name -replace '[^a-z0-9 ]', ''
+
+    # normalize spaces
+    $name = ($name -replace '\s+', ' ').Trim()
+
+    $newName = "$name$ext"
+    $target  = Join-Path $_.DirectoryName $newName
+
+    if ($newName -ne $_.Name -and -not (Test-Path $target)) {
+
+        # force case change on Windows
+        $temp = Join-Path $_.DirectoryName ("__tmp__" + $_.Name)
+        Rename-Item $_ $temp
+        Rename-Item $temp $target
     }
 }
 }
@@ -177,7 +223,11 @@ function morfologi
     cd 'D:\morfologi\'
     & 'nvim' '.\morfologi.tex'
 }
-# line 160 was set to show aliases
+
+
+
+
+# line 222 was set to show aliases
 # Alias
 # Show aliases sa
 Set-Alias v nvim
@@ -194,7 +244,12 @@ Set-Alias nh nvimmyhelp
 Set-Alias va variable
 Set-Alias getkeynote keynote
 Set-Alias getsimart artikel
+
+# File name treats
 Set-Alias rmcompressed omitrename
+Set-Alias bkdrename renamebkdfolder
+Set-Alias filesrename renamestandardfile
+
 
 # Magick Alias
 Set-Alias compressjpg compressjpghere
@@ -202,8 +257,6 @@ Set-Alias compressjpeg compressjpeghere
 Set-Alias montagejpg montagejpghere
 Set-Alias compresspng compresspnghere
 Set-Alias pdf2img pdf2jpeghere
-Set-Alias getcomdocrename comdocrename
-Set-Alias getdocrename docrename
 Set-Alias getproject project
 Set-Alias getremovecamscanner camscanner
 
