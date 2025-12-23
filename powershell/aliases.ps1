@@ -82,6 +82,26 @@ function docrename
     Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutdocrename.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutdocrename.ps1
 }
 
+
+function omitrename
+{
+Get-ChildItem -File | Where-Object {
+    $_.Extension -in '.jpg', '.jpeg', '.pdf'
+} | ForEach-Object {
+
+    $baseName = $_.Name.Replace("_compressed", "")
+    $nameOnly = [IO.Path]::GetFileNameWithoutExtension($baseName)
+    $ext      = [IO.Path]::GetExtension($baseName)
+
+    $newName = "$nameOnly sm$ext"
+    $target  = Join-Path $_.DirectoryName $newName
+
+    if (-not (Test-Path $target) -and $_.Name -notmatch '\ssm\.') {
+        Rename-Item $_ $target
+    }
+}
+}
+
 function project
 {
     Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutproject.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutproject.ps1
@@ -174,6 +194,7 @@ Set-Alias nh nvimmyhelp
 Set-Alias va variable
 Set-Alias getkeynote keynote
 Set-Alias getsimart artikel
+Set-Alias rmcompressed omitrename
 
 # Magick Alias
 Set-Alias compressjpg compressjpghere
