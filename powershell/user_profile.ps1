@@ -1,9 +1,15 @@
 function Run-Step([string] $Description, [ScriptBlock]$script)
 {
-  Write-Host  -NoNewline "Loading " $Description.PadRight(20)
-  & $script
-  Write-Host "`u{2705}" # checkmark emoji
+    Write-Host  -NoNewline "Loading " $Description.PadRight(20)
+    & $script
+    Write-Host "`u{2705}" # checkmark emoji
 }
+Write-Host "Shortcuts: " -NoNewline -F Cyan
+@{"^f"="find"; "^r"="cmd"; "z"="go to"}.GetEnumerator() | ForEach-Object {
+    Write-Host "$($_.Key)" -NoNewline -F Yellow
+    Write-Host ":$($_.Value) | " -NoNewline -F Gray
+}
+Write-Host ""
 
 $light = Start-ThreadJob {
 Import-Module -Name z
