@@ -178,6 +178,10 @@ Get-ChildItem -File | ForEach-Object {
 }
 }
 
+function folderproyek {
+    mkdir "nama proyek\arsip\arsip foto", "nama proyek\arsip\arsip plot", "nama proyek\plot", "nama proyek\foto"
+}
+
 function project
 {
     Get-ChildItem -Path $env:USERPROFILE\.config\windotfiles\psscript\makeshortcutproject.ps1  -File | Copy-Item -Destination .\ && . .\makeshortcutproject.ps1
@@ -257,7 +261,7 @@ function morfologi
 
 
 
-# line 222 was set to show aliases
+# line 264 was set to show aliases
 # Alias
 # Show aliases sa
 Set-Alias v nvim
@@ -292,6 +296,7 @@ Set-Alias pdf2img pdf2jpeghere
 Set-Alias jpg2png jpg2pnghere
 Set-Alias getproject project
 Set-Alias getremovecamscanner camscanner
+Set-Alias getstrukturfolderproyek folderproyek
 
 # Set-Alias phd phdjournal
 Set-Alias st statistika
