@@ -257,7 +257,7 @@ Return
 
 
 ;=========================================
-;Vertical Bar Key 
+;Vertical Bar Key
 ;=========================================
 
 
@@ -265,10 +265,10 @@ Return
 toggle := !toggle
 if (toggle)
     ;Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
-	AltTab() 
+	AltTab()
 else
     ;Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
-AltTab() 
+AltTab()
 return
 
 PgUp::
@@ -308,7 +308,7 @@ If !start                      ; If time marker is not set,
  start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
 Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
-														
+
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
@@ -470,7 +470,7 @@ Alt+Space fullscreen
 Shift + alt + arrow = resize terminal
 Double tab switchwindow
 Double Enter switchinstance
-Windows+double Desktop View 
+Windows+double Desktop View
 )
 SplashTextOn, 300, 400, Message #1, %msg%,
 Sleep, 5000
@@ -574,7 +574,7 @@ return
 F9::
 ;    try {
 ;        xl := ComObjActive("Excel.Application")
-;        xl.Selection.EntireRow.AutoFit()   
+;        xl.Selection.EntireRow.AutoFit()
 ;    }
 	SendInput, {Alt down}{Alt up}hoa
 return
@@ -693,7 +693,7 @@ if (ErrorLevel) {
     F3 paste only formula
     F4 paste only value/match formatting
     Win+v paste link
-    F5 go to 
+    F5 go to
     F6 Colorize cell / visible cell
     F8 Row height input
     F9 Row height standard
@@ -706,7 +706,7 @@ if (ErrorLevel) {
     Alt+F8 macros
     ; Macros map ctrl+shift+(q-t)
     ; `` / stop recurring macro (hold)
-    win+` / ctrl+m switchcolour 
+    win+` / ctrl+m switchcolour
     Win+w hide ribbon (maximize)
     Alt+= autosum (visible cell)
     Alt+f Freeze/unfreeze pane toggle
@@ -786,9 +786,9 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 ; =========================================
 
 #IfWinActive ahk_exe spotify.EXE
-!.::SoundSet,+5 
+!.::SoundSet,+5
 
-!,::SoundSet,-5 
+!,::SoundSet,-5
 #IfWinActive
 
 ; =========================================
@@ -809,7 +809,7 @@ Home::
 		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
 	}
 	Winset, Alwaysontop, , A
-	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon% 
+	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon%
 	Sleep 3000 ; Let it display for 3 seconds.
 	HideTrayTip()
 
@@ -835,7 +835,7 @@ Return
 
 #IfWinActive ahk_exe acad.exe
 ;ahk class of palette window can be checked in window spy ahk by over cursor in the window
-F1:: 
+F1::
 toggle := !toggle
     if (toggle)
         SendInput, RIBBON{Enter}
@@ -935,8 +935,4 @@ if (ErrorLevel) {
     }
 }
 return
-
-
-
 #IfWinActive
-
