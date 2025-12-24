@@ -5,7 +5,7 @@ function Run-Step([string] $Description, [ScriptBlock]$script)
     Write-Host "`u{2705}" # checkmark emoji
 }
 Write-Host "Shortcuts: " -NoNewline -F Cyan
-@{"^f"="find"; "^r"="cmd"; "z"="go to"}.GetEnumerator() | ForEach-Object {
+@{"^f"="find"; "^r"="cmd"; "z"="go to"; "sa"="show-aliases"}.GetEnumerator() | ForEach-Object {
     Write-Host "$($_.Key)" -NoNewline -F Yellow
     Write-Host ":$($_.Value) | " -NoNewline -F Gray
 }
