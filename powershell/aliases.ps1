@@ -47,6 +47,14 @@ function keynote
 echo "'mv keynote_templ newname' to rename folder"
 }
 
+function Get-CompressorInfo {
+    Write-Host "`nUnfortunately, batch PDF compression is not yet available in your terminal." -ForegroundColor Yellow
+    Write-Host "Please use the standalone application instead."
+    Write-Host "More info: " -NoNewline
+    Write-Host "https://github.com/sergeiown/batch_PDF_compressor" -ForegroundColor Cyan
+    Write-Host ""
+}
+
 function compressjpghere
 {
 magick *.jpg -sampling-factor 4:2:0 -strip -quality 80 -interlace JPEG -colorspace sRGB -set filename:f "%t-compressed" '%[filename:f].jpg'
@@ -261,7 +269,7 @@ function morfologi
 
 
 
-# line 264 was set to show aliases
+# line 272 was set to show aliases
 # Alias
 # Show aliases sa
 Set-Alias v nvim
@@ -293,6 +301,7 @@ Set-Alias montagejpg montagejpghere
 Set-Alias compresspng compresspnghere
 Set-Alias compresspngx2 compresspngx2here
 Set-Alias pdf2img pdf2jpeghere
+Set-Alias compresspdf Get-CompressorInfo
 Set-Alias jpg2png jpg2pnghere
 Set-Alias getproject project
 Set-Alias getremovecamscanner camscanner
