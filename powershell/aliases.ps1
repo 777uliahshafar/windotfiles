@@ -127,7 +127,7 @@ Get-ChildItem -File | Where-Object {
 
 function omitrenamesub
 {
-Get-ChildItem -File | Where-Object {
+Get-ChildItem -File -Recurse | Where-Object {
     $_.Name -match '[_-]compressed'
 } | ForEach-Object {
     # 1. Remove the 'compressed' tag
