@@ -125,6 +125,36 @@ Get-ChildItem -File | Where-Object {
 
 }
 
+function omitrenamesub
+{
+Get-ChildItem -File | Where-Object {
+    $_.Name -match '[_-]compressed'
+} | ForEach-Object {
+    # 1. Remove the 'compressed' tag
+    $cleanName = $_.Name -replace '[_-]compressed', ''
+    $targetPath = Join-Path $_.DirectoryName $cleanName
+
+    # 2. Check if the original file already exists
+    if (Test-Path $targetPath) {
+        # Split name and extension (e.g., "photo" and ".jpg")
+        $baseName = [System.IO.Path]::GetFileNameWithoutExtension($cleanName)
+        $extension = [System.IO.Path]::GetExtension($cleanName)
+
+        # Construct the new name with suffix: "photo-sm.jpg"
+        $newName = "$baseName sm$extension"
+        $targetPath = Join-Path $_.DirectoryName $newName
+    }
+
+    # 3. Perform the rename (only if the -sm version doesn't also exist)
+    if (-not (Test-Path $targetPath)) {
+        Rename-Item -Path $_.FullName -NewName $targetPath
+    } else {
+        Write-Warning "Skipped: $($_.Name) because $targetPath already exists."
+    }
+}
+
+}
+
 function renamebkdfolder
 {
 Get-ChildItem -File | ForEach-Object {
@@ -269,7 +299,7 @@ function morfologi
 
 
 
-# line 272 was set to show aliases
+# line 302 was set to show aliases
 # Alias
 # Show aliases sa
 Set-Alias v nvim
@@ -289,6 +319,7 @@ Set-Alias getsimart artikel
 
 # File name treats
 Set-Alias rmcompressed omitrename
+Set-Alias rmcompressedsub omitrenamesub
 Set-Alias bkdrename renamebkdfolder
 Set-Alias filesrename renamestandardfile
 
