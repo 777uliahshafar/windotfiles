@@ -23,6 +23,12 @@ function nvimmyhelp
     & 'nvim' '.\mycheat.txt'
 }
 
+function shadafile
+{
+    cd "$env:LOCALAPPDATA\nvim-data\shada"
+    & Remove-Item * -Recurse -Force
+}
+
 function obsidian
 {
     cd '~/obs'
@@ -296,10 +302,7 @@ function morfologi
     & 'nvim' '.\morfologi.tex'
 }
 
-
-
-
-# line 302 was set to show aliases
+# line 305 was set to show aliases
 # Alias
 # Show aliases sa
 Set-Alias v nvim
@@ -314,6 +317,7 @@ Set-Alias nc nvimconfig
 Set-Alias na nvimalias
 Set-Alias nh nvimmyhelp
 Set-Alias va variable
+Set-Alias shada shadafile
 Set-Alias getkeynote keynote
 Set-Alias getsimart artikel
 
