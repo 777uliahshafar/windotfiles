@@ -178,23 +178,24 @@ Return
 
 ^#+Left::
 n := VD.getCurrentDesktopNum()
-if n = 1
-{
-    Return
-}
+if (n = 1)
+    return
+
 n -= 1
-VD.MoveWindowToDesktopNum("A",n), VD.goToDesktopNum(n)
-Return
+VD.MoveWindowToDesktopNum("A", n)
+VD.goToDesktopNum(n)
+return
+
 
 ^#+Right::
 n := VD.getCurrentDesktopNum()
-if n = % VD.getCount()
-{
-    Return
-}
+if (n = VD.getCount())
+    return
+
 n += 1
-VD.MoveWindowToDesktopNum("A",n), VD.goToDesktopNum(n)
-Return
+VD.MoveWindowToDesktopNum("A", n)
+VD.goToDesktopNum(n)
+return
 
 
 
@@ -257,7 +258,7 @@ Return
 
 
 ;=========================================
-;Vertical Bar Key
+;Vertical Bar Key 
 ;=========================================
 
 
@@ -265,10 +266,10 @@ Return
 toggle := !toggle
 if (toggle)
     ;Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
-	AltTab()
+	AltTab() 
 else
     ;Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
-AltTab()
+AltTab() 
 return
 
 PgUp::
@@ -308,7 +309,7 @@ If !start                      ; If time marker is not set,
  start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
 Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
-
+														
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
@@ -453,7 +454,7 @@ Return
 #IfWinActive
 
 ;=========================================
-; help
+; help global
 ;=========================================
 F1::
 msg =
@@ -462,15 +463,12 @@ Alt+j terminal
 Alt+k sioyek
 Alt+h zotero
 Alt+l chrome
-AltShift+j jenni
-Alt+= equalwindow
+Ctrl+Win+Arrow Key = move desktop
+WIn + tab = Task view
 AltShift+= onequarterwindow
 Alt+- onequarterwindow
 Alt+Space fullscreen
-Shift + alt + arrow = resize terminal
-Double tab switchwindow
-Double Enter switchinstance
-Windows+double Desktop View
+Shift + alt + arrow = resize terminal pane
 )
 SplashTextOn, 300, 400, Message #1, %msg%,
 Sleep, 5000
@@ -552,29 +550,40 @@ F4:: SendInput, {Alt down}{Alt up}hvst
 ; Microsoft Excel
 ; =========================================
 #IfWinActive ahk_exe EXCEL.EXE
-F1:: SendInput, {Alt down}{Alt up}hvst{Enter}
+!F1:: SendInput, {Alt down}{Alt up}hvst{Enter} ;format 
+F1:: SendInput, {Alt down}{Alt up}hvsl ;link
+F2:: SendInput, {Alt down}{Alt up}hvv ;text
 F3:: SendInput, {Alt down}{Alt up}hvsf{Enter} ;paste formula
 !F3::
     SendInput, {Alt down}{Alt up}hfd{s}y{Enter}
     Sleep, 300                     ; penting! beri waktu excel kembali ke normal mode
     SendInput, {Ctrl down}c{Ctrl up}   ; copy yang lebih reliable
 return ;visible test only
-F4:: SendInput, {Alt down}{Alt up}hvv
+
+F4::
+Send, {F4}
+return
+F5::
+Send, {F2}
+return
+$!`::
+Send, {F2}
+return
 F8::
-    try {
-        xl := ComObjActive("Excel.Application")
-        xl.Selection.RowHeight := 0
-   }
-;    SendInput, {Alt down}{Alt up}hoh  ; Open Row Height
-;    Sleep, 50                         ; Small delay so dialog loads
-;    SendInput, 0                      ; Type row height = 0
-;    SendInput, {Enter}                ; Confirm
+;    try {
+;        xl := ComObjActive("Excel.Application")
+;        xl.Selection.RowHeight := 0
+;   }
+    SendInput, {Alt down}{Alt up}hoh  ; Open Row Height
+    Sleep, 50                         ; Small delay so dialog loads
+    SendInput, 0                      ; Type row height = 0
+    SendInput, {Enter}                ; Confirm
 return
 
 F9::
 ;    try {
 ;        xl := ComObjActive("Excel.Application")
-;        xl.Selection.EntireRow.AutoFit()
+;        xl.Selection.EntireRow.AutoFit()   
 ;    }
 	SendInput, {Alt down}{Alt up}hoa
 return
@@ -595,7 +604,7 @@ Loop, 4
 return
 F12::^+t
 #`:: SendInput, ^m ;configure in macros options
-#v:: SendInput, {Alt down}{Alt up}hvsl
+;#v:: SendInput, {Alt down}{Alt up}hvsl ;passte source
 #w:: ^F1
 #r::               ; Alt + R
     Send, ^+=      ; Tekan Ctrl+Shift+=
@@ -689,31 +698,35 @@ if (ErrorLevel) {
         chromsg =
     (LTrim
     ctrl help (double)
-    F1 paste format
+    F1 paste link
+    F2 paste text
     F3 paste only formula
-    F4 paste only value/match formatting
-    Win+v paste link
-    F5 go to
+    alt+f1 paste formatting
+    alt+f3 visible cell only
+    F4 absolote cell
+    F5 edit active cell 
     F6 Colorize cell / visible cell
     F8 Row height input
     F9 Row height standard
     F10 Repeat last command
     F11-F12 Assigned Macros
     Shift+del delete row
+    Ctrl+Shift+del clear content
     Shift go to ref (double)
-    Ctrl+shift go last view
+    Ctrl+space go last view
+    ctrl + enter isi nilai ke semua sel
     Alt+(F11>i>m) create macros module
     Alt+F8 macros
     ; Macros map ctrl+shift+(q-t)
     ; `` / stop recurring macro (hold)
-    win+` / ctrl+m switchcolour
+    win+` / ctrl+m switchcolour 
     Win+w hide ribbon (maximize)
     Alt+= autosum (visible cell)
     Alt+f Freeze/unfreeze pane toggle
     Win+r add full row above
     ` copy
-    alt+f3 nameranged box
     ctrl+f3 nameranged manager
+    ctrl+del clear all content
     ctrl+number format text
     ctrl+shift+f format text dialog
     Win + Num cell style
@@ -754,6 +767,18 @@ Try {
 }
 return
 
+^+Del::
+MsgBox, 4, Confirm Clear, Are you sure you want to CLEAR CONTENTS of selected cells?`n`nThis action cannot be undone!
+IfMsgBox, No
+    return
+
+Try {
+    xl := ComObjActive("Excel.Application")
+    xl.Selection.ClearContents()   ; hanya isi sel, format tetap
+} Catch e {
+    MsgBox, 48, Error, Could not connect to Excel.`nPlease open an Excel workbook.
+}
+return
 
 
 #IfWinActive
@@ -786,9 +811,9 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 ; =========================================
 
 #IfWinActive ahk_exe spotify.EXE
-!.::SoundSet,+5
+!.::SoundSet,+5 
 
-!,::SoundSet,-5
+!,::SoundSet,-5 
 #IfWinActive
 
 ; =========================================
@@ -809,7 +834,7 @@ Home::
 		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
 	}
 	Winset, Alwaysontop, , A
-	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon%
+	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon% 
 	Sleep 3000 ; Let it display for 3 seconds.
 	HideTrayTip()
 
@@ -835,7 +860,7 @@ Return
 
 #IfWinActive ahk_exe acad.exe
 ;ahk class of palette window can be checked in window spy ahk by over cursor in the window
-F1::
+F1:: 
 toggle := !toggle
     if (toggle)
         SendInput, RIBBON{Enter}
@@ -935,4 +960,8 @@ if (ErrorLevel) {
     }
 }
 return
+
+
+
 #IfWinActive
+
