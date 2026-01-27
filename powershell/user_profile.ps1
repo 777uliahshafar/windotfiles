@@ -70,8 +70,8 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory
 
 function Show-Aliases {
     param(
-        [int]$Start=305,
-        [int]$End=360
+        [int]$Start=316,
+        [int]$End=373
     )
 
     $file = Join-Path $PSScriptRoot 'aliases.ps1'

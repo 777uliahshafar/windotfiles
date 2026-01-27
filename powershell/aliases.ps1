@@ -302,7 +302,22 @@ function morfologi
     & 'nvim' '.\morfologi.tex'
 }
 
-# line 305 was set to show aliases
+
+function git_personal
+{
+git config --global user.email "777uliahshafar@gmail.com"
+    git config --global user.name "777uliahshafar"
+    Write-Host "Identitas Git diubah ke: PERSONAL" -ForegroundColor Cyan
+}
+
+function git_work
+{
+  git config --global user.email "akunfaceb@gmail.com"
+    git config --global user.name "komentar-bot"
+    Write-Host "Identitas Git diubah ke: WORK" -ForegroundColor Green
+}
+
+# line 316 was set to show aliases
 # Alias
 # Show aliases sa
 Set-Alias v nvim
@@ -320,6 +335,8 @@ Set-Alias va variable
 Set-Alias shada shadafile
 Set-Alias getkeynote keynote
 Set-Alias getsimart artikel
+Set-Alias personal git_personal
+Set-Alias work git_work
 
 # File name treats
 Set-Alias rmcompressed omitrename
