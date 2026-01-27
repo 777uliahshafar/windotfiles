@@ -464,6 +464,7 @@ Alt+k sioyek
 Alt+h zotero
 Alt+l chrome
 Ctrl+Win+Arrow Key = move desktop
+Win + Space = switch Dekstop
 WIn + tab = Task view
 AltShift+= onequarterwindow
 Alt+- onequarterwindow
