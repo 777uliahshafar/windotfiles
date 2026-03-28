@@ -1,5 +1,8 @@
 # Function to Aliases current direcotry
-function getchildtex { dir .\* -include ('*.tex', '*.bib') -recurse }
+function getchildtex {
+    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls -Recurse
+}
+
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
 
 function lstex {
@@ -321,9 +324,9 @@ function git_work
 # Alias
 # Show aliases sa
 Set-Alias v nvim
-Set-Alias lt lstex
+Set-Alias greptex lstex
 Set-Alias o obsidian
-Set-Alias la getchildtex
+Set-Alias lstex getchildtex
 Set-Alias g git
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
