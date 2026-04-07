@@ -435,22 +435,40 @@ Return
 #IfWinActive
 
 #IfWinActive ahk_exe chrome.exe
-F2:: Send, ^!a
-#IfWinActive
+$LCtrl::
+KeyWait, LCtrl, T0.3  ; wait up to 0.3s for release
+if (ErrorLevel) {
+    ; held down
+    SoundBeep, 1500
+    Send, {LCtrl down}
+    KeyWait, LCtrl
+    SoundBeep, 1000
+    Send, {LCtrl up}
+} else {
+    ; single or double tap logic
+    if (A_PriorHotkey = A_ThisHotkey && A_TimeSincePriorHotkey < 400) {
+        chromsg =
+    (LTrim
+    	Alt+d grouptab
+	F2 sharegdrive
+	Alt+w closegroup
+	Alt+1-4 togglegroup
+ 	F3 Bookmark manager
+    )
 
-#IfWinActive ahk_exe chrome.exe
-F1::
-chromsg =
-(
-Alt+d grouptab
-F2 sharegdrive
-Alt+w closegroup
-Alt+1-4 togglegroup
-)
-ToolTip, %chromsg%
-Sleep, 5000
-ToolTip
-Return
+    ToolTip, %chromsg%
+    Sleep, 6000
+    ToolTip
+    } else {
+        Send, {Esc}  ; single press action (you can change this)
+    }
+}
+return
+
+
+F2::Send ^!a
+
+F3::Send ^+o
 #IfWinActive
 
 ;=========================================
