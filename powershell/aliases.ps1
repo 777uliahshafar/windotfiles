@@ -46,13 +46,13 @@ function variable
 
 function artikel
 {
-    git clone git@github.com:777uliahshafar/simart-templ.git
+    git clone git@github.com:777uliahshafar/simart_templ.git
 echo "'mv simart_templ newname' to rename folder"
 }
 
 function keynote
 {
-    git clone git@github.com:777uliahshafar/keynote-templ.git
+    git clone git@github.com:777uliahshafar/keynote_templ.git
 echo "'mv keynote_templ newname' to rename folder"
 }
 
