@@ -3,7 +3,7 @@
 - Run > services.msc > windowsupdate properties > disable
 - Run > import registry / go to Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU > create dword 32bit named NoAutoUpdate value 1.
 
-# Common Installation
+# Basic Installation
 
 1. Change the executing policy `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` for installation permission, required by scoop.
 1. C++ `vc_redist.x64.exe`
