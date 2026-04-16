@@ -46,7 +46,7 @@
 1. Check the availability powershell profile `Test-Path $PROFILE`, false means it is not exist
 1. Create powershell profile `New-Item -Type file -Path $PROFILE -Force`.
 1. Edit the profile `nvim  $PROFILE`.
-1. Source the configuration to the powershell profile. Type `. $env:USERPROFILE\.config\powershell\user_profile.ps1` inside the profile (optional)
+1. Source the configuration to the powershell profile. Type `. $env:USERPROFILE\.config\windotfiles\powershell\user_profile.ps1` inside the profile (optional)
 1. Install nerdfont for icon supporting.
 
 # Latex config
