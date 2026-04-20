@@ -55,7 +55,7 @@
 2. Miktek, latex distribution [link](https://miktex.org/download). Package installation on the fly is much better. Check update on miktex console after installation, latex on nvim.
 3. Install nodejs (include npm) for treesitter-cli, then `npm install -g tree-sitter-cli`.
 6. Download and Install sioyek (either clone or installer). Add Sioyek parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for file location such as `C:\Program Files\Sioyek` or anywhere Sioyek is located.
-7. Zotero, Add-ons: BetterBibtex (synchronous bibliography), Zotmoov, BetterNotes, Ethereal Style for Zotero.
+7. **Zotero**, Add-ons: BetterBibtex (synchronous bibliography), Attanger , BetterNotes, Ethereal Style for Zotero.
 
 - Change item format to `Better Bibtex` in Edit → Preferences → Exports → Item Format.
 - Change citation key in Edit → Preferences → BetterBibtex → Citation Keys → Citation key format:
@@ -78,7 +78,7 @@ abstract,file,language
 - Insert the string in the `noteEditor.css` file
 - Modify its font family and font size as well. Recommended: Inconsalata Medium 16.
 
-6. Renaming propertis zotfile : {%t-}{%a-}{%y}
+6. Setting Attanger.
 7. Cimbali/pympress (dual-head presentation of PDF slides) like SplitShow.`winget install pympress`
 8. Add some custom packages of latex to TEXMF root directory, such as [helpers4ht](https://github.com/michal-h21/helpers4ht).
 
