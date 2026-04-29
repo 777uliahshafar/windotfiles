@@ -34,7 +34,7 @@ function shadafile
 
 function obsidian
 {
-    cd '~/obs'
+    cd 'C:\Users\snk24\obs'
     & 'nvim' '.\1714384690-MAIN.md'
 }
 
