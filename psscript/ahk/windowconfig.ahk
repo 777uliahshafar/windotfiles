@@ -212,24 +212,53 @@ WinGet, windowState, MinMax, A
     }
 return
 
-!Enter::
-    WinGetClass, class, A
+$!Enter::
+    ; 1. Grab the active window ID
+    WinGet, active_id, ID, A
+    WinGetClass, class, ahk_id %active_id%
 
-    ; If File Explorer, let Alt+Enter behave normally (open Properties)
+    ; 2. Let File Explorer handle Properties natively
     if (class = "CabinetWClass") {
         Send !{Enter}
         return
     }
 
-    ; Otherwise toggle maximize / restore
-    WinGet, windowState, MinMax, A
+    ; 3. Instantly force Alt up to prevent Windows glitches (Removes the slowness!)
+    Send {Alt up}
+
+    ; 4. Check if window is maximized (1) or not
+    WinGet, windowState, MinMax, ahk_id %active_id%
+    
     if (windowState = 1) {
-        WinRestore, A
+        ; --- RESTORE PHASE ---
+        ; Tell Windows to restore the window
+        WinRestore, ahk_id %active_id%
+        
+        ; Fetch our secretly saved coordinates for this specific window
+        saved_X := WinX_%active_id%
+        saved_Y := WinY_%active_id%
+        saved_W := WinW_%active_id%
+        saved_H := WinH_%active_id%
+        
+        ; Force the window back to the exact Snapped size and position
+        if (saved_X != "") {
+            WinMove, ahk_id %active_id%,, %saved_X%, %saved_Y%, %saved_W%, %saved_H%
+        }
     } else {
-        WinMaximize, A
+        ; --- MAXIMIZE PHASE ---
+        ; Save the EXACT current X, Y, Width, and Height before changing anything
+        WinGetPos, current_X, current_Y, current_W, current_H, ahk_id %active_id%
+        
+        ; Store them in variables uniquely tied to this window's ID
+        WinX_%active_id% := current_X
+        WinY_%active_id% := current_Y
+        WinW_%active_id% := current_W
+        WinH_%active_id% := current_H
+        
+        ; Now instantly maximize it
+        WinMaximize, ahk_id %active_id%
     }
 return
-
 
 #enter::
 Process, Exist, WindowsTerminal.exe
@@ -454,6 +483,8 @@ if (ErrorLevel) {
 	Alt+w closegroup
 	Alt+1-4 togglegroup
  	F3 Bookmark manager
+ 	Alt+. speed higher 
+	Alt+, speed lower
     )
 
     ToolTip, %chromsg%
@@ -469,6 +500,9 @@ return
 F2::Send ^!a
 
 F3::Send ^+o
+!.::Send +.
+!,::Send +,
+
 #IfWinActive
 
 ;=========================================
