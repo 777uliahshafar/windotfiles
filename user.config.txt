@@ -1,12 +1,15 @@
 prefs
 --------
 startup_commands    toggle_custom_color;toggle_visual_scroll
-custom_background_color  #263238
+custom_background_color 0.15686 0.16471 0.21176
+custom_text_color  0.97255 0.97255 0.94902
+enable_experimental_features 1
+#custom_background_color  #263238
 #0.15686 0.16471 0.21176
-custom_text_color #eeffff
+#custom_text_color #eeffff
 #0.94255 0.94255 0.92902
 #0.97255 0.97255 0.94902
-custom_color_mode_empty_background_color #1d2021
+custom_color_mode_empty_background_color 0.15686 0.16471 0.21176
 custom_color_contrast 0.8
 text_highlight_color 		0.31373 0.98039 0.48235
 visual_mark_color    0.15686 0.16471 0.21176 0.8
@@ -34,17 +37,16 @@ smooth_scroll drag 3000
 
 
 
-
-highlight_color_a 		0.54510 0.91373 0.99216
+highlight_color_a 		0.94510 0.98039 0.54902
 highlight_color_q		0.31373 0.98039 0.48235
 highlight_color_z		0.54510 0.91373 0.99216
 highlight_color_w		1.00000 0.47451 0.77647
 highlight_color_s		0.74118 0.57647 0.97647
 highlight_color_x		1.00000 0.33333 0.33333
 highlight_color_e		0.94510 0.98039 0.54902
+
 highlight_color_d    0.31373 0.98039 0.48235
 highlight_color_c    0.54510 0.91373 0.99216
-
 
 new_command _translate_selected_text python -m sioyek.translate "%{sioyek_path}" "%{selected_text}"
 new_command _translate_current_line_text python -m sioyek.translate "%{sioyek_path}" "%{line_text}"
