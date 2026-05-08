@@ -1,20 +1,14 @@
-prefs
---------
+preff
+----
 startup_commands    toggle_custom_color;toggle_visual_scroll
 custom_background_color 0.15686 0.16471 0.21176
 custom_text_color  0.97255 0.97255 0.94902
 enable_experimental_features 1
-#custom_background_color  #263238
-#0.15686 0.16471 0.21176
-#custom_text_color #eeffff
-#0.94255 0.94255 0.92902
-#0.97255 0.97255 0.94902
 custom_color_mode_empty_background_color 0.15686 0.16471 0.21176
-custom_color_contrast 0.8
-text_highlight_color 		0.31373 0.98039 0.48235
-visual_mark_color    0.15686 0.16471 0.21176 0.8
+custom_color_contrast 0.67
+text_highlight_color 		#eed49f
 #status_bar_text_color   0.847 0.871 0.914 0.851
-status_bar_text_color 0.97255 0.97255 0.94902
+status_bar_text_color #cad3f5
 #status_bar_color 0.11764705882352941 0.11764705882352941 0.1803921568627451
 status_bar_color #1d2021
 page_separator_color    #1d2021
@@ -25,6 +19,7 @@ ruler_padding 25.0
 ruler_x_padding 5.0
 visual_mark_next_page_fraction	0.65
 visual_mark_next_page_threshold	0.25
+visual_mark_color 0.0 0.0 0.0 0.5
 move_screen_ratio 0.5
 inverse_search_command "C:\Users\uliah\scoop\shims\nvim.exe" -r -g %1:%2
 font_size 18
@@ -51,19 +46,23 @@ highlight_color_c    0.54510 0.91373 0.99216
 new_command _translate_selected_text python -m sioyek.translate "%{sioyek_path}" "%{selected_text}"
 new_command _translate_current_line_text python -m sioyek.translate "%{sioyek_path}" "%{line_text}"
 
+
 keys
---------
+----
+move_down;move_down;move_down;move_down;move_down;move_down;move_down <C-j>
+move_up;move_up;move_up;move_up;move_up;move_up;move_up <C-k>
+
 move_left l
 goto_left_smart H
 move_right h
 goto_right_smart L
 goto_bottom_of_page;goto_left   Z
 goto_top_of_page;goto_right g<C-t><C-S-<right>>
-move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down; <space>
+move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down;move_visual_mark_down; <space>
 move_visual_mark_up;move_visual_mark_up;move_visual_mark_up <S-<space>>
 
 toggle_custom_color <f5>
-fit_to_page_width_smart  <f4>
+fit_to_page_width_smart  <f6>
 toggle_visual_scroll <f3>
 command <f2>
 toggle_mouse_drag_mode <f1>
@@ -100,7 +99,7 @@ unbound <f8>
 unbound <f6>
 
 
-enter_visual_mark_mode <C-z>
+enter_visual_mark_mode zz
 
 
 goto_mark '
