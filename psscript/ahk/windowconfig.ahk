@@ -522,6 +522,7 @@ AltShift+= onequarterwindow
 Alt+- onequarterwindow
 Alt+Space fullscreen
 Shift + alt + arrow = resize terminal pane
+Win + k = spotify play&pause
 )
 SplashTextOn, 300, 400, Message #1, %msg%,
 Sleep, 5000
