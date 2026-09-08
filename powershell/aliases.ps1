@@ -6,7 +6,7 @@ function getchildtex {
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
 
 function lstex {
-    Get-ChildItem -Path "D:\","E:\" -Filter "*.tex" -recurse | Select-Object -ExpandProperty Directory | Get-Unique
+    Get-ChildItem -Path "D:\","E:\" -Include "*.tex","*.md" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Directory | Get-Unique
 }
 
 function obsidiansearch
@@ -240,69 +240,16 @@ function camscanner
 }
 
 # Other function
-function obsprop
+function mayae
 {
-    cd '~/obs'
-    & 'nvim' '.\1709363398-JGCC.md'
+    cd 'D:\esai_phd\'
+    & 'nvim' '.\esai.tex'
 }
 
-function obseng
+function mayar
 {
-    cd '~/obs'
-    & 'nvim' '.\1719618861-VQGL.md'
-}
-
-function element
-{
-    cd 'D:\lecture\hibah2025\elemen\'
-    & 'nvim' '.\element.tex'
-}
-
-function proposalstudy
-{
-    cd 'D:\usulandoktor\'
-    & 'nvim' '.\subfiles\spvprop.tex'
-}
-
-function bkdnature
-{
-    cd 'D:\usulandoktor\'
-    & 'nvim' '.\subfiles\bkdnature.tex'
-}
-
-function essay
-{
-    cd 'D:\essay\subfiles'
-}
-
-function aasessay
-{
-    cd 'D:\essay\subfiles\'
-    & 'nvim' '.\aasessay.tex'
-}
-
-function usulanbpi
-{
-    cd 'D:\usulandrplace'
-    & 'nvim' '.\usulandrbpi.tex'
-}
-
-function usulandosbin
-{
-    cd 'D:\usulandrplace'
-    & 'nvim' '.\usulandosbin.tex'
-}
-
-function hibahint
-{
-    cd 'D:\hibahint2025\'
-    & 'nvim' '.\hibahint.tex'
-}
-
-function morfologi
-{
-    cd 'D:\morfologi\'
-    & 'nvim' '.\morfologi.tex'
+    cd 'D:\riset_phd\'
+    & 'nvim' '.riset_phd.tex'
 }
 
 
@@ -366,15 +313,7 @@ Set-Alias getstrukturfolderproyek folderproyek
 Set-Alias st statistika
 Set-Alias int interviewbpi
 Set-Alias el element
-Set-Alias pr proposalstudy
-Set-Alias bk bkdnature
-Set-Alias es essay
-Set-Alias as aasessay
-Set-Alias ka karakter
 Set-Alias vp obsprop
-Set-Alias ve obseng
-Set-Alias hi hibahint
-Set-Alias ub usulanbpi
-Set-Alias ud usulandosbin
-Set-Alias mo morfologi
+Set-Alias mr mayar
+Set-Alias me mayae
 
