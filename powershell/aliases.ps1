@@ -249,7 +249,7 @@ function mayae
 function mayar
 {
     cd 'D:\riset_phd\'
-    & 'nvim' '.riset_phd.tex'
+    & 'nvim' '.\riset_phd.tex'
 }
 
 
