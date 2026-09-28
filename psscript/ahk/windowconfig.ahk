@@ -228,18 +228,18 @@ $!Enter::
 
     ; 4. Check if window is maximized (1) or not
     WinGet, windowState, MinMax, ahk_id %active_id%
-
+    
     if (windowState = 1) {
         ; --- RESTORE PHASE ---
         ; Tell Windows to restore the window
         WinRestore, ahk_id %active_id%
-
+        
         ; Fetch our secretly saved coordinates for this specific window
         saved_X := WinX_%active_id%
         saved_Y := WinY_%active_id%
         saved_W := WinW_%active_id%
         saved_H := WinH_%active_id%
-
+        
         ; Force the window back to the exact Snapped size and position
         if (saved_X != "") {
             WinMove, ahk_id %active_id%,, %saved_X%, %saved_Y%, %saved_W%, %saved_H%
@@ -248,13 +248,13 @@ $!Enter::
         ; --- MAXIMIZE PHASE ---
         ; Save the EXACT current X, Y, Width, and Height before changing anything
         WinGetPos, current_X, current_Y, current_W, current_H, ahk_id %active_id%
-
+        
         ; Store them in variables uniquely tied to this window's ID
         WinX_%active_id% := current_X
         WinY_%active_id% := current_Y
         WinW_%active_id% := current_W
         WinH_%active_id% := current_H
-
+        
         ; Now instantly maximize it
         WinMaximize, ahk_id %active_id%
     }
@@ -287,58 +287,58 @@ Return
 
 
 ;=========================================
-;Vertical Bar Key
+;Vertical Bar Key 
 ;=========================================
 
 
-~PgUp up::
-toggle := !toggle
-if (toggle)
+;~PgUp up::
+;toggle := !toggle
+;if (toggle)
     ;Send, ^#{Right}  ; Switches to the next virtual desktop in Windows 11.
-	AltTab()
-else
+;	AltTab() 
+;else
     ;Send, ^#{Left}  ; Switches to the previous virtual desktop in Windows 11.
-AltTab()
-return
+;AltTab() 
+;return
 
-PgUp::
-If !start                      ; If time marker is not set,
- start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
-Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
-Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+;PgUp::
+;If !start                      ; If time marker is not set,
+; start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+;Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+;Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
 
-~PgDn up::
-If (A_PriorKey = "PgDn"        ; If no keys were pressed after LWin,
- && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
-        WinGet, proc, ProcessName, A
-    WinGet, win, List, ahk_exe %proc%
-    Loop, %win%
-     uid := win%A_Index%
-    WinActivate, ahk_id %uid%
-    WinGetTitle, title, A
-start := 0                     ; Reset the time marker
-Return
+;~PgDn up::
+;If (A_PriorKey = "PgDn"        ; If no keys were pressed after LWin,
+; && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
+;        WinGet, proc, ProcessName, A
+;    WinGet, win, List, ahk_exe %proc%
+;    Loop, %win%
+;     uid := win%A_Index%
+;    WinActivate, ahk_id %uid%
+;   WinGetTitle, title, A
+;start := 0                     ; Reset the time marker
+;Return
 
-PgDn::
-If !start                      ; If time marker is not set,
- start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
-Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
-Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+;PgDn::
+;If !start                      ; If time marker is not set,
+; start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+;Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+;Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
 
-~End up::
-If (A_PriorKey = "End"        ; If no keys were pressed after LWin,
- && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
-        ;AltTab()           ; If yes, run stuff
-        WinActivate, ahk_exe zoom.exe
-start := 0                     ; Reset the time marker
-Return
+;~End up::
+;If (A_PriorKey = "End"        ; If no keys were pressed after LWin,
+; && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
+;        ;AltTab()           ; If yes, run stuff
+;        WinActivate, ahk_exe zoom.exe
+;start := 0                     ; Reset the time marker
+;Return
 
-End::
-If !start                      ; If time marker is not set,
- start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
-Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
-Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
-
+;End::
+;If !start                      ; If time marker is not set,
+; start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+;Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+;Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+														
 
 double_tap_tab() {
     Static last := 0             ; Permanent variable to track last press
@@ -483,7 +483,7 @@ if (ErrorLevel) {
 	Alt+w closegroup
 	Alt+1-4 togglegroup
  	F3 Bookmark manager
- 	Alt+. speed higher
+ 	Alt+. speed higher 
 	Alt+, speed lower
     )
 
@@ -522,7 +522,6 @@ AltShift+= onequarterwindow
 Alt+- onequarterwindow
 Alt+Space fullscreen
 Shift + alt + arrow = resize terminal pane
-Win + k = spotify play&pause
 )
 SplashTextOn, 300, 400, Message #1, %msg%,
 Sleep, 5000
@@ -604,7 +603,7 @@ F4:: SendInput, {Alt down}{Alt up}hvst
 ; Microsoft Excel
 ; =========================================
 #IfWinActive ahk_exe EXCEL.EXE
-!F1:: SendInput, {Alt down}{Alt up}hvst{Enter} ;format
+!F1:: SendInput, {Alt down}{Alt up}hvst{Enter} ;format 
 F1:: SendInput, {Alt down}{Alt up}hvsl ;link
 F2:: SendInput, {Alt down}{Alt up}hvv ;text
 F3:: SendInput, {Alt down}{Alt up}hvsf{Enter} ;paste formula
@@ -637,7 +636,7 @@ return
 F9::
 ;    try {
 ;        xl := ComObjActive("Excel.Application")
-;        xl.Selection.EntireRow.AutoFit()
+;        xl.Selection.EntireRow.AutoFit()   
 ;    }
 	SendInput, {Alt down}{Alt up}hoa
 return
@@ -758,7 +757,7 @@ if (ErrorLevel) {
     alt+f1 paste formatting
     alt+f3 visible cell only
     F4 absolote cell
-    F5 edit active cell
+    F5 edit active cell 
     F6 Colorize cell / visible cell
     F8 Row height input
     F9 Row height standard
@@ -773,7 +772,7 @@ if (ErrorLevel) {
     Alt+F8 macros
     ; Macros map ctrl+shift+(q-t)
     ; `` / stop recurring macro (hold)
-    win+` / ctrl+m switchcolour
+    win+` / ctrl+m switchcolour 
     Win+w hide ribbon (maximize)
     Alt+= autosum (visible cell)
     Alt+f Freeze/unfreeze pane toggle
@@ -865,9 +864,9 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 ; =========================================
 
 #IfWinActive ahk_exe spotify.EXE
-!.::SoundSet,+5
+!.::SoundSet,+5 
 
-!,::SoundSet,-5
+!,::SoundSet,-5 
 #IfWinActive
 
 ; =========================================
@@ -888,7 +887,7 @@ Home::
 		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
 	}
 	Winset, Alwaysontop, , A
-	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon%
+	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon% 
 	Sleep 3000 ; Let it display for 3 seconds.
 	HideTrayTip()
 
@@ -914,7 +913,7 @@ Return
 
 #IfWinActive ahk_exe acad.exe
 ;ahk class of palette window can be checked in window spy ahk by over cursor in the window
-F1::
+F1:: 
 toggle := !toggle
     if (toggle)
         SendInput, RIBBON{Enter}
@@ -1019,5 +1018,6 @@ return
 
 #IfWinActive
 
-; Mengubah tombol Windows + K menjadi Media Play/Pause untuk AHK v1.1
+; Mengubah tombol Windows + k menjadi Media Play/Pause untuk AHK v1.1
 #k::Send {Media_Play_Pause}
+

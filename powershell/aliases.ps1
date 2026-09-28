@@ -248,8 +248,8 @@ function mayae
 
 function mayar
 {
-    cd 'D:\riset_phd\'
-    & 'nvim' '.\riset_phd.tex'
+    cd 'D:\riset_senja\'
+    & 'nvim' '.\riset_senja.tex'
 }
 
 
