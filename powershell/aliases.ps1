@@ -1,13 +1,12 @@
 # Function to Aliases current direcotry
 function getchildtex {
-    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls -Recurse
+    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls, *.md -Recurse
 }
 
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
 
 function lstex {
-    Get-ChildItem -Path "D:\","E:\" -Include "*.tex","*.md" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Directory | Get-Unique
-}
+    Get-ChildItem -Path "D:\","E:\" -Include "*.tex","*.md" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Directory | Get-Unique }
 
 function obsidiansearch
 {
@@ -248,8 +247,8 @@ function mayae
 
 function mayar
 {
-    cd 'D:\riset_senja\'
-    & 'nvim' '.\riset_senja.tex'
+    cd 'D:\riset_senja\subfiles'
+    & 'nvim' '.\preface.tex'
 }
 
 

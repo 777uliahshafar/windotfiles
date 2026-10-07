@@ -869,6 +869,42 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 !,::SoundSet,-5 
 #IfWinActive
 
+; ==========================================
+; CTRL + HOME = TOGGLE DARK / LIGHT
+; ==========================================
+#NoEnv
+#SingleInstance Force
+SendMode Input
+
+^Home::
+    RegRead, mode, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Themes\Personalize, AppsUseLightTheme
+
+    if (mode = 1)
+    {
+        ; DARK MODE
+        RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Themes\Personalize, AppsUseLightTheme, 0
+        RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Themes\Personalize, SystemUsesLightTheme, 0
+    }
+    else
+    {
+        ; LIGHT MODE
+        RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Themes\Personalize, AppsUseLightTheme, 1
+        RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Themes\Personalize, SystemUsesLightTheme, 1
+    }
+
+    ; Refresh pengaturan tema Windows
+    DllCall("uxtheme\RefreshImmersiveColorPolicyState")
+    DllCall("user32\SendMessageTimeout"
+        , "Ptr", 0xFFFF
+        , "UInt", 0x001A
+        , "Ptr", 0
+        , "Str", "ImmersiveColorSet"
+        , "UInt", 0x0002
+        , "UInt", 1000
+        , "Ptr*", 0)
+
+return
+
 ; =========================================
 ; Always on top
 ; =========================================
@@ -877,36 +913,22 @@ F3:: Send, {Alt down}{Alt up}hvh {enter} ;paste formating
 ; Source: https://www.howtogeek.com/196958/the-3-best-ways-to-make-a-window-always-on-top-on-windows
 
 Home::
-	WinGetTitle, activeWindow, A
-	if IsWindowAlwaysOnTop(activeWindow) {
-		notificationMessage := "The window """ . activeWindow . """ is now always on top."
-		notificationIcon := 16 + 1 ; No notification sound (16) + Info icon (1)
-	}
-	else {
-		notificationMessage := "The window """ . activeWindow . """ is no longer always on top."
-		notificationIcon := 16 + 2 ; No notification sound (16) + Warning icon (2)
-	}
-	Winset, Alwaysontop, , A
-	TrayTip, Always-on-top, %notificationMessage%, , %notificationIcon% 
-	Sleep 3000 ; Let it display for 3 seconds.
-	HideTrayTip()
+    WinGet, ExStyle, ExStyle, A
+    WinGetTitle, Title, A
 
-	IsWindowAlwaysOnTop(windowTitle) {
-		WinGet, windowStyle, ExStyle, %windowTitle%
-		isWindowAlwaysOnTop := if (windowStyle & 0x8) ? false : true ; 0x8 is WS_EX_TOPMOST.
-		return isWindowAlwaysOnTop
-	}
+    if (ExStyle & 0x8)
+    {
+        WinSet, AlwaysOnTop, Off, A
+        ToolTip, Always on Top: OFF
+    }
+    else
+    {
+        WinSet, AlwaysOnTop, On, A
+        ToolTip, Always on Top: ON
+    }
 
-	HideTrayTip() {
-		TrayTip  ; Attempt to hide it the normal way.
-		if SubStr(A_OSVersion,1,3) = "10." {
-			Menu Tray, NoIcon
-			Sleep 200  ; It may be necessary to adjust this sleep.
-			Menu Tray, Icon
-		}
-	}
-Return
-
+    SetTimer, RemoveToolTip, -700
+return
 ;=========================================
 ; Autodesk AUtocad
 ;=========================================
