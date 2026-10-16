@@ -8,7 +8,9 @@ function getchildmd {
 }
 
 function getchildall {
-    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls, *.md -Recurse | Select-Object LastWriteTime, Name
+    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls, *.md -Recurse |
+        Sort-Object Extension, Name |
+        Select-Object LastWriteTime, Name
 }
 
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
