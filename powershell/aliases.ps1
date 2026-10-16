@@ -1,14 +1,14 @@
 # Function to Aliases current direcotry
 function getchildtex {
-    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls, -Recurse
+    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls -Recurse | Select-Object LastWriteTime, Name
 }
 
 function getchildmd {
-    Get-ChildItem -Path ".\*" -Include *.md -Recurse
+    Get-ChildItem -Path ".\*" -Include *.md -Recurse | Select-Object LastWriteTime, Name
 }
 
 function getchildall {
-    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls, *.md -Recurse
+    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls, *.md -Recurse | Select-Object LastWriteTime, Name
 }
 
 function nvimconfig { set-location "$env:LOCALAPPDATA\nvim" }
