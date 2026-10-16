@@ -1,5 +1,13 @@
 # Function to Aliases current direcotry
 function getchildtex {
+    Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls, -Recurse
+}
+
+function getchildmd {
+    Get-ChildItem -Path ".\*" -Include *.md -Recurse
+}
+
+function getchildall {
     Get-ChildItem -Path ".\*" -Include *.tex, *.bib, *.sty, *.cls, *.md -Recurse
 }
 
@@ -273,6 +281,8 @@ Set-Alias v nvim
 Set-Alias greptex lstex
 Set-Alias o obsidian
 Set-Alias lstex getchildtex
+Set-Alias lsmd getchildmd
+Set-Alias lsall getchildall
 Set-Alias g git
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
