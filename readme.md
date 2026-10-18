@@ -27,6 +27,7 @@
 1. Place your config (terminal.json) to windows terminal config (setting.json)
 1. Setting windows terminal appearance (font, transparency) and default.
 1. Enable `Use ... text rendering (Atlas engine)` on Rendering for inverted color cursor.
+1. zoompane border can be overwhelmed, change the accent color of the windows with #1D2021.
 
 # Powershell Installation
 
@@ -54,8 +55,8 @@
 1. Strawberry Perl [link](https://strawberryperl.com/) latex on nvim.
 2. Miktek, latex distribution [link](https://miktex.org/download). Package installation on the fly is much better. Check update on miktex console after installation, latex on nvim.
 3. Install nodejs (include npm) for treesitter-cli, then `npm install -g tree-sitter-cli`.
-6. Download and Install sioyek (either clone or installer). Add Sioyek parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for file location such as `C:\Program Files\Sioyek` or anywhere Sioyek is located.
-7. **Zotero**, Add-ons: BetterBibtex (synchronous bibliography), Attanger , BetterNotes, Ethereal Style for Zotero.
+4. Download and Install sioyek (either clone or installer). Add Sioyek parent directories of the executable to your `PATH environment variable` see [link](https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows), open `edit the system environment variables` → on Advanced System properties tab click environment variables → click path then click edit → then add this for file location such as `C:\Program Files\Sioyek` or anywhere Sioyek is located.
+5. **Zotero**, Add-ons: BetterBibtex (synchronous bibliography), Attanger , BetterNotes, Ethereal Style for Zotero.
 
 - Change item format to `Better Bibtex` in Edit → Preferences → Exports → Item Format.
 - Change citation key in Edit → Preferences → BetterBibtex → Citation Keys → Citation key format:
