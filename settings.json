@@ -67,6 +67,10 @@
         "direction": "down"
       },
       "id": "User.moveFocus.F747588A"
+    },
+    {
+      "command": "togglePaneZoom",
+      "id": "User.togglePaneZoom"
     }
   ],
   "copyFormatting": "none",
@@ -115,6 +119,10 @@
     {
       "id": "User.moveFocus.F747588A",
       "keys": "ctrl+shift+j"
+    },
+    {
+      "id": "User.togglePaneZoom",
+      "keys": "alt+shift+enter"
     }
   ],
   "newTabMenu": [
