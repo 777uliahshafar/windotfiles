@@ -508,25 +508,38 @@ F3::Send ^+o
 ;=========================================
 ; help global
 ;=========================================
+
 F1::
 msg =
 (
-Alt+j terminal
-Alt+k sioyek
-Alt+h zotero
-Alt+l chrome
-Ctrl+Win+Arrow Key = move desktop
-Win + Space = switch Dekstop
-WIn + tab = Task view
-AltShift+= onequarterwindow
-Alt+- onequarterwindow
-Alt+Space fullscreen
-Shift + alt + arrow = resize terminal pane
+GENERAL SHORTCUTS
+------------------------------
+Alt + J          Terminal
+Alt + K          Sioyek
+Alt + H          Zotero
+Alt + L          Chrome
+Ctrl + Win + Arrow   Move desktop
+Win + Space          Switch desktop
+Win + Tab            Task View
+Alt + Shift + =      One-quarter window
+Alt + -              One-quarter window
+Alt + Space          Fullscreen
+Shift + Alt + Arrow  Resize terminal pane
+Ctrl + Home          Toggle dark/light mode
+Home                 Always on top
+SIOYEK SHORTCUTS
+------------------------------
+Ctrl + B         Add bookmark
+Ctrl + A         Add highlight
+Shift + B        Global bookmark
+B                Bookmark
+Shift + A        Global highlight
 )
-SplashTextOn, 300, 400, Message #1, %msg%,
+SplashTextOn, 500, 550, Keyboard Shortcuts, %msg%
 Sleep, 5000
 SplashTextOff
 Return
+
 
 #IfWinActive ahk_exe sioyek.exe
 *CapsLock::
