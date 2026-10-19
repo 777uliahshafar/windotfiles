@@ -21,6 +21,13 @@
     },
     {
       "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "id": "User.copy.644BA8F2"
+    },
+    {
+      "command": {
         "action": "splitPane",
         "split": "down"
       },
@@ -56,13 +63,6 @@
     },
     {
       "command": {
-        "action": "copy",
-        "singleLine": false
-      },
-      "id": "User.copy.644BA8F2"
-    },
-    {
-      "command": {
         "action": "moveFocus",
         "direction": "down"
       },
@@ -85,12 +85,12 @@
       "keys": "alt+enter"
     },
     {
-      "id": "User.copy.644BA8F2",
-      "keys": "ctrl+c"
+      "id": "User.moveFocus.6CD791B",
+      "keys": "ctrl+k"
     },
     {
-      "id": "User.moveFocus.6CD791B",
-      "keys": "ctrl+shift+k"
+      "id": "User.copy.644BA8F2",
+      "keys": "ctrl+c"
     },
     {
       "id": "User.commandPalette.D3F0B923",
@@ -101,8 +101,8 @@
       "keys": "alt+t"
     },
     {
-      "id": "User.moveFocus.87C324ED",
-      "keys": "ctrl+shift+l"
+      "id": "User.togglePaneZoom",
+      "keys": "shift+enter"
     },
     {
       "id": "User.splitPane.D5151347",
@@ -113,16 +113,16 @@
       "keys": "ctrl+shift+plus"
     },
     {
+      "id": "User.moveFocus.87C324ED",
+      "keys": "ctrl+l"
+    },
+    {
       "id": "User.moveFocus.2A0DA8E0",
-      "keys": "ctrl+shift+h"
+      "keys": "ctrl+h"
     },
     {
       "id": "User.moveFocus.F747588A",
-      "keys": "ctrl+shift+j"
-    },
-    {
-      "id": "User.togglePaneZoom",
-      "keys": "alt+shift+enter"
+      "keys": "ctrl+j"
     }
   ],
   "newTabMenu": [
