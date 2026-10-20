@@ -4,12 +4,6 @@
   "actions": [
     {
       "command": {
-        "action": "commandPalette"
-      },
-      "id": "User.commandPalette.D3F0B923"
-    },
-    {
-      "command": {
         "action": "moveFocus",
         "direction": "up"
       },
@@ -85,16 +79,8 @@
       "keys": "alt+enter"
     },
     {
-      "id": "User.moveFocus.6CD791B",
-      "keys": "ctrl+k"
-    },
-    {
       "id": "User.copy.644BA8F2",
       "keys": "ctrl+c"
-    },
-    {
-      "id": "User.commandPalette.D3F0B923",
-      "keys": "ctrl+shift+p"
     },
     {
       "id": "User.toggleAlwaysOnTop",
@@ -102,7 +88,11 @@
     },
     {
       "id": "User.togglePaneZoom",
-      "keys": "shift+enter"
+      "keys": "ctrl+enter"
+    },
+    {
+      "id": "User.moveFocus.2A0DA8E0",
+      "keys": "ctrl+h"
     },
     {
       "id": "User.splitPane.D5151347",
@@ -117,12 +107,20 @@
       "keys": "ctrl+l"
     },
     {
-      "id": "User.moveFocus.2A0DA8E0",
-      "keys": "ctrl+h"
+      "id": "User.moveFocus.F747588A",
+      "keys": "ctrl+shift+j"
     },
     {
       "id": "User.moveFocus.F747588A",
-      "keys": "ctrl+j"
+      "keys": "ctrl+shift+n"
+    },
+    {
+      "id": "User.moveFocus.6CD791B",
+      "keys": "ctrl+shift+k"
+    },
+    {
+      "id": "User.moveFocus.6CD791B",
+      "keys": "ctrl+shift+p"
     }
   ],
   "newTabMenu": [
