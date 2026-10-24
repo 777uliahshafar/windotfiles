@@ -427,10 +427,7 @@ Return
 F1::
 zotmsg =
 (
-Alt+f searchbox
-Alt+d addtags
-Alt+w sidebartoggle
-Alt+w sidebartoggle
+1,2,3,4 = assign tags in item
 )
 SplashTextOn, 300, 100, Message #1, %zotmsg%,
 Sleep, 5000
@@ -521,6 +518,7 @@ Alt + L          Chrome
 Ctrl + Win + Arrow   Move desktop
 Win + Space          Switch desktop
 Win + Tab            Task View
+Alt + Shift + enter      zoompane window
 Alt + Shift + =      One-quarter window
 Alt + -              One-quarter window
 Alt + Space          Fullscreen
