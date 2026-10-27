@@ -72,6 +72,7 @@ open_prev_doc o
 open_document_embedded_from_current_path O
 open_document <C-S-o>
 overview_definition w
+overview_to_portal W
 
 embed_annotations E
 
