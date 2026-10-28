@@ -203,15 +203,6 @@ return
 ; TOGGLE MAXIMIZE
 ;=========================================
 
-!space::
-WinGet, windowState, MinMax, A
-    if (windowState = 1) {
-        WinRestore, A
-    } else {
-        WinMaximize, A
-    }
-return
-
 $!Enter::
     ; 1. Grab the active window ID
     WinGet, active_id, ID, A
@@ -515,14 +506,14 @@ Alt + J          Terminal
 Alt + K          Sioyek
 Alt + H          Zotero
 Alt + L          Chrome
-Alt + W		 Switch Pane WTerminal
+Alt + space		 Switch Pane WTerminal
 Ctrl + Win + Arrow   Move desktop
 Win + Space          Switch desktop
 Win + Tab            Task View
 Alt + Shift + enter      zoompane window
 Alt + Shift + =      One-quarter window
 Alt + -              One-quarter window
-Alt + Space          Fullscreen
+Alt + Enter          Fullscreen
 Shift + Alt + Arrow  Resize terminal pane
 Ctrl + Home          Toggle dark/light mode
 Home                 Always on top
