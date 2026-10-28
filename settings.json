@@ -75,10 +75,6 @@
   "initialRows": 31,
   "keybindings": [
     {
-      "id": null,
-      "keys": "ctrl+space"
-    },
-    {
       "id": "User.copy.644BA8F2",
       "keys": "ctrl+c"
     },
@@ -104,7 +100,7 @@
     },
     {
       "id": "User.moveFocus.6CD791B",
-      "keys": "alt+space"
+      "keys": "ctrl+space"
     }
   ],
   "newTabMenu": [

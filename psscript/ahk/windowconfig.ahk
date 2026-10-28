@@ -506,7 +506,7 @@ Alt + J          Terminal
 Alt + K          Sioyek
 Alt + H          Zotero
 Alt + L          Chrome
-Alt + space		 Switch Pane WTerminal
+Ctrl + space		 Switch Pane WTerminal
 Ctrl + Win + Arrow   Move desktop
 Win + Space          Switch desktop
 Win + Tab            Task View
