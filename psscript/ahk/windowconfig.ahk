@@ -507,6 +507,7 @@ Alt + K          Sioyek
 Alt + H          Zotero
 Alt + L          Chrome
 Ctrl + ] / [     Switch Pane WTerminal
+Ctrl + enter 	 ZoomPane WTerminal
 Ctrl + Win + Arrow   Move desktop
 Win + Space          Switch desktop
 Win + Tab            Task View
