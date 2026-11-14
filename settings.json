@@ -90,10 +90,6 @@
       "keys": "alt+t"
     },
     {
-      "id": "User.moveFocus.6CD791C",
-      "keys": "ctrl+["
-    },
-    {
       "id": "User.togglePaneZoom",
       "keys": "ctrl+enter"
     },
@@ -107,7 +103,7 @@
     },
     {
       "id": "User.moveFocus.6CD791B",
-      "keys": "ctrl+]"
+      "keys": "ctrl+tab"
     }
   ],
   "newTabMenu": [
