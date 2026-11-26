@@ -117,7 +117,8 @@ ToggleLayoutF12() {
     }
 }
 
-!=::
+!f12::
+^f12::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 49.9999)
 FixedWindow("ahk_exe sioyek.exe" , 49.9999, 49.9999)
 AltWindow("ahk_exe chrome.exe" , 49.9999, 49.99999)
@@ -515,7 +516,7 @@ Ctrl + Home          Toggle dark/light mode
 Home                 Always on top
 End 		     Switch AltTab()
 F11/!enter	     FullScreen
-F12 		     Windows Size 
+F12 /!F12/^F12	     Windows Size 
 SIOYEK SHORTCUTS
 ------------------------------
 Ctrl + B         Add bookmark
