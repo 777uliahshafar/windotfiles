@@ -101,17 +101,21 @@ WhichWindow(winTitle, winProg){
 ; RESIZE WINDOW
 ;=========================================
 
-!+=::
-FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
-FixedWindow("ahk_exe sioyek.exe" , 62.2222, 33.3333)
-AltWindow("ahk_exe chrome.exe" , 62.2222, 33.3333)
-Return
+F12::ToggleLayoutF12()
 
-!-::
-FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
-FixedWindow("ahk_exe sioyek.exe" , 34.4444, 66.66666)
-AltWindow("ahk_exe chrome.exe" , 34.4444, 66.66666)
-Return
+ToggleLayoutF12() {
+    static f12_layout_toggle := false
+    f12_layout_toggle := !f12_layout_toggle
+    if (f12_layout_toggle) {
+        FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
+        FixedWindow("ahk_exe sioyek.exe", 62.2222, 33.3333)
+        AltWindow("ahk_exe chrome.exe", 62.2222, 33.3333)
+    } else {
+        FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
+        FixedWindow("ahk_exe sioyek.exe", 34.4444, 66.66666)
+        AltWindow("ahk_exe chrome.exe", 34.4444, 66.66666)
+    }
+}
 
 !=::
 FixedWindow("ahk_exe WindowsTerminal.exe", 0, 49.9999)
@@ -202,8 +206,8 @@ return
 ;=========================================
 ; TOGGLE MAXIMIZE
 ;=========================================
-
-$!Enter::
+$!enter::
+$F11::
     ; 1. Grab the active window ID
     WinGet, active_id, ID, A
     WinGetClass, class, ahk_id %active_id%
@@ -268,12 +272,7 @@ Else
     WinActivate,% "ahk_pid  " ErrorLevel
 Return
 
-!;::
-    AltTab()
-    WinGetTitle, title, A
-    ToolTip, %title%, 295, 495
-    SetTimer, RemoveToolTip, -1500
-Return
+
 
 
 
@@ -316,19 +315,18 @@ Return
 ;Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
 ;Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
 
-;~End up::
-;If (A_PriorKey = "End"        ; If no keys were pressed after LWin,
-; && A_TickCount - start < 300) ;  and key-up occurred shortly after key-down,
-;        ;AltTab()           ; If yes, run stuff
-;        WinActivate, ahk_exe zoom.exe
-;start := 0                     ; Reset the time marker
-;Return
+~end up::
+    AltTab()
+    WinGetTitle, title, A
+    ToolTip, %title%, 295, 495
+    SetTimer, RemoveToolTip, -1500
+Return
 
-;End::
-;If !start                      ; If time marker is not set,
-; start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
-;Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
-;Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
+End::
+If !start                      ; If time marker is not set,
+ start := A_TickCount          ;  then set it to the current "time", to mark the start of key-down
+Send {Blind}{vkE8}             ; Disable Start menu activation while allowing use of LWin as a modifier
+Return                         ; See https://www.autohotkey.com/docs/v1/lib/_MenuMaskKey.htm#Remarks
 														
 
 double_tap_tab() {
@@ -511,13 +509,13 @@ Ctrl + enter 	 ZoomPane WTerminal
 Ctrl + Win + Arrow   Move desktop
 Win + Space          Switch desktop
 Win + Tab            Task View
-Alt + Shift + enter      zoompane window
-Alt + Shift + =      One-quarter window
-Alt + -              One-quarter window
-Alt + Enter          Fullscreen
+Alt + Shift + enter  zoompane window
 Shift + Alt + Arrow  Resize terminal pane
 Ctrl + Home          Toggle dark/light mode
 Home                 Always on top
+End 		     Switch AltTab()
+F11/!enter	     FullScreen
+F12 		     Windows Size 
 SIOYEK SHORTCUTS
 ------------------------------
 Ctrl + B         Add bookmark
@@ -525,9 +523,10 @@ Ctrl + A         Add highlight
 Shift + B        Global bookmark
 B                Bookmark
 Shift + A        Global highlight
+F4 -> Rclick     Synctex
 )
-SplashTextOn, 500, 550, Keyboard Shortcuts, %msg%
-Sleep, 5000
+SplashTextOn, 390, 650, Keyboard Shortcuts, %msg%
+Sleep, 2200
 SplashTextOff
 Return
 
@@ -995,7 +994,7 @@ return
 
 F5::^1
 
-F12::Send, ^0
+;F12::Send, ^0
 
 $LCtrl::
 KeyWait, LCtrl, T0.3  ; wait up to 0.3s for release
