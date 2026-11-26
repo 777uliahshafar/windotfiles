@@ -107,11 +107,11 @@ ToggleLayoutF12() {
     static f12_layout_toggle := false
     f12_layout_toggle := !f12_layout_toggle
     if (f12_layout_toggle) {
-        FixedWindow("ahk_exe WindowsTerminal.exe", 0, 62.2222)
-        FixedWindow("ahk_exe sioyek.exe", 62.2222, 33.3333)
-        AltWindow("ahk_exe chrome.exe", 62.2222, 33.3333)
+        FixedWindow("ahk_exe WindowsTerminal.exe", 0, 66.66666)
+        FixedWindow("ahk_exe sioyek.exe", 66.66666, 34.4444)
+        AltWindow("ahk_exe chrome.exe", 66.66666, 34.4444)
     } else {
-        FixedWindow("ahk_exe WindowsTerminal.exe", 0, 33.3333)
+        FixedWindow("ahk_exe WindowsTerminal.exe", 0, 34.4444)
         FixedWindow("ahk_exe sioyek.exe", 34.4444, 66.66666)
         AltWindow("ahk_exe chrome.exe", 34.4444, 66.66666)
     }
